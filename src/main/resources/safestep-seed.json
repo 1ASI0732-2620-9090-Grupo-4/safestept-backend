@@ -1,0 +1,5384 @@
+{
+  "simulations": [
+    {
+      "id": "rcp-basico",
+      "title": "RCP basico para adultos",
+      "emergencyType": "RCP",
+      "difficulty": "Basico",
+      "durationMinutes": 18,
+      "xpReward": 420,
+      "imageUrl": "/assets/prototype/cursos/portada/c1-rcp-portada.png",
+      "status": "En progreso",
+      "completion": 60,
+      "description": "Simulacion guiada para practicar decisiones clave ante rcp con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Reconocer paro cardiorrespiratorio",
+        "Activar emergencias",
+        "Aplicar compresiones de calidad"
+      ],
+      "steps": [
+        {
+          "id": "rcp-basico-1",
+          "prompt": "Estas ante una emergencia de RCP. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "rcp-basico-2",
+          "prompt": "La situacion empeora durante el escenario de RCP. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "rcp-basico-3",
+          "prompt": "Ya diste la primera ayuda en RCP. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "rcp-basico-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "mascarilla-rcp",
+          "reason": "Recomendado para reforzar preparacion ante rcp."
+        },
+        {
+          "productId": "kit-rcp-entrenamiento",
+          "reason": "Recomendado para reforzar preparacion ante rcp."
+        },
+        {
+          "productId": "kit-hogar",
+          "reason": "Recomendado para reforzar preparacion ante rcp."
+        }
+      ],
+      "coinReward": 101
+    },
+    {
+      "id": "atragantamiento",
+      "title": "Atragantamiento y maniobra de Heimlich",
+      "emergencyType": "Atragantamiento",
+      "difficulty": "Intermedio",
+      "durationMinutes": 14,
+      "xpReward": 360,
+      "imageUrl": "/assets/prototype/cursos/portada/c2-atragantamiento-portada.png",
+      "status": "Completado",
+      "completion": 100,
+      "description": "Simulacion guiada para practicar decisiones clave ante atragantamiento con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Distinguir obstruccion parcial y total",
+        "Aplicar maniobras seguras",
+        "Saber cuando llamar a emergencias"
+      ],
+      "steps": [
+        {
+          "id": "atragantamiento-1",
+          "prompt": "Estas ante una emergencia de Atragantamiento. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "atragantamiento-2",
+          "prompt": "La situacion empeora durante el escenario de Atragantamiento. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "atragantamiento-3",
+          "prompt": "Ya diste la primera ayuda en Atragantamiento. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "atragantamiento-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "kit-hogar",
+          "reason": "Recomendado para reforzar preparacion ante atragantamiento."
+        },
+        {
+          "productId": "manual-primeros-auxilios",
+          "reason": "Recomendado para reforzar preparacion ante atragantamiento."
+        }
+      ],
+      "coinReward": 106
+    },
+    {
+      "id": "quemaduras",
+      "title": "Atencion inicial de quemaduras",
+      "emergencyType": "Quemaduras",
+      "difficulty": "Basico",
+      "durationMinutes": 12,
+      "xpReward": 300,
+      "imageUrl": "/assets/prototype/cursos/portada/c3-quemaduras-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante quemaduras con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Enfriar correctamente la zona",
+        "Evitar remedios caseros",
+        "Cubrir y derivar segun gravedad"
+      ],
+      "steps": [
+        {
+          "id": "quemaduras-1",
+          "prompt": "Estas ante una emergencia de Quemaduras. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "quemaduras-2",
+          "prompt": "La situacion empeora durante el escenario de Quemaduras. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "quemaduras-3",
+          "prompt": "Ya diste la primera ayuda en Quemaduras. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "quemaduras-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "apposito-quemaduras",
+          "reason": "Recomendado para reforzar preparacion ante quemaduras."
+        },
+        {
+          "productId": "gel-quemaduras",
+          "reason": "Recomendado para reforzar preparacion ante quemaduras."
+        },
+        {
+          "productId": "suero-fisiologico",
+          "reason": "Recomendado para reforzar preparacion ante quemaduras."
+        }
+      ],
+      "coinReward": 72
+    },
+    {
+      "id": "sismo",
+      "title": "Respuesta segura durante sismos",
+      "emergencyType": "Sismos",
+      "difficulty": "Intermedio",
+      "durationMinutes": 16,
+      "xpReward": 340,
+      "imageUrl": "/assets/prototype/cursos/portada/c4-sismo-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante sismos con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Protegerse durante el movimiento",
+        "Evacuar cuando sea seguro",
+        "Priorizar comunicacion familiar"
+      ],
+      "steps": [
+        {
+          "id": "sismo-1",
+          "prompt": "Estas ante una emergencia de Sismos. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "sismo-2",
+          "prompt": "La situacion empeora durante el escenario de Sismos. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "sismo-3",
+          "prompt": "Ya diste la primera ayuda en Sismos. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "sismo-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "mochila-emergencia",
+          "reason": "Recomendado para reforzar preparacion ante sismos."
+        },
+        {
+          "productId": "linterna-emergencia",
+          "reason": "Recomendado para reforzar preparacion ante sismos."
+        },
+        {
+          "productId": "radio-manivela",
+          "reason": "Recomendado para reforzar preparacion ante sismos."
+        }
+      ],
+      "coinReward": 102
+    },
+    {
+      "id": "hemorragia-severa",
+      "title": "Control inicial de hemorragias severas",
+      "emergencyType": "Hemorragias",
+      "difficulty": "Avanzado",
+      "durationMinutes": 20,
+      "xpReward": 520,
+      "imageUrl": "/assets/prototype/cursos/portada/c5-hemorragia-severa-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante hemorragias con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Identificar sangrado severo",
+        "Aplicar presion directa",
+        "Usar torniquete cuando corresponda"
+      ],
+      "steps": [
+        {
+          "id": "hemorragia-severa-1",
+          "prompt": "Estas ante una emergencia de Hemorragias. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "hemorragia-severa-2",
+          "prompt": "La situacion empeora durante el escenario de Hemorragias. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "hemorragia-severa-3",
+          "prompt": "Ya diste la primera ayuda en Hemorragias. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "hemorragia-severa-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "torniquete-tactico",
+          "reason": "Recomendado para reforzar preparacion ante hemorragias."
+        },
+        {
+          "productId": "vendaje-compresivo",
+          "reason": "Recomendado para reforzar preparacion ante hemorragias."
+        },
+        {
+          "productId": "kit-hemorragias",
+          "reason": "Recomendado para reforzar preparacion ante hemorragias."
+        }
+      ],
+      "coinReward": 170
+    },
+    {
+      "id": "fracturas-esguinces",
+      "title": "Inmovilizacion de fracturas y esguinces",
+      "emergencyType": "Fracturas",
+      "difficulty": "Intermedio",
+      "durationMinutes": 18,
+      "xpReward": 390,
+      "imageUrl": "/assets/prototype/cursos/portada/c6-fracturas-esguinces-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante fracturas con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Evitar movimientos innecesarios",
+        "Inmovilizar articulaciones cercanas",
+        "Vigilar circulacion distal"
+      ],
+      "steps": [
+        {
+          "id": "fracturas-esguinces-1",
+          "prompt": "Estas ante una emergencia de Fracturas. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "fracturas-esguinces-2",
+          "prompt": "La situacion empeora durante el escenario de Fracturas. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "fracturas-esguinces-3",
+          "prompt": "Ya diste la primera ayuda en Fracturas. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "fracturas-esguinces-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "ferula-moldeable",
+          "reason": "Recomendado para reforzar preparacion ante fracturas."
+        },
+        {
+          "productId": "vendas-elasticas",
+          "reason": "Recomendado para reforzar preparacion ante fracturas."
+        },
+        {
+          "productId": "bolsa-frio-instantaneo",
+          "reason": "Recomendado para reforzar preparacion ante fracturas."
+        }
+      ],
+      "coinReward": 114
+    },
+    {
+      "id": "intoxicacion-hogar",
+      "title": "Respuesta ante intoxicaciones en el hogar",
+      "emergencyType": "Intoxicacion",
+      "difficulty": "Intermedio",
+      "durationMinutes": 17,
+      "xpReward": 380,
+      "imageUrl": "/assets/prototype/cursos/portada/c7-intoxicacion-hogar-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante intoxicacion con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Identificar exposicion peligrosa",
+        "Evitar inducir vomito",
+        "Contactar ayuda especializada"
+      ],
+      "steps": [
+        {
+          "id": "intoxicacion-hogar-1",
+          "prompt": "Estas ante una emergencia de Intoxicacion. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "intoxicacion-hogar-2",
+          "prompt": "La situacion empeora durante el escenario de Intoxicacion. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "intoxicacion-hogar-3",
+          "prompt": "Ya diste la primera ayuda en Intoxicacion. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "intoxicacion-hogar-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "suero-fisiologico",
+          "reason": "Recomendado para reforzar preparacion ante intoxicacion."
+        },
+        {
+          "productId": "sales-rehidratacion",
+          "reason": "Recomendado para reforzar preparacion ante intoxicacion."
+        },
+        {
+          "productId": "manual-primeros-auxilios",
+          "reason": "Recomendado para reforzar preparacion ante intoxicacion."
+        }
+      ],
+      "coinReward": 111
+    },
+    {
+      "id": "convulsiones",
+      "title": "Actuacion segura ante convulsiones",
+      "emergencyType": "Convulsiones",
+      "difficulty": "Basico",
+      "durationMinutes": 13,
+      "xpReward": 310,
+      "imageUrl": "/assets/prototype/cursos/portada/c8-convulsiones-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante convulsiones con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Proteger de golpes",
+        "No introducir objetos en la boca",
+        "Controlar duracion y recuperacion"
+      ],
+      "steps": [
+        {
+          "id": "convulsiones-1",
+          "prompt": "Estas ante una emergencia de Convulsiones. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "convulsiones-2",
+          "prompt": "La situacion empeora durante el escenario de Convulsiones. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "convulsiones-3",
+          "prompt": "Ya diste la primera ayuda en Convulsiones. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "convulsiones-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "manual-primeros-auxilios",
+          "reason": "Recomendado para reforzar preparacion ante convulsiones."
+        },
+        {
+          "productId": "manta-termica",
+          "reason": "Recomendado para reforzar preparacion ante convulsiones."
+        }
+      ],
+      "coinReward": 74
+    },
+    {
+      "id": "desmayo-sincope",
+      "title": "Manejo inicial de desmayo y sincope",
+      "emergencyType": "Desmayo",
+      "difficulty": "Basico",
+      "durationMinutes": 11,
+      "xpReward": 280,
+      "imageUrl": "/assets/prototype/cursos/portada/c9-desmayo-sincope-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante desmayo con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Evaluar respuesta y respiracion",
+        "Elevar piernas si es seguro",
+        "Reconocer signos de alarma"
+      ],
+      "steps": [
+        {
+          "id": "desmayo-sincope-1",
+          "prompt": "Estas ante una emergencia de Desmayo. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "desmayo-sincope-2",
+          "prompt": "La situacion empeora durante el escenario de Desmayo. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "desmayo-sincope-3",
+          "prompt": "Ya diste la primera ayuda en Desmayo. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "desmayo-sincope-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "manta-termica",
+          "reason": "Recomendado para reforzar preparacion ante desmayo."
+        },
+        {
+          "productId": "termometro-digital",
+          "reason": "Recomendado para reforzar preparacion ante desmayo."
+        }
+      ],
+      "coinReward": 67
+    },
+    {
+      "id": "shock-hipovolemico",
+      "title": "Reconocimiento de shock",
+      "emergencyType": "Shock",
+      "difficulty": "Avanzado",
+      "durationMinutes": 19,
+      "xpReward": 500,
+      "imageUrl": "/assets/prototype/cursos/portada/c10-shock-hipovolemico-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante shock con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Reconocer piel fria y alteracion mental",
+        "Mantener abrigo",
+        "Activar emergencias rapidamente"
+      ],
+      "steps": [
+        {
+          "id": "shock-hipovolemico-1",
+          "prompt": "Estas ante una emergencia de Shock. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "shock-hipovolemico-2",
+          "prompt": "La situacion empeora durante el escenario de Shock. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "shock-hipovolemico-3",
+          "prompt": "Ya diste la primera ayuda en Shock. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "shock-hipovolemico-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "manta-termica",
+          "reason": "Recomendado para reforzar preparacion ante shock."
+        },
+        {
+          "productId": "kit-hemorragias",
+          "reason": "Recomendado para reforzar preparacion ante shock."
+        },
+        {
+          "productId": "vendaje-compresivo",
+          "reason": "Recomendado para reforzar preparacion ante shock."
+        }
+      ],
+      "coinReward": 165
+    },
+    {
+      "id": "heridas-cortes",
+      "title": "Curacion inicial de heridas y cortes",
+      "emergencyType": "Heridas",
+      "difficulty": "Basico",
+      "durationMinutes": 12,
+      "xpReward": 290,
+      "imageUrl": "/assets/prototype/cursos/portada/c11-heridas-cortes-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante heridas con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Limpiar de forma segura",
+        "Cubrir con material esteril",
+        "Detectar signos de alarma"
+      ],
+      "steps": [
+        {
+          "id": "heridas-cortes-1",
+          "prompt": "Estas ante una emergencia de Heridas. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "heridas-cortes-2",
+          "prompt": "La situacion empeora durante el escenario de Heridas. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "heridas-cortes-3",
+          "prompt": "Ya diste la primera ayuda en Heridas. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "heridas-cortes-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "gasas-esteriles",
+          "reason": "Recomendado para reforzar preparacion ante heridas."
+        },
+        {
+          "productId": "antiseptico-spray",
+          "reason": "Recomendado para reforzar preparacion ante heridas."
+        },
+        {
+          "productId": "pinza-esteril",
+          "reason": "Recomendado para reforzar preparacion ante heridas."
+        }
+      ],
+      "coinReward": 70
+    },
+    {
+      "id": "anafilaxia",
+      "title": "Emergencia alergica y anafilaxia",
+      "emergencyType": "Emergencia alergica",
+      "difficulty": "Avanzado",
+      "durationMinutes": 18,
+      "xpReward": 510,
+      "imageUrl": "/assets/prototype/cursos/portada/c12-anafilaxia-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante emergencia alergica con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Reconocer dificultad respiratoria",
+        "Activar emergencias",
+        "Apoyar tratamiento indicado"
+      ],
+      "steps": [
+        {
+          "id": "anafilaxia-1",
+          "prompt": "Estas ante una emergencia de Emergencia alergica. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "anafilaxia-2",
+          "prompt": "La situacion empeora durante el escenario de Emergencia alergica. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "anafilaxia-3",
+          "prompt": "Ya diste la primera ayuda en Emergencia alergica. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "anafilaxia-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "manual-primeros-auxilios",
+          "reason": "Recomendado para reforzar preparacion ante emergencia alergica."
+        },
+        {
+          "productId": "mascarillas-kn95",
+          "reason": "Recomendado para reforzar preparacion ante emergencia alergica."
+        }
+      ],
+      "coinReward": 167
+    },
+    {
+      "id": "golpe-calor",
+      "title": "Golpe de calor y deshidratacion",
+      "emergencyType": "Golpe de calor",
+      "difficulty": "Intermedio",
+      "durationMinutes": 15,
+      "xpReward": 350,
+      "imageUrl": "/assets/prototype/cursos/portada/c13-golpe-calor-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante golpe de calor con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Enfriar a la persona",
+        "Rehidratar si esta consciente",
+        "Reconocer emergencia vital"
+      ],
+      "steps": [
+        {
+          "id": "golpe-calor-1",
+          "prompt": "Estas ante una emergencia de Golpe de calor. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "golpe-calor-2",
+          "prompt": "La situacion empeora durante el escenario de Golpe de calor. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "golpe-calor-3",
+          "prompt": "Ya diste la primera ayuda en Golpe de calor. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "golpe-calor-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "sales-rehidratacion",
+          "reason": "Recomendado para reforzar preparacion ante golpe de calor."
+        },
+        {
+          "productId": "termometro-digital",
+          "reason": "Recomendado para reforzar preparacion ante golpe de calor."
+        },
+        {
+          "productId": "manta-termica",
+          "reason": "Recomendado para reforzar preparacion ante golpe de calor."
+        }
+      ],
+      "coinReward": 104
+    },
+    {
+      "id": "accidente-transito",
+      "title": "Primeros auxilios en accidente de transito",
+      "emergencyType": "Accidentes",
+      "difficulty": "Avanzado",
+      "durationMinutes": 22,
+      "xpReward": 560,
+      "imageUrl": "/assets/prototype/cursos/portada/c14-accidente-transito-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante accidentes con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Asegurar la escena",
+        "Evaluar lesionados",
+        "Evitar movilizar sin necesidad"
+      ],
+      "steps": [
+        {
+          "id": "accidente-transito-1",
+          "prompt": "Estas ante una emergencia de Accidentes. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "accidente-transito-2",
+          "prompt": "La situacion empeora durante el escenario de Accidentes. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "accidente-transito-3",
+          "prompt": "Ya diste la primera ayuda en Accidentes. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "accidente-transito-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "botiquin-auto",
+          "reason": "Recomendado para reforzar preparacion ante accidentes."
+        },
+        {
+          "productId": "collarin-cervical",
+          "reason": "Recomendado para reforzar preparacion ante accidentes."
+        },
+        {
+          "productId": "tijera-trauma",
+          "reason": "Recomendado para reforzar preparacion ante accidentes."
+        }
+      ],
+      "coinReward": 179
+    },
+    {
+      "id": "bioseguridad",
+      "title": "Bioseguridad antes de atender",
+      "emergencyType": "Bioseguridad",
+      "difficulty": "Basico",
+      "durationMinutes": 10,
+      "xpReward": 250,
+      "imageUrl": "/assets/prototype/cursos/portada/c15-bioseguridad-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante bioseguridad con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Usar proteccion personal",
+        "Reducir exposicion a fluidos",
+        "Higienizar manos y material"
+      ],
+      "steps": [
+        {
+          "id": "bioseguridad-1",
+          "prompt": "Estas ante una emergencia de Bioseguridad. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "bioseguridad-2",
+          "prompt": "La situacion empeora durante el escenario de Bioseguridad. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "bioseguridad-3",
+          "prompt": "Ya diste la primera ayuda en Bioseguridad. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "bioseguridad-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "guantes-nitrilo",
+          "reason": "Recomendado para reforzar preparacion ante bioseguridad."
+        },
+        {
+          "productId": "protector-facial",
+          "reason": "Recomendado para reforzar preparacion ante bioseguridad."
+        },
+        {
+          "productId": "alcohol-gel",
+          "reason": "Recomendado para reforzar preparacion ante bioseguridad."
+        }
+      ],
+      "coinReward": 60
+    },
+    {
+      "id": "evacuacion-aula",
+      "title": "Evacuacion segura en aula",
+      "emergencyType": "Sismos",
+      "difficulty": "Basico",
+      "durationMinutes": 12,
+      "xpReward": 280,
+      "imageUrl": "/assets/prototype/cursos/portada/c16-evacuacion-aula-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante sismos con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Protegerse durante el movimiento",
+        "Evacuar cuando sea seguro",
+        "Priorizar comunicacion familiar"
+      ],
+      "steps": [
+        {
+          "id": "evacuacion-aula-1",
+          "prompt": "Estas ante una emergencia de Sismos. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "evacuacion-aula-2",
+          "prompt": "La situacion empeora durante el escenario de Sismos. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "evacuacion-aula-3",
+          "prompt": "Ya diste la primera ayuda en Sismos. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "evacuacion-aula-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "senal-evacuacion",
+          "reason": "Recomendado para reforzar preparacion ante sismos."
+        },
+        {
+          "productId": "silbato-emergencia",
+          "reason": "Recomendado para reforzar preparacion ante sismos."
+        },
+        {
+          "productId": "mochila-emergencia",
+          "reason": "Recomendado para reforzar preparacion ante sismos."
+        }
+      ],
+      "coinReward": 67
+    },
+    {
+      "id": "emergencia-ninos",
+      "title": "Primeros auxilios en ninos",
+      "emergencyType": "Pediatria",
+      "difficulty": "Intermedio",
+      "durationMinutes": 18,
+      "xpReward": 420,
+      "imageUrl": "/assets/prototype/cursos/portada/c17-emergencia-ninos-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante pediatria con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Adaptar maniobras a la edad",
+        "Observar signos de alarma",
+        "Pedir ayuda temprana"
+      ],
+      "steps": [
+        {
+          "id": "emergencia-ninos-1",
+          "prompt": "Estas ante una emergencia de Pediatria. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "emergencia-ninos-2",
+          "prompt": "La situacion empeora durante el escenario de Pediatria. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "emergencia-ninos-3",
+          "prompt": "Ya diste la primera ayuda en Pediatria. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "emergencia-ninos-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "kit-hogar",
+          "reason": "Recomendado para reforzar preparacion ante pediatria."
+        },
+        {
+          "productId": "termometro-digital",
+          "reason": "Recomendado para reforzar preparacion ante pediatria."
+        },
+        {
+          "productId": "manual-primeros-auxilios",
+          "reason": "Recomendado para reforzar preparacion ante pediatria."
+        }
+      ],
+      "coinReward": 121
+    },
+    {
+      "id": "botiquin-preparacion",
+      "title": "Preparacion de botiquin familiar",
+      "emergencyType": "Preparacion",
+      "difficulty": "Basico",
+      "durationMinutes": 9,
+      "xpReward": 220,
+      "imageUrl": "/assets/prototype/cursos/portada/c18-botiquin-preparacion-portada.png",
+      "status": "Disponible",
+      "completion": 0,
+      "description": "Simulacion guiada para practicar decisiones clave ante preparacion con feedback inmediato y recomendaciones finales.",
+      "learningGoals": [
+        "Seleccionar insumos basicos",
+        "Revisar fechas de vencimiento",
+        "Ubicar el botiquin accesible"
+      ],
+      "steps": [
+        {
+          "id": "botiquin-preparacion-1",
+          "prompt": "Estas ante una emergencia de Preparacion. Cual es la primera accion segura?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Verificar seguridad, evaluar y pedir ayuda",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "botiquin-preparacion-2",
+          "prompt": "La situacion empeora durante el escenario de Preparacion. Que decision priorizas?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "botiquin-preparacion-3",
+          "prompt": "Ya diste la primera ayuda en Preparacion. Que debes vigilar ahora?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        },
+        {
+          "id": "botiquin-preparacion-4",
+          "prompt": "El equipo disponible es limitado. Que recurso usarias primero?",
+          "correctOptionId": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "Aplicar la accion prioritaria y reevaluar",
+              "feedback": "Correcto. La prioridad es actuar sin exponerte y reevaluar continuamente."
+            },
+            {
+              "id": "b",
+              "label": "Actuar rapido sin evaluar riesgos",
+              "feedback": "No es lo ideal. Intervenir sin evaluar puede aumentar el dano."
+            },
+            {
+              "id": "c",
+              "label": "Esperar a que otra persona tome la decision",
+              "feedback": "Incorrecto. La respuesta temprana y ordenada mejora el resultado."
+            }
+          ]
+        }
+      ],
+      "productSuggestions": [
+        {
+          "productId": "kit-hogar",
+          "reason": "Recomendado para reforzar preparacion ante preparacion."
+        },
+        {
+          "productId": "manual-primeros-auxilios",
+          "reason": "Recomendado para reforzar preparacion ante preparacion."
+        },
+        {
+          "productId": "gasas-esteriles",
+          "reason": "Recomendado para reforzar preparacion ante preparacion."
+        }
+      ],
+      "coinReward": 53
+    }
+  ],
+  "statistics": {
+    "summary": [
+      {
+        "label": "Simulaciones realizadas",
+        "value": "42",
+        "trend": "+8 esta semana"
+      },
+      {
+        "label": "Precision promedio",
+        "value": "86%",
+        "trend": "+4%"
+      },
+      {
+        "label": "XP obtenida",
+        "value": "10,340",
+        "trend": "+1,280 semanal"
+      },
+      {
+        "label": "Productos recomendados vistos",
+        "value": "21",
+        "trend": "+6"
+      },
+      {
+        "label": "Insignias desbloqueadas",
+        "value": "9",
+        "trend": "+2"
+      },
+      {
+        "label": "Racha maxima",
+        "value": "28 dias",
+        "trend": "+3 dias"
+      }
+    ],
+    "simulationTypes": [
+      {
+        "type": "RCP",
+        "completed": 9,
+        "accuracy": 91
+      },
+      {
+        "type": "Atragantamiento",
+        "completed": 9,
+        "accuracy": 89
+      },
+      {
+        "type": "Quemaduras",
+        "completed": 8,
+        "accuracy": 87
+      },
+      {
+        "type": "Sismos",
+        "completed": 8,
+        "accuracy": 85
+      },
+      {
+        "type": "Hemorragias",
+        "completed": 7,
+        "accuracy": 83
+      },
+      {
+        "type": "Fracturas",
+        "completed": 7,
+        "accuracy": 81
+      },
+      {
+        "type": "Intoxicacion",
+        "completed": 6,
+        "accuracy": 79
+      },
+      {
+        "type": "Convulsiones",
+        "completed": 6,
+        "accuracy": 77
+      },
+      {
+        "type": "Desmayo",
+        "completed": 5,
+        "accuracy": 75
+      },
+      {
+        "type": "Shock",
+        "completed": 5,
+        "accuracy": 73
+      },
+      {
+        "type": "Heridas",
+        "completed": 4,
+        "accuracy": 71
+      },
+      {
+        "type": "Emergencia alergica",
+        "completed": 4,
+        "accuracy": 69
+      }
+    ],
+    "weeklyActivity": [
+      {
+        "day": "Lun",
+        "xp": 120,
+        "simulations": 1
+      },
+      {
+        "day": "Mar",
+        "xp": 240,
+        "simulations": 2
+      },
+      {
+        "day": "Mie",
+        "xp": 80,
+        "simulations": 1
+      },
+      {
+        "day": "Jue",
+        "xp": 300,
+        "simulations": 2
+      },
+      {
+        "day": "Vie",
+        "xp": 180,
+        "simulations": 1
+      },
+      {
+        "day": "Sab",
+        "xp": 420,
+        "simulations": 3
+      },
+      {
+        "day": "Dom",
+        "xp": 260,
+        "simulations": 2
+      },
+      {
+        "day": "Lun 2",
+        "xp": 160,
+        "simulations": 1
+      },
+      {
+        "day": "Mar 2",
+        "xp": 280,
+        "simulations": 2
+      },
+      {
+        "day": "Mie 2",
+        "xp": 220,
+        "simulations": 2
+      },
+      {
+        "day": "Jue 2",
+        "xp": 360,
+        "simulations": 3
+      },
+      {
+        "day": "Vie 2",
+        "xp": 140,
+        "simulations": 1
+      },
+      {
+        "day": "Sab 2",
+        "xp": 480,
+        "simulations": 3
+      },
+      {
+        "day": "Dom 2",
+        "xp": 310,
+        "simulations": 2
+      }
+    ],
+    "monthlyActivity": [
+      {
+        "week": "Semana 1",
+        "xp": 650,
+        "simulations": 3
+      },
+      {
+        "week": "Semana 2",
+        "xp": 760,
+        "simulations": 4
+      },
+      {
+        "week": "Semana 3",
+        "xp": 870,
+        "simulations": 5
+      },
+      {
+        "week": "Semana 4",
+        "xp": 980,
+        "simulations": 6
+      },
+      {
+        "week": "Semana 5",
+        "xp": 1090,
+        "simulations": 7
+      },
+      {
+        "week": "Semana 6",
+        "xp": 1200,
+        "simulations": 3
+      },
+      {
+        "week": "Semana 7",
+        "xp": 1310,
+        "simulations": 4
+      },
+      {
+        "week": "Semana 8",
+        "xp": 1420,
+        "simulations": 5
+      },
+      {
+        "week": "Semana 9",
+        "xp": 1530,
+        "simulations": 6
+      },
+      {
+        "week": "Semana 10",
+        "xp": 1640,
+        "simulations": 7
+      },
+      {
+        "week": "Semana 11",
+        "xp": 1750,
+        "simulations": 3
+      },
+      {
+        "week": "Semana 12",
+        "xp": 1860,
+        "simulations": 4
+      }
+    ],
+    "commonMistakes": [
+      {
+        "topic": "Llamada temprana a emergencias",
+        "mistakes": 12,
+        "recommendation": "Practicar modulo relacionado con llamada temprana a emergencias."
+      },
+      {
+        "topic": "Uso de torniquete",
+        "mistakes": 11,
+        "recommendation": "Practicar modulo relacionado con uso de torniquete."
+      },
+      {
+        "topic": "Evacuacion durante sismos",
+        "mistakes": 10,
+        "recommendation": "Practicar modulo relacionado con evacuacion durante sismos."
+      },
+      {
+        "topic": "Enfriamiento de quemaduras",
+        "mistakes": 9,
+        "recommendation": "Practicar modulo relacionado con enfriamiento de quemaduras."
+      },
+      {
+        "topic": "Evaluacion de respiracion",
+        "mistakes": 8,
+        "recommendation": "Practicar modulo relacionado con evaluacion de respiracion."
+      },
+      {
+        "topic": "Bioseguridad inicial",
+        "mistakes": 7,
+        "recommendation": "Practicar modulo relacionado con bioseguridad inicial."
+      },
+      {
+        "topic": "Inmovilizacion de fracturas",
+        "mistakes": 6,
+        "recommendation": "Practicar modulo relacionado con inmovilizacion de fracturas."
+      },
+      {
+        "topic": "Reconocimiento de shock",
+        "mistakes": 5,
+        "recommendation": "Practicar modulo relacionado con reconocimiento de shock."
+      },
+      {
+        "topic": "Manejo de convulsiones",
+        "mistakes": 4,
+        "recommendation": "Practicar modulo relacionado con manejo de convulsiones."
+      },
+      {
+        "topic": "Rehidratacion segura",
+        "mistakes": 3,
+        "recommendation": "Practicar modulo relacionado con rehidratacion segura."
+      },
+      {
+        "topic": "Control de heridas",
+        "mistakes": 2,
+        "recommendation": "Practicar modulo relacionado con control de heridas."
+      },
+      {
+        "topic": "Alergia severa",
+        "mistakes": 1,
+        "recommendation": "Practicar modulo relacionado con alergia severa."
+      }
+    ],
+    "skillProgress": [
+      {
+        "skill": "Evaluacion inicial",
+        "progress": 92
+      },
+      {
+        "skill": "RCP",
+        "progress": 87
+      },
+      {
+        "skill": "Control de sangrado",
+        "progress": 82
+      },
+      {
+        "skill": "Quemaduras",
+        "progress": 77
+      },
+      {
+        "skill": "Evacuacion",
+        "progress": 72
+      },
+      {
+        "skill": "Bioseguridad",
+        "progress": 67
+      },
+      {
+        "skill": "Trauma",
+        "progress": 62
+      },
+      {
+        "skill": "Pediatria",
+        "progress": 57
+      },
+      {
+        "skill": "Intoxicacion",
+        "progress": 52
+      },
+      {
+        "skill": "Comunicacion de emergencia",
+        "progress": 48
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "rec-1",
+        "title": "Llamada temprana a emergencias",
+        "action": "Practicar modulo relacionado con llamada temprana a emergencias.",
+        "priority": "Alta"
+      },
+      {
+        "id": "rec-2",
+        "title": "Uso de torniquete",
+        "action": "Practicar modulo relacionado con uso de torniquete.",
+        "priority": "Alta"
+      },
+      {
+        "id": "rec-3",
+        "title": "Evacuacion durante sismos",
+        "action": "Practicar modulo relacionado con evacuacion durante sismos.",
+        "priority": "Alta"
+      },
+      {
+        "id": "rec-4",
+        "title": "Enfriamiento de quemaduras",
+        "action": "Practicar modulo relacionado con enfriamiento de quemaduras.",
+        "priority": "Media"
+      },
+      {
+        "id": "rec-5",
+        "title": "Evaluacion de respiracion",
+        "action": "Practicar modulo relacionado con evaluacion de respiracion.",
+        "priority": "Media"
+      },
+      {
+        "id": "rec-6",
+        "title": "Bioseguridad inicial",
+        "action": "Practicar modulo relacionado con bioseguridad inicial.",
+        "priority": "Media"
+      },
+      {
+        "id": "rec-7",
+        "title": "Inmovilizacion de fracturas",
+        "action": "Practicar modulo relacionado con inmovilizacion de fracturas.",
+        "priority": "Media"
+      },
+      {
+        "id": "rec-8",
+        "title": "Reconocimiento de shock",
+        "action": "Practicar modulo relacionado con reconocimiento de shock.",
+        "priority": "Baja"
+      },
+      {
+        "id": "rec-9",
+        "title": "Manejo de convulsiones",
+        "action": "Practicar modulo relacionado con manejo de convulsiones.",
+        "priority": "Baja"
+      },
+      {
+        "id": "rec-10",
+        "title": "Rehidratacion segura",
+        "action": "Practicar modulo relacionado con rehidratacion segura.",
+        "priority": "Baja"
+      }
+    ],
+    "performanceByDifficulty": [
+      {
+        "difficulty": "Basico",
+        "completed": 18,
+        "accuracy": 91
+      },
+      {
+        "difficulty": "Intermedio",
+        "completed": 16,
+        "accuracy": 84
+      },
+      {
+        "difficulty": "Avanzado",
+        "completed": 8,
+        "accuracy": 76
+      }
+    ],
+    "progressVisuals": [
+      {
+        "id": 1,
+        "userId": 1,
+        "scenarioId": 1,
+        "scenarioName": "RCP BÃ¡sico",
+        "completionPercentage": 85,
+        "bestScore": 95,
+        "averageScore": 88.5,
+        "totalAttempts": 2,
+        "statusColor": "green",
+        "lastPracticedAt": "2025-05-04T16:00:00Z",
+        "commonErrors": [
+          "Frecuencia de compresiones baja",
+          "EvaluaciÃ³n de conciencia incompleta"
+        ],
+        "averageResponseTime": 12,
+        "simulationId": "rcp-basico"
+      },
+      {
+        "id": 2,
+        "userId": 1,
+        "scenarioId": 7,
+        "scenarioName": "Hemorragia Venosa",
+        "completionPercentage": 45,
+        "bestScore": 75,
+        "averageScore": 75,
+        "totalAttempts": 1,
+        "statusColor": "red",
+        "lastPracticedAt": "2025-05-02T14:00:00Z",
+        "commonErrors": [
+          "RetirÃ³ la gasa para verificar"
+        ],
+        "averageResponseTime": 15,
+        "simulationId": "atragantamiento"
+      },
+      {
+        "id": 3,
+        "userId": 1,
+        "scenarioId": 2,
+        "scenarioName": "Atragantamiento en Adulto",
+        "completionPercentage": 0,
+        "bestScore": null,
+        "averageScore": null,
+        "totalAttempts": 0,
+        "statusColor": "gray",
+        "lastPracticedAt": null,
+        "commonErrors": [],
+        "averageResponseTime": null,
+        "simulationId": "quemaduras"
+      },
+      {
+        "id": 4,
+        "userId": 2,
+        "scenarioId": 2,
+        "scenarioName": "Atragantamiento en Adulto",
+        "completionPercentage": 88,
+        "bestScore": 88,
+        "averageScore": 88,
+        "totalAttempts": 1,
+        "statusColor": "green",
+        "lastPracticedAt": "2025-05-03T09:15:00Z",
+        "commonErrors": [],
+        "averageResponseTime": 10,
+        "simulationId": "sismo"
+      }
+    ],
+    "evaluationResults": [
+      {
+        "id": 1,
+        "userId": 1,
+        "evaluationId": 1,
+        "attemptNumber": 1,
+        "score": 60,
+        "passed": false,
+        "timeElapsed": 850,
+        "startedAt": "2025-05-05T10:00:00Z",
+        "completedAt": "2025-05-05T10:14:10Z",
+        "breakdown": [
+          {
+            "area": "RCP",
+            "correct": 2,
+            "total": 3
+          },
+          {
+            "area": "Hemorragias",
+            "correct": 1,
+            "total": 4
+          },
+          {
+            "area": "Atragantamiento",
+            "correct": 3,
+            "total": 4
+          },
+          {
+            "area": "Quemaduras",
+            "correct": 3,
+            "total": 4
+          }
+        ],
+        "recommendations": [
+          "Practicar 'Control de hemorragias'",
+          "Revisar micro-lecciÃ³n de presiÃ³n directa"
+        ],
+        "tabSwitchesDetected": 0,
+        "pausesUsed": 0
+      }
+    ],
+    "certificates": [
+      {
+        "id": 1,
+        "userId": 2,
+        "moduleName": "PreparaciÃ³n SÃ­smica BÃ¡sica",
+        "score": 92,
+        "achievementLevel": "Intermedio",
+        "issuedAt": "2025-04-20T14:00:00Z",
+        "verificationCode": "CERT-SS-2025-001",
+        "qrCodeUrl": "https://safestep.com/verify/CERT-SS-2025-001",
+        "downloadablePdfUrl": "https://safestep.com/certificates/CERT-SS-2025-001.pdf"
+      }
+    ],
+    "attempts": [
+      {
+        "id": 1,
+        "userId": 1,
+        "scenarioId": 1,
+        "mode": "practice",
+        "startedAt": "2025-05-01T10:30:00Z",
+        "completedAt": "2025-05-01T10:42:00Z",
+        "score": 95,
+        "totalSteps": 6,
+        "correctSteps": 6,
+        "timeElapsed": 720,
+        "errors": [
+          {
+            "stepNumber": 5,
+            "error": "Frecuencia de compresiones baja (85/min)",
+            "severity": "warning"
+          }
+        ],
+        "scenarioSlug": "rcp-basico"
+      },
+      {
+        "id": 2,
+        "userId": 1,
+        "scenarioId": 7,
+        "mode": "evaluation",
+        "startedAt": "2025-05-02T14:00:00Z",
+        "completedAt": "2025-05-02T14:10:00Z",
+        "score": 75,
+        "totalSteps": 4,
+        "correctSteps": 3,
+        "timeElapsed": 600,
+        "errors": [
+          {
+            "stepNumber": 3,
+            "error": "RetirÃ³ la gasa para verificar",
+            "severity": "critical"
+          }
+        ],
+        "scenarioSlug": "intoxicacion-hogar"
+      },
+      {
+        "id": 3,
+        "userId": 2,
+        "scenarioId": 2,
+        "mode": "practice",
+        "startedAt": "2025-05-03T09:15:00Z",
+        "completedAt": "2025-05-03T09:25:00Z",
+        "score": 88,
+        "totalSteps": 4,
+        "correctSteps": 4,
+        "timeElapsed": 600,
+        "errors": [],
+        "scenarioSlug": "atragantamiento"
+      },
+      {
+        "id": 4,
+        "userId": 1,
+        "scenarioId": 1,
+        "mode": "evaluation",
+        "startedAt": "2025-05-04T16:00:00Z",
+        "completedAt": "2025-05-04T16:11:00Z",
+        "score": 82,
+        "totalSteps": 6,
+        "correctSteps": 5,
+        "timeElapsed": 660,
+        "errors": [
+          {
+            "stepNumber": 2,
+            "error": "No evaluÃ³ conciencia correctamente",
+            "severity": "warning"
+          }
+        ],
+        "scenarioSlug": "rcp-basico"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Kits",
+      "productCount": 2
+    },
+    {
+      "id": "cat-2",
+      "name": "Emergencia",
+      "productCount": 5
+    },
+    {
+      "id": "cat-3",
+      "name": "RCP",
+      "productCount": 2
+    },
+    {
+      "id": "cat-4",
+      "name": "Quemaduras",
+      "productCount": 2
+    },
+    {
+      "id": "cat-5",
+      "name": "Vendajes",
+      "productCount": 2
+    },
+    {
+      "id": "cat-6",
+      "name": "Proteccion personal",
+      "productCount": 3
+    },
+    {
+      "id": "cat-7",
+      "name": "Higiene",
+      "productCount": 3
+    },
+    {
+      "id": "cat-8",
+      "name": "Diagnostico",
+      "productCount": 1
+    },
+    {
+      "id": "cat-9",
+      "name": "Hemorragias",
+      "productCount": 3
+    },
+    {
+      "id": "cat-10",
+      "name": "Trauma",
+      "productCount": 4
+    },
+    {
+      "id": "cat-11",
+      "name": "Medicamentos OTC",
+      "productCount": 2
+    },
+    {
+      "id": "cat-12",
+      "name": "Senalizacion",
+      "productCount": 1
+    },
+    {
+      "id": "cat-13",
+      "name": "Curacion",
+      "productCount": 1
+    },
+    {
+      "id": "cat-14",
+      "name": "Educacion",
+      "productCount": 1
+    }
+  ],
+  "coinTransactions": [
+    {
+      "id": "coin-tx-1778565480155",
+      "userId": "usr-001",
+      "simulationId": "atragantamiento",
+      "simulationTitle": "Atragantamiento y maniobra de Heimlich",
+      "attemptNumber": 1,
+      "successfulAttemptNumber": 1,
+      "baseCoins": 106,
+      "multiplier": 1,
+      "accuracy": 1,
+      "earnedCoins": 106,
+      "successful": true,
+      "createdAt": "2026-05-12T05:58:00.155Z"
+    },
+    {
+      "id": "coin-tx-1778221783021",
+      "userId": "usr-001",
+      "simulationId": "rcp-basico",
+      "simulationTitle": "RCP basico para adultos",
+      "attemptNumber": 3,
+      "successfulAttemptNumber": 3,
+      "baseCoins": 101,
+      "multiplier": 0.25,
+      "accuracy": 0.75,
+      "earnedCoins": 18,
+      "successful": true,
+      "createdAt": "2026-05-08T06:29:43.021Z"
+    },
+    {
+      "id": "coin-tx-1",
+      "userId": "usr-001",
+      "simulationId": "rcp-basico",
+      "simulationTitle": "RCP basico para adultos",
+      "attemptNumber": 1,
+      "successfulAttemptNumber": 1,
+      "baseCoins": 101,
+      "multiplier": 1,
+      "accuracy": 1,
+      "earnedCoins": 101,
+      "successful": true,
+      "createdAt": "2026-04-22T09:30:00.000Z"
+    },
+    {
+      "id": "coin-tx-3",
+      "userId": "usr-001",
+      "simulationId": "rcp-basico",
+      "simulationTitle": "RCP basico para adultos",
+      "attemptNumber": 2,
+      "successfulAttemptNumber": 2,
+      "baseCoins": 101,
+      "multiplier": 0.5,
+      "accuracy": 0.75,
+      "earnedCoins": 37,
+      "successful": true,
+      "createdAt": "2026-04-24T18:45:00.000Z"
+    }
+  ],
+  "medicalSimulations": {},
+  "products": [
+    {
+      "id": "kit-hogar",
+      "name": "Kit familiar de primeros auxilios",
+      "category": "Kits",
+      "type": "Kit",
+      "price": 89.9,
+      "oldPrice": 109.9,
+      "rating": 4.8,
+      "stock": 34,
+      "imageUrl": "/assets/images/productosTienda/kit-emergencia-familiar.png",
+      "tags": [
+        "Bestseller",
+        "Hogar"
+      ],
+      "description": "Kit compacto para heridas leves, vendajes, proteccion personal y control inicial de emergencias domesticas.",
+      "recommendedFor": [
+        "RCP",
+        "Quemaduras",
+        "Atragantamiento"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "mochila-emergencia",
+      "name": "Mochila de emergencia para sismos",
+      "category": "Emergencia",
+      "type": "Kit",
+      "price": 159.9,
+      "rating": 4.9,
+      "stock": 18,
+      "imageUrl": "/assets/images/productosTienda/mochila-sismos.jpg",
+      "tags": [
+        "Sismos",
+        "72 horas"
+      ],
+      "description": "Mochila equipada con insumos basicos para evacuacion, iluminacion, hidratacion y primeros auxilios.",
+      "recommendedFor": [
+        "Sismos"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "mascarilla-rcp",
+      "name": "Mascarilla de bolsillo para RCP",
+      "category": "RCP",
+      "type": "Producto",
+      "price": 24.9,
+      "rating": 4.7,
+      "stock": 72,
+      "imageUrl": "/assets/images/productosTienda/mascarilla-rcp.jpg",
+      "tags": [
+        "RCP",
+        "Portatil"
+      ],
+      "description": "Barrera de proteccion para ventilaciones de rescate con estuche portatil.",
+      "recommendedFor": [
+        "RCP"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "apposito-quemaduras",
+      "name": "Aposito esteril para quemaduras",
+      "category": "Quemaduras",
+      "type": "Producto",
+      "price": 19.9,
+      "rating": 4.5,
+      "stock": 50,
+      "imageUrl": "/assets/images/productosTienda/aposito-quemaduras.jpg",
+      "tags": [
+        "Esteril",
+        "Quemaduras"
+      ],
+      "description": "Aposito esteril no adherente para cubrir quemaduras menores hasta recibir atencion.",
+      "recommendedFor": [
+        "Quemaduras"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "vendas-elasticas",
+      "name": "Vendas elasticas 10 cm",
+      "category": "Vendajes",
+      "type": "Producto",
+      "price": 14.9,
+      "rating": 4.4,
+      "stock": 88,
+      "imageUrl": "/assets/images/productosTienda/venda-elasticaa-10cm.jpg",
+      "tags": [
+        "Vendaje",
+        "Deporte"
+      ],
+      "description": "Vendas para inmovilizacion ligera, soporte articular y control inicial de lesiones.",
+      "recommendedFor": [
+        "Fracturas",
+        "Esguinces"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "guantes-nitrilo",
+      "name": "Caja de guantes de nitrilo",
+      "category": "Proteccion personal",
+      "type": "Producto",
+      "price": 39.9,
+      "oldPrice": 49.9,
+      "rating": 4.6,
+      "stock": 64,
+      "imageUrl": "/assets/images/productosTienda/guantes-nitrilo.jpg",
+      "tags": [
+        "Bioseguridad",
+        "Sin latex"
+      ],
+      "description": "Guantes resistentes para atencion segura y reduccion de exposicion a fluidos.",
+      "recommendedFor": [
+        "Hemorragias",
+        "Heridas"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "antiseptico-spray",
+      "name": "Spray antiseptico 120 ml",
+      "category": "Higiene",
+      "type": "Producto",
+      "price": 18.5,
+      "rating": 4.3,
+      "stock": 76,
+      "imageUrl": "/assets/images/productosTienda/spray-antiseptico.png",
+      "tags": [
+        "Limpieza",
+        "Heridas"
+      ],
+      "description": "Solucion antiseptica para limpieza inicial de lesiones superficiales.",
+      "recommendedFor": [
+        "Heridas"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "gasas-esteriles",
+      "name": "Gasas esteriles 20 unidades",
+      "category": "Vendajes",
+      "type": "Producto",
+      "price": 12.9,
+      "rating": 4.5,
+      "stock": 120,
+      "imageUrl": "/assets/images/productosTienda/gasa-esteriles.jpg",
+      "tags": [
+        "Esteril",
+        "Curacion"
+      ],
+      "description": "Gasas para cubrir heridas, absorber fluidos y proteger zonas lesionadas.",
+      "recommendedFor": [
+        "Heridas",
+        "Hemorragias"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "termometro-digital",
+      "name": "Termometro digital flexible",
+      "category": "Diagnostico",
+      "type": "Producto",
+      "price": 29.9,
+      "rating": 4.6,
+      "stock": 44,
+      "imageUrl": "/assets/images/productosTienda/termometro-digital-flexible.jpg",
+      "tags": [
+        "Fiebre",
+        "Hogar"
+      ],
+      "description": "Termometro de lectura rapida para vigilancia de temperatura corporal.",
+      "recommendedFor": [
+        "Fiebre"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "manta-termica",
+      "name": "Manta termica de emergencia",
+      "category": "Emergencia",
+      "type": "Producto",
+      "price": 16.9,
+      "rating": 4.7,
+      "stock": 90,
+      "imageUrl": "/assets/images/productosTienda/manta-termica.jpg",
+      "tags": [
+        "Hipotermia",
+        "Compacta"
+      ],
+      "description": "Manta aluminizada para conservar calor corporal despues de accidentes o evacuaciones.",
+      "recommendedFor": [
+        "Shock",
+        "Sismos"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "linterna-emergencia",
+      "name": "Linterna LED recargable",
+      "category": "Emergencia",
+      "type": "Producto",
+      "price": 42.9,
+      "rating": 4.4,
+      "stock": 35,
+      "imageUrl": "/assets/images/productosTienda/linterna-led-recargable.png",
+      "tags": [
+        "LED",
+        "Recargable"
+      ],
+      "description": "Linterna de alta autonomia para cortes de energia y evacuaciones nocturnas.",
+      "recommendedFor": [
+        "Sismos"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "radio-manivela",
+      "name": "Radio de emergencia con manivela",
+      "category": "Emergencia",
+      "type": "Producto",
+      "price": 79.9,
+      "oldPrice": 95.9,
+      "rating": 4.8,
+      "stock": 21,
+      "imageUrl": "/assets/images/productosTienda/radio-emergencia-manivela.jpg",
+      "tags": [
+        "Radio",
+        "Solar"
+      ],
+      "description": "Radio portatil con carga manual para alertas y comunicacion durante desastres.",
+      "recommendedFor": [
+        "Sismos"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "torniquete-tactico",
+      "name": "Torniquete tactico de emergencia",
+      "category": "Hemorragias",
+      "type": "Producto",
+      "price": 54.9,
+      "rating": 4.7,
+      "stock": 28,
+      "imageUrl": "/assets/images/productosTienda/torniquete-emergencia.jpg",
+      "tags": [
+        "Hemorragia",
+        "Control"
+      ],
+      "description": "Torniquete para control de hemorragias severas en extremidades.",
+      "recommendedFor": [
+        "Hemorragias"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "vendaje-compresivo",
+      "name": "Vendaje compresivo israeli",
+      "category": "Hemorragias",
+      "type": "Producto",
+      "price": 44.9,
+      "rating": 4.6,
+      "stock": 32,
+      "imageUrl": "/assets/images/productosTienda/vendaje-compresivo-israeli.jpg",
+      "tags": [
+        "Presion",
+        "Trauma"
+      ],
+      "description": "Vendaje de presion para control inicial de sangrados importantes.",
+      "recommendedFor": [
+        "Hemorragias"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "suero-fisiologico",
+      "name": "Suero fisiologico 500 ml",
+      "category": "Higiene",
+      "type": "Producto",
+      "price": 9.9,
+      "rating": 4.4,
+      "stock": 110,
+      "imageUrl": "/assets/images/productosTienda/suero-fisiologico.jpg",
+      "tags": [
+        "Limpieza",
+        "Irrigacion"
+      ],
+      "description": "Solucion para irrigar heridas, ojos o zonas expuestas a irritantes.",
+      "recommendedFor": [
+        "Heridas",
+        "Intoxicacion"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "gel-quemaduras",
+      "name": "Gel hidrogel para quemaduras",
+      "category": "Quemaduras",
+      "type": "Producto",
+      "price": 27.9,
+      "oldPrice": 34.9,
+      "rating": 4.5,
+      "stock": 46,
+      "imageUrl": "/assets/images/productosTienda/hidrogel-quemaduras.jpeg",
+      "tags": [
+        "Hidrogel",
+        "Alivio"
+      ],
+      "description": "Gel para enfriar y proteger quemaduras leves durante la atencion inicial.",
+      "recommendedFor": [
+        "Quemaduras"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "collarin-cervical",
+      "name": "Collarin cervical ajustable",
+      "category": "Trauma",
+      "type": "Producto",
+      "price": 69.9,
+      "rating": 4.3,
+      "stock": 16,
+      "imageUrl": "/assets/images/productosTienda/collarin-cervical.jpg",
+      "tags": [
+        "Trauma",
+        "Inmovilizacion"
+      ],
+      "description": "Collarin para apoyo de inmovilizacion cervical en escenarios de trauma.",
+      "recommendedFor": [
+        "Fracturas",
+        "Accidentes"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "ferula-moldeable",
+      "name": "Ferula moldeable SAM",
+      "category": "Trauma",
+      "type": "Producto",
+      "price": 49.9,
+      "rating": 4.6,
+      "stock": 23,
+      "imageUrl": "/assets/images/productosTienda/ferula-moldeable.jpg",
+      "tags": [
+        "Inmovilizacion",
+        "Ligera"
+      ],
+      "description": "Ferula compacta moldeable para inmovilizar extremidades lesionadas.",
+      "recommendedFor": [
+        "Fracturas"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "botiquin-auto",
+      "name": "Botiquin para auto",
+      "category": "Kits",
+      "type": "Kit",
+      "price": 74.9,
+      "oldPrice": 89.9,
+      "rating": 4.5,
+      "stock": 27,
+      "imageUrl": "/assets/images/productosTienda/botiquin-auto.jpg",
+      "tags": [
+        "Auto",
+        "Viaje"
+      ],
+      "description": "Botiquin compacto para accidentes de transito y emergencias durante viajes.",
+      "recommendedFor": [
+        "Accidentes",
+        "Heridas"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "kit-hemorragias",
+      "name": "Kit de control de hemorragias",
+      "category": "Hemorragias",
+      "type": "Kit",
+      "price": 129.9,
+      "oldPrice": 149.9,
+      "rating": 4.9,
+      "stock": 15,
+      "imageUrl": "/assets/images/productosTienda/kit-control-hemorragia.jpg",
+      "tags": [
+        "Trauma",
+        "Hemorragia"
+      ],
+      "description": "Kit especializado con insumos para control de sangrado severo.",
+      "recommendedFor": [
+        "Hemorragias"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "kit-rcp-entrenamiento",
+      "name": "Kit de entrenamiento RCP",
+      "category": "RCP",
+      "type": "Kit",
+      "price": 119.9,
+      "rating": 4.8,
+      "stock": 20,
+      "imageUrl": "/assets/images/productosTienda/kit-rcp-entrenamiento.jpeg",
+      "tags": [
+        "Practica",
+        "RCP"
+      ],
+      "description": "Set de materiales para practicar secuencia de RCP y ventilaciones seguras.",
+      "recommendedFor": [
+        "RCP"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "protector-facial",
+      "name": "Protector facial transparente",
+      "category": "Proteccion personal",
+      "type": "Producto",
+      "price": 22.9,
+      "rating": 4.2,
+      "stock": 60,
+      "imageUrl": "/assets/images/productosTienda/protector-facial-transparente.jpg",
+      "tags": [
+        "Bioseguridad",
+        "Reusable"
+      ],
+      "description": "Protector facial para reducir exposicion durante atencion cercana.",
+      "recommendedFor": [
+        "Bioseguridad"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "mascarillas-kn95",
+      "name": "Pack mascarillas KN95 x10",
+      "category": "Proteccion personal",
+      "type": "Producto",
+      "price": 28.9,
+      "rating": 4.4,
+      "stock": 95,
+      "imageUrl": "/assets/images/productosTienda/pack-mascarillas-kn95-10.jpg",
+      "tags": [
+        "KN95",
+        "Respiratorio"
+      ],
+      "description": "Mascarillas para proteccion respiratoria en atencion y evacuaciones.",
+      "recommendedFor": [
+        "Bioseguridad"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "alcohol-gel",
+      "name": "Alcohol gel 70% 500 ml",
+      "category": "Higiene",
+      "type": "Producto",
+      "price": 17.9,
+      "rating": 4.5,
+      "stock": 130,
+      "imageUrl": "/assets/images/productosTienda/alcohol-gel.png",
+      "tags": [
+        "Desinfeccion",
+        "Higiene"
+      ],
+      "description": "Alcohol gel para higiene de manos antes y despues de brindar ayuda.",
+      "recommendedFor": [
+        "Bioseguridad"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "sales-rehidratacion",
+      "name": "Sales de rehidratacion oral",
+      "category": "Medicamentos OTC",
+      "type": "Producto",
+      "price": 11.9,
+      "rating": 4.3,
+      "stock": 58,
+      "imageUrl": "/assets/images/productosTienda/sales-rehidratacion-oral.jpg",
+      "tags": [
+        "Hidratacion",
+        "Calor"
+      ],
+      "description": "Sobres para rehidratacion en golpes de calor o perdida de liquidos.",
+      "recommendedFor": [
+        "Golpe de calor",
+        "Intoxicacion"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "pastillero-semanal",
+      "name": "Pastillero semanal compacto",
+      "category": "Medicamentos OTC",
+      "type": "Producto",
+      "price": 13.9,
+      "rating": 4.2,
+      "stock": 47,
+      "imageUrl": "/assets/images/productosTienda/pastillero-semanal.jpg",
+      "tags": [
+        "Organizacion",
+        "Hogar"
+      ],
+      "description": "Organizador para medicacion semanal y seguimiento de tratamientos.",
+      "recommendedFor": [
+        "Cuidado familiar"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "senal-evacuacion",
+      "name": "Senal fotoluminiscente de evacuacion",
+      "category": "Senalizacion",
+      "type": "Producto",
+      "price": 31.9,
+      "rating": 4.4,
+      "stock": 36,
+      "imageUrl": "/assets/images/productosTienda/senal-evacuacion.jpg",
+      "tags": [
+        "Evacuacion",
+        "Visible"
+      ],
+      "description": "Senal para rutas de evacuacion en hogares, aulas u oficinas.",
+      "recommendedFor": [
+        "Sismos"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "silbato-emergencia",
+      "name": "Silbato de emergencia",
+      "category": "Emergencia",
+      "type": "Producto",
+      "price": 8.9,
+      "rating": 4.1,
+      "stock": 140,
+      "imageUrl": "/assets/images/productosTienda/silbato-emergencia.jpg",
+      "tags": [
+        "Rescate",
+        "Compacto"
+      ],
+      "description": "Silbato de alta intensidad para ubicacion durante evacuaciones.",
+      "recommendedFor": [
+        "Sismos",
+        "Accidentes"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "bolsa-frio-instantaneo",
+      "name": "Bolsa de frio instantaneo",
+      "category": "Trauma",
+      "type": "Producto",
+      "price": 10.9,
+      "rating": 4.3,
+      "stock": 83,
+      "imageUrl": "/assets/images/productosTienda/bolso-frio-instantaneo.jpg",
+      "tags": [
+        "Golpes",
+        "Deporte"
+      ],
+      "description": "Compresa fria de activacion rapida para golpes, esguinces y dolor inicial.",
+      "recommendedFor": [
+        "Fracturas",
+        "Esguinces"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "tijera-trauma",
+      "name": "Tijera de trauma",
+      "category": "Trauma",
+      "type": "Producto",
+      "price": 26.9,
+      "rating": 4.7,
+      "stock": 41,
+      "imageUrl": "/assets/images/productosTienda/tijera-trauma.jpg",
+      "tags": [
+        "Corte",
+        "Rescate"
+      ],
+      "description": "Tijera para cortar ropa o vendajes durante una evaluacion segura.",
+      "recommendedFor": [
+        "Trauma",
+        "Hemorragias"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "pinza-esteril",
+      "name": "Pinza esteril de curacion",
+      "category": "Curacion",
+      "type": "Producto",
+      "price": 7.9,
+      "rating": 4,
+      "stock": 70,
+      "imageUrl": "/assets/images/productosTienda/pinza-esteril.jpg",
+      "tags": [
+        "Curacion",
+        "Esteril"
+      ],
+      "description": "Pinza para manipular gasas y material esteril sin contaminacion.",
+      "recommendedFor": [
+        "Heridas"
+      ],
+      "images": [],
+      "specifications": {}
+    },
+    {
+      "id": "manual-primeros-auxilios",
+      "name": "Manual rapido de primeros auxilios",
+      "category": "Educacion",
+      "type": "Producto",
+      "price": 21.9,
+      "rating": 4.6,
+      "stock": 52,
+      "imageUrl": "/assets/images/productosTienda/manual-primeros-auxilios.jpg",
+      "tags": [
+        "Guia",
+        "Aprendizaje"
+      ],
+      "description": "Guia impresa con protocolos basicos para consulta rapida.",
+      "recommendedFor": [
+        "RCP",
+        "Quemaduras",
+        "Sismos"
+      ],
+      "images": [],
+      "specifications": {}
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "name": "Mateo Castillo",
+      "xp": 11240,
+      "streak": 30
+    },
+    {
+      "rank": 2,
+      "name": "Sofia Medina",
+      "xp": 10850,
+      "streak": 29
+    },
+    {
+      "rank": 3,
+      "name": "Diego Ramos",
+      "xp": 10460,
+      "streak": 28
+    },
+    {
+      "rank": 4,
+      "name": "Ana Torres",
+      "xp": 10070,
+      "streak": 27
+    },
+    {
+      "rank": 5,
+      "name": "Camila Vega",
+      "xp": 9680,
+      "streak": 26
+    },
+    {
+      "rank": 6,
+      "name": "Joaquin Paredes",
+      "xp": 9290,
+      "streak": 25
+    },
+    {
+      "rank": 7,
+      "name": "Valeria Soto",
+      "xp": 8900,
+      "streak": 24
+    },
+    {
+      "rank": 8,
+      "name": "Luis Herrera",
+      "xp": 8510,
+      "streak": 23
+    },
+    {
+      "rank": 9,
+      "name": "Mariana Flores",
+      "xp": 8120,
+      "streak": 22
+    },
+    {
+      "rank": 10,
+      "name": "Renzo Molina",
+      "xp": 7730,
+      "streak": 21
+    },
+    {
+      "rank": 11,
+      "name": "Lucia Prado",
+      "xp": 7340,
+      "streak": 20
+    },
+    {
+      "rank": 12,
+      "name": "Bruno Salas",
+      "xp": 6950,
+      "streak": 19
+    },
+    {
+      "rank": 13,
+      "name": "Elena Ruiz",
+      "xp": 6560,
+      "streak": 18
+    },
+    {
+      "rank": 14,
+      "name": "Nicolas Vera",
+      "xp": 6170,
+      "streak": 17
+    },
+    {
+      "rank": 15,
+      "name": "Paula Diaz",
+      "xp": 5780,
+      "streak": 16
+    },
+    {
+      "rank": 16,
+      "name": "Adrian Leon",
+      "xp": 5390,
+      "streak": 15
+    },
+    {
+      "rank": 17,
+      "name": "Daniela Rios",
+      "xp": 5000,
+      "streak": 14
+    },
+    {
+      "rank": 18,
+      "name": "Gabriel Torres",
+      "xp": 4610,
+      "streak": 13
+    },
+    {
+      "rank": 19,
+      "name": "Ximena Campos",
+      "xp": 4220,
+      "streak": 12
+    },
+    {
+      "rank": 20,
+      "name": "Fernando Gil",
+      "xp": 3830,
+      "streak": 11
+    }
+  ],
+  "attempts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "scenarioId": 1,
+      "mode": "practice",
+      "startedAt": "2025-05-01T10:30:00Z",
+      "completedAt": "2025-05-01T10:42:00Z",
+      "score": 95,
+      "totalSteps": 6,
+      "correctSteps": 6,
+      "timeElapsed": 720,
+      "errors": [
+        {
+          "stepNumber": 5,
+          "error": "Frecuencia de compresiones baja (85/min)",
+          "severity": "warning"
+        }
+      ],
+      "scenarioSlug": "rcp-basico"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "scenarioId": 1,
+      "mode": "evaluation",
+      "startedAt": "2025-05-04T16:00:00Z",
+      "completedAt": "2025-05-04T16:11:00Z",
+      "score": 82,
+      "totalSteps": 6,
+      "correctSteps": 5,
+      "timeElapsed": 660,
+      "errors": [
+        {
+          "stepNumber": 2,
+          "error": "No evaluÃ³ conciencia correctamente",
+          "severity": "warning"
+        }
+      ],
+      "scenarioSlug": "rcp-basico"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "scenarioId": 2,
+      "scenarioSlug": "atragantamiento",
+      "mode": "practice",
+      "startedAt": "2026-05-12T05:44:00.155Z",
+      "completedAt": "2026-05-12T05:58:00.155Z",
+      "score": 100,
+      "totalSteps": 4,
+      "correctSteps": 4,
+      "timeElapsed": 840,
+      "errors": []
+    }
+  ],
+  "shippingAddresses": [
+    {
+      "id": 1,
+      "userId": 1,
+      "label": "Casa",
+      "recipientName": "Juan PÃ©rez",
+      "phone": "+51 987654321",
+      "country": "PerÃº",
+      "region": "Lima",
+      "city": "Lima",
+      "district": "Miraflores",
+      "postalCode": "15074",
+      "street": "Av. JosÃ© Pardo",
+      "streetNumber": "456",
+      "reference": "Cerca al Parque Central",
+      "isDefault": true,
+      "createdAt": "2025-01-10T00:00:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "label": "Oficina",
+      "recipientName": "Juan PÃ©rez",
+      "phone": "+51 987654321",
+      "country": "PerÃº",
+      "region": "Lima",
+      "city": "Lima",
+      "district": "San Isidro",
+      "postalCode": "15046",
+      "street": "Av. Javier Prado Este",
+      "streetNumber": "1200, Of. 301",
+      "reference": "Edificio corporativo, 3er piso",
+      "isDefault": false,
+      "createdAt": "2025-02-15T00:00:00Z"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "label": "Casa",
+      "recipientName": "MarÃ­a GarcÃ­a",
+      "phone": "+51 912345678",
+      "country": "PerÃº",
+      "region": "Lima",
+      "city": "Lima",
+      "district": "Surco",
+      "postalCode": "15023",
+      "street": "Av. Primavera",
+      "streetNumber": "789",
+      "reference": "",
+      "isDefault": true,
+      "createdAt": "2025-03-01T00:00:00Z"
+    }
+  ],
+  "missions": [
+    {
+      "id": "daily-1",
+      "title": "Completa una simulacion diaria",
+      "cadence": "Diaria",
+      "progress": 1,
+      "goal": 1,
+      "rewardXp": 120,
+      "rewardCoins": 40,
+      "status": "Activa",
+      "instructions": "Inicia y finaliza cualquier simulacion disponible durante el dia.",
+      "unlockRequirement": "Nivel 1 y cuenta activa"
+    },
+    {
+      "id": "daily-2",
+      "title": "Revisa una recomendacion de producto",
+      "cadence": "Diaria",
+      "progress": 0,
+      "goal": 1,
+      "rewardXp": 60,
+      "rewardCoins": 25,
+      "status": "Disponible",
+      "instructions": "Abre la tienda y revisa una recomendacion personalizada de producto.",
+      "unlockRequirement": "Completar al menos una simulacion"
+    },
+    {
+      "id": "daily-3",
+      "title": "Responde 3 decisiones correctas",
+      "cadence": "Diaria",
+      "progress": 2,
+      "goal": 3,
+      "rewardXp": 90,
+      "rewardCoins": 30,
+      "status": "Activa",
+      "instructions": "Responde correctamente tres decisiones dentro de una o varias simulaciones.",
+      "unlockRequirement": "Nivel 2"
+    },
+    {
+      "id": "daily-4",
+      "title": "Practica un modulo de RCP",
+      "cadence": "Diaria",
+      "progress": 1,
+      "goal": 1,
+      "rewardXp": 100,
+      "rewardCoins": 35,
+      "status": "Activa",
+      "instructions": "Completa un modulo relacionado con RCP basico o intermedio.",
+      "unlockRequirement": "Tener desbloqueada la ruta RCP"
+    },
+    {
+      "id": "daily-5",
+      "title": "Lee un objetivo de aprendizaje",
+      "cadence": "Diaria",
+      "progress": 1,
+      "goal": 1,
+      "rewardXp": 40,
+      "rewardCoins": 15,
+      "status": "Disponible",
+      "instructions": "Lee los objetivos de aprendizaje antes de iniciar una simulacion.",
+      "unlockRequirement": "Cuenta activa"
+    },
+    {
+      "id": "daily-6",
+      "title": "Mantente activo en tu racha",
+      "cadence": "Diaria",
+      "progress": 1,
+      "goal": 1,
+      "rewardXp": 80,
+      "rewardCoins": 30,
+      "status": "Activa",
+      "instructions": "Realiza una accion de entrenamiento para mantener tu racha diaria.",
+      "unlockRequirement": "Racha activa de al menos 1 dia"
+    },
+    {
+      "id": "daily-7",
+      "title": "Completa una evaluacion sin errores",
+      "cadence": "Diaria",
+      "progress": 0,
+      "goal": 1,
+      "rewardXp": 140,
+      "rewardCoins": 50,
+      "status": "Disponible",
+      "instructions": "Consulta tus estadisticas y elige una prioridad de entrenamiento.",
+      "unlockRequirement": "Completar 3 simulaciones"
+    },
+    {
+      "id": "weekly-1",
+      "title": "Completa 5 simulaciones esta semana",
+      "cadence": "Semanal",
+      "progress": 3,
+      "goal": 5,
+      "rewardXp": 500,
+      "rewardCoins": 180,
+      "status": "Activa",
+      "instructions": "Completa cinco simulaciones durante la semana con cualquier puntaje.",
+      "unlockRequirement": "Nivel 5"
+    },
+    {
+      "id": "weekly-2",
+      "title": "Practica 3 tipos de emergencia",
+      "cadence": "Semanal",
+      "progress": 2,
+      "goal": 3,
+      "rewardXp": 420,
+      "rewardCoins": 150,
+      "status": "Disponible",
+      "instructions": "Obt?n 80% o mas de precision en tres simulaciones distintas.",
+      "unlockRequirement": "Nivel 6"
+    },
+    {
+      "id": "weekly-3",
+      "title": "Alcanza 1000 XP semanal",
+      "cadence": "Semanal",
+      "progress": 720,
+      "goal": 1000,
+      "rewardXp": 600,
+      "rewardCoins": 220,
+      "status": "Bloqueada",
+      "instructions": "Completa dos simulaciones avanzadas sin bajar de 70% de precision.",
+      "unlockRequirement": "Nivel 10 y 10 simulaciones completadas"
+    },
+    {
+      "id": "weekly-4",
+      "title": "Desbloquea una insignia nueva",
+      "cadence": "Semanal",
+      "progress": 0,
+      "goal": 1,
+      "rewardXp": 450,
+      "rewardCoins": 160,
+      "status": "Bloqueada",
+      "instructions": "Mant?n una racha semanal completa y reclama el bono final.",
+      "unlockRequirement": "Racha de 7 dias consecutivos"
+    },
+    {
+      "id": "weekly-5",
+      "title": "Mejora precision promedio a 85%",
+      "cadence": "Semanal",
+      "progress": 84,
+      "goal": 85,
+      "rewardXp": 520,
+      "rewardCoins": 190,
+      "status": "Disponible",
+      "instructions": "Revisa tres productos sugeridos por tus errores recientes.",
+      "unlockRequirement": "Tener errores registrados en estadisticas"
+    },
+    {
+      "id": "weekly-6",
+      "title": "Completa una simulacion avanzada",
+      "cadence": "Semanal",
+      "progress": 0,
+      "goal": 1,
+      "rewardXp": 560,
+      "rewardCoins": 200,
+      "status": "Bloqueada",
+      "instructions": "Canjea un cupon con SafeCoins acumuladas por entrenamiento.",
+      "unlockRequirement": "Tener 500 SafeCoins disponibles"
+    },
+    {
+      "id": "weekly-7",
+      "title": "Canjea o guarda 500 SafeCoins",
+      "cadence": "Semanal",
+      "progress": 320,
+      "goal": 500,
+      "rewardXp": 360,
+      "rewardCoins": 140,
+      "status": "Bloqueada",
+      "instructions": "Alcanza el top 3 del ranking semanal de entrenamiento.",
+      "unlockRequirement": "Nivel 12 y mas de 10500 XP semanal"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "not-1",
+      "userId": "usr-001",
+      "type": "sale",
+      "productId": "kit-hogar",
+      "title": "Â¡Oferta en Torniquete TÃ¡ctico CAT!",
+      "message": "El producto que te interesa estÃ¡ con 22% de descuento. Â¡Aprovecha esta oferta por tiempo limitado!",
+      "isActive": true,
+      "isRead": false,
+      "createdAt": "2025-05-05T08:00:00Z"
+    },
+    {
+      "id": "not-2",
+      "userId": "usr-001",
+      "type": "low-stock",
+      "productId": "mochila-emergencia",
+      "title": "Â¡Stock bajo! Mochila de Emergencia 72h",
+      "message": "Solo quedan 18 unidades. Â¡Compra ahora antes de que se agoten!",
+      "isActive": true,
+      "isRead": false,
+      "createdAt": "2025-05-05T08:00:00Z"
+    },
+    {
+      "id": "not-3",
+      "userId": "usr-002",
+      "type": "sale",
+      "productId": "mascarilla-rcp",
+      "title": "Â¡Nuevo descuento en Kit de Entrenamiento RCP!",
+      "message": "Usa el cupÃ³n RCPEXPERT20 para obtener 20% de descuento en kits de entrenamiento RCP.",
+      "isActive": true,
+      "isRead": true,
+      "createdAt": "2025-05-01T10:00:00Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-1778607619201",
+      "userId": "usr-001",
+      "total": 49.8,
+      "status": "Comprado",
+      "items": [
+        "mascarilla-rcp",
+        "mascarilla-rcp"
+      ],
+      "createdAt": "2026-05-12"
+    },
+    {
+      "id": "ord-1778565282091",
+      "userId": "usr-001",
+      "total": 424.1,
+      "status": "Comprado",
+      "items": [
+        "mascarilla-rcp",
+        "mascarilla-rcp",
+        "mascarilla-rcp",
+        "mascarilla-rcp",
+        "mascarilla-rcp",
+        "mascarilla-rcp",
+        "mascarilla-rcp",
+        "mochila-emergencia",
+        "kit-hogar"
+      ],
+      "createdAt": "2026-05-12"
+    },
+    {
+      "id": "ord-001",
+      "userId": "usr-001",
+      "total": 75,
+      "status": "Entregado",
+      "items": [
+        "kit-hogar",
+        "guantes-nitrilo"
+      ],
+      "createdAt": "2026-05-01"
+    },
+    {
+      "id": "ord-002",
+      "userId": "usr-002",
+      "total": 98.5,
+      "status": "En camino",
+      "items": [
+        "mochila-emergencia",
+        "antiseptico-spray"
+      ],
+      "createdAt": "2026-05-02"
+    },
+    {
+      "id": "ord-003",
+      "userId": "usr-003",
+      "total": 122,
+      "status": "Preparando",
+      "items": [
+        "mascarilla-rcp",
+        "gasas-esteriles"
+      ],
+      "createdAt": "2026-05-03"
+    },
+    {
+      "id": "ord-004",
+      "userId": "usr-004",
+      "total": 145.5,
+      "status": "Cancelado",
+      "items": [
+        "apposito-quemaduras",
+        "termometro-digital"
+      ],
+      "createdAt": "2026-05-04"
+    },
+    {
+      "id": "ord-005",
+      "userId": "usr-005",
+      "total": 169,
+      "status": "Entregado",
+      "items": [
+        "vendas-elasticas",
+        "manta-termica"
+      ],
+      "createdAt": "2026-05-05"
+    },
+    {
+      "id": "ord-006",
+      "userId": "usr-006",
+      "total": 192.5,
+      "status": "En camino",
+      "items": [
+        "guantes-nitrilo",
+        "linterna-emergencia"
+      ],
+      "createdAt": "2026-05-06"
+    },
+    {
+      "id": "ord-007",
+      "userId": "usr-007",
+      "total": 216,
+      "status": "Preparando",
+      "items": [
+        "antiseptico-spray",
+        "radio-manivela"
+      ],
+      "createdAt": "2026-05-07"
+    },
+    {
+      "id": "ord-008",
+      "userId": "usr-008",
+      "total": 239.5,
+      "status": "Cancelado",
+      "items": [
+        "gasas-esteriles",
+        "torniquete-tactico"
+      ],
+      "createdAt": "2026-05-08"
+    },
+    {
+      "id": "ord-009",
+      "userId": "usr-009",
+      "total": 263,
+      "status": "Entregado",
+      "items": [
+        "termometro-digital",
+        "vendaje-compresivo"
+      ],
+      "createdAt": "2026-05-01"
+    },
+    {
+      "id": "ord-010",
+      "userId": "usr-001",
+      "total": 286.5,
+      "status": "En camino",
+      "items": [
+        "manta-termica",
+        "suero-fisiologico"
+      ],
+      "createdAt": "2026-05-02"
+    },
+    {
+      "id": "ord-1781156613492",
+      "userId": "usr-001",
+      "total": 249.8,
+      "status": "Comprado",
+      "items": [
+        "kit-hogar",
+        "mochila-emergencia"
+      ],
+      "createdAt": "2026-06-11"
+    },
+    {
+      "id": "v1jWe44",
+      "userId": "usr-001",
+      "total": 249.8,
+      "status": "pending",
+      "items": [
+        "kit-hogar",
+        "mochila-emergencia"
+      ],
+      "createdAt": "2026-06-12T19:38:54.557Z"
+    },
+    {
+      "id": "0ym-eLE",
+      "userId": "usr-001",
+      "total": 184.8,
+      "status": "pending",
+      "items": [
+        "mochila-emergencia",
+        "mascarilla-rcp"
+      ],
+      "createdAt": "2026-06-12T19:39:23.528Z"
+    },
+    {
+      "id": "_ltfF9-",
+      "userId": "usr-001",
+      "total": 44.8,
+      "status": "pending",
+      "items": [
+        "mascarilla-rcp",
+        "apposito-quemaduras"
+      ],
+      "createdAt": "2026-06-12T20:32:15.088Z"
+    }
+  ],
+  "ecommerce": {},
+  "reviews": [
+    {
+      "id": "rev-01",
+      "productId": "kit-hogar",
+      "userName": "Mateo Castillo",
+      "rating": 4,
+      "comment": "Producto util para preparacion y practica SafeStep #1.",
+      "createdAt": "2026-04-01"
+    },
+    {
+      "id": "rev-02",
+      "productId": "mochila-emergencia",
+      "userName": "Sofia Medina",
+      "rating": 4.1,
+      "comment": "Producto util para preparacion y practica SafeStep #2.",
+      "createdAt": "2026-04-02"
+    },
+    {
+      "id": "rev-03",
+      "productId": "mascarilla-rcp",
+      "userName": "Diego Ramos",
+      "rating": 4.2,
+      "comment": "Producto util para preparacion y practica SafeStep #3.",
+      "createdAt": "2026-04-03"
+    },
+    {
+      "id": "rev-04",
+      "productId": "apposito-quemaduras",
+      "userName": "Ana Torres",
+      "rating": 4.3,
+      "comment": "Producto util para preparacion y practica SafeStep #4.",
+      "createdAt": "2026-04-04"
+    },
+    {
+      "id": "rev-05",
+      "productId": "vendas-elasticas",
+      "userName": "Camila Vega",
+      "rating": 4.4,
+      "comment": "Producto util para preparacion y practica SafeStep #5.",
+      "createdAt": "2026-04-05"
+    },
+    {
+      "id": "rev-06",
+      "productId": "guantes-nitrilo",
+      "userName": "Joaquin Paredes",
+      "rating": 4.5,
+      "comment": "Producto util para preparacion y practica SafeStep #6.",
+      "createdAt": "2026-04-06"
+    },
+    {
+      "id": "rev-07",
+      "productId": "antiseptico-spray",
+      "userName": "Valeria Soto",
+      "rating": 4,
+      "comment": "Producto util para preparacion y practica SafeStep #7.",
+      "createdAt": "2026-04-07"
+    },
+    {
+      "id": "rev-08",
+      "productId": "gasas-esteriles",
+      "userName": "Luis Herrera",
+      "rating": 4.1,
+      "comment": "Producto util para preparacion y practica SafeStep #8.",
+      "createdAt": "2026-04-08"
+    },
+    {
+      "id": "rev-09",
+      "productId": "termometro-digital",
+      "userName": "Mariana Flores",
+      "rating": 4.2,
+      "comment": "Producto util para preparacion y practica SafeStep #9.",
+      "createdAt": "2026-04-09"
+    },
+    {
+      "id": "rev-10",
+      "productId": "manta-termica",
+      "userName": "Renzo Molina",
+      "rating": 4.3,
+      "comment": "Producto util para preparacion y practica SafeStep #10.",
+      "createdAt": "2026-04-10"
+    },
+    {
+      "id": "rev-11",
+      "productId": "linterna-emergencia",
+      "userName": "Lucia Prado",
+      "rating": 4.4,
+      "comment": "Producto util para preparacion y practica SafeStep #11.",
+      "createdAt": "2026-04-11"
+    },
+    {
+      "id": "rev-12",
+      "productId": "radio-manivela",
+      "userName": "Bruno Salas",
+      "rating": 4.5,
+      "comment": "Producto util para preparacion y practica SafeStep #12.",
+      "createdAt": "2026-04-12"
+    },
+    {
+      "id": "rev-13",
+      "productId": "torniquete-tactico",
+      "userName": "Elena Ruiz",
+      "rating": 4,
+      "comment": "Producto util para preparacion y practica SafeStep #13.",
+      "createdAt": "2026-04-13"
+    },
+    {
+      "id": "rev-14",
+      "productId": "vendaje-compresivo",
+      "userName": "Nicolas Vera",
+      "rating": 4.1,
+      "comment": "Producto util para preparacion y practica SafeStep #14.",
+      "createdAt": "2026-04-14"
+    },
+    {
+      "id": "rev-15",
+      "productId": "suero-fisiologico",
+      "userName": "Paula Diaz",
+      "rating": 4.2,
+      "comment": "Producto util para preparacion y practica SafeStep #15.",
+      "createdAt": "2026-04-15"
+    },
+    {
+      "id": "rev-16",
+      "productId": "gel-quemaduras",
+      "userName": "Adrian Leon",
+      "rating": 4.3,
+      "comment": "Producto util para preparacion y practica SafeStep #16.",
+      "createdAt": "2026-04-16"
+    },
+    {
+      "id": "rev-17",
+      "productId": "collarin-cervical",
+      "userName": "Daniela Rios",
+      "rating": 4.4,
+      "comment": "Producto util para preparacion y practica SafeStep #17.",
+      "createdAt": "2026-04-17"
+    },
+    {
+      "id": "rev-18",
+      "productId": "ferula-moldeable",
+      "userName": "Gabriel Torres",
+      "rating": 4.5,
+      "comment": "Producto util para preparacion y practica SafeStep #18.",
+      "createdAt": "2026-04-18"
+    },
+    {
+      "id": "rev-19",
+      "productId": "botiquin-auto",
+      "userName": "Ximena Campos",
+      "rating": 4,
+      "comment": "Producto util para preparacion y practica SafeStep #19.",
+      "createdAt": "2026-04-19"
+    },
+    {
+      "id": "rev-20",
+      "productId": "kit-hemorragias",
+      "userName": "Fernando Gil",
+      "rating": 4.1,
+      "comment": "Producto util para preparacion y practica SafeStep #20.",
+      "createdAt": "2026-04-20"
+    },
+    {
+      "id": "rev-21",
+      "productId": "kit-rcp-entrenamiento",
+      "userName": "Mateo Castillo",
+      "rating": 4.2,
+      "comment": "Producto util para preparacion y practica SafeStep #21.",
+      "createdAt": "2026-04-21"
+    },
+    {
+      "id": "rev-22",
+      "productId": "protector-facial",
+      "userName": "Sofia Medina",
+      "rating": 4.3,
+      "comment": "Producto util para preparacion y practica SafeStep #22.",
+      "createdAt": "2026-04-22"
+    },
+    {
+      "id": "rev-23",
+      "productId": "mascarillas-kn95",
+      "userName": "Diego Ramos",
+      "rating": 4.4,
+      "comment": "Producto util para preparacion y practica SafeStep #23.",
+      "createdAt": "2026-04-23"
+    },
+    {
+      "id": "rev-24",
+      "productId": "alcohol-gel",
+      "userName": "Ana Torres",
+      "rating": 4.5,
+      "comment": "Producto util para preparacion y practica SafeStep #24.",
+      "createdAt": "2026-04-24"
+    },
+    {
+      "id": "rev-25",
+      "productId": "sales-rehidratacion",
+      "userName": "Camila Vega",
+      "rating": 4,
+      "comment": "Producto util para preparacion y practica SafeStep #25.",
+      "createdAt": "2026-04-25"
+    },
+    {
+      "id": "rev-26",
+      "productId": "pastillero-semanal",
+      "userName": "Joaquin Paredes",
+      "rating": 4.1,
+      "comment": "Producto util para preparacion y practica SafeStep #26.",
+      "createdAt": "2026-04-26"
+    },
+    {
+      "id": "rev-27",
+      "productId": "senal-evacuacion",
+      "userName": "Valeria Soto",
+      "rating": 4.2,
+      "comment": "Producto util para preparacion y practica SafeStep #27.",
+      "createdAt": "2026-04-27"
+    },
+    {
+      "id": "rev-28",
+      "productId": "silbato-emergencia",
+      "userName": "Luis Herrera",
+      "rating": 4.3,
+      "comment": "Producto util para preparacion y practica SafeStep #28.",
+      "createdAt": "2026-04-28"
+    },
+    {
+      "id": "rev-29",
+      "productId": "bolsa-frio-instantaneo",
+      "userName": "Mariana Flores",
+      "rating": 4.4,
+      "comment": "Producto util para preparacion y practica SafeStep #29.",
+      "createdAt": "2026-04-01"
+    },
+    {
+      "id": "rev-30",
+      "productId": "tijera-trauma",
+      "userName": "Renzo Molina",
+      "rating": 4.5,
+      "comment": "Producto util para preparacion y practica SafeStep #30.",
+      "createdAt": "2026-04-02"
+    },
+    {
+      "id": "rev-31",
+      "productId": "pinza-esteril",
+      "userName": "Lucia Prado",
+      "rating": 4,
+      "comment": "Producto util para preparacion y practica SafeStep #31.",
+      "createdAt": "2026-04-03"
+    },
+    {
+      "id": "rev-32",
+      "productId": "manual-primeros-auxilios",
+      "userName": "Bruno Salas",
+      "rating": 4.1,
+      "comment": "Producto util para preparacion y practica SafeStep #32.",
+      "createdAt": "2026-04-04"
+    },
+    {
+      "id": "rev-33",
+      "productId": "kit-hogar",
+      "userName": "Elena Ruiz",
+      "rating": 4.2,
+      "comment": "Producto util para preparacion y practica SafeStep #33.",
+      "createdAt": "2026-04-05"
+    },
+    {
+      "id": "rev-34",
+      "productId": "mochila-emergencia",
+      "userName": "Nicolas Vera",
+      "rating": 4.3,
+      "comment": "Producto util para preparacion y practica SafeStep #34.",
+      "createdAt": "2026-04-06"
+    },
+    {
+      "id": "rev-35",
+      "productId": "mascarilla-rcp",
+      "userName": "Paula Diaz",
+      "rating": 4.4,
+      "comment": "Producto util para preparacion y practica SafeStep #35.",
+      "createdAt": "2026-04-07"
+    },
+    {
+      "id": "rev-36",
+      "productId": "apposito-quemaduras",
+      "userName": "Adrian Leon",
+      "rating": 4.5,
+      "comment": "Producto util para preparacion y practica SafeStep #36.",
+      "createdAt": "2026-04-08"
+    },
+    {
+      "id": "rev-37",
+      "productId": "vendas-elasticas",
+      "userName": "Daniela Rios",
+      "rating": 4,
+      "comment": "Producto util para preparacion y practica SafeStep #37.",
+      "createdAt": "2026-04-09"
+    },
+    {
+      "id": "rev-38",
+      "productId": "guantes-nitrilo",
+      "userName": "Gabriel Torres",
+      "rating": 4.1,
+      "comment": "Producto util para preparacion y practica SafeStep #38.",
+      "createdAt": "2026-04-10"
+    },
+    {
+      "id": "rev-39",
+      "productId": "antiseptico-spray",
+      "userName": "Ximena Campos",
+      "rating": 4.2,
+      "comment": "Producto util para preparacion y practica SafeStep #39.",
+      "createdAt": "2026-04-11"
+    },
+    {
+      "id": "rev-40",
+      "productId": "gasas-esteriles",
+      "userName": "Fernando Gil",
+      "rating": 4.3,
+      "comment": "Producto util para preparacion y practica SafeStep #40.",
+      "createdAt": "2026-04-12"
+    }
+  ],
+  "authProviders": [
+    {
+      "id": "email",
+      "name": "Correo y contrasena",
+      "enabled": true
+    },
+    {
+      "id": "phone",
+      "name": "Telefono con codigo SMS",
+      "enabled": true
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "enabled": true
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "enabled": false
+    }
+  ],
+  "securityEvents": [
+    {
+      "id": "sec-1",
+      "type": "Login",
+      "description": "Evento de seguridad registrado #1",
+      "createdAt": "2026-05-01"
+    },
+    {
+      "id": "sec-2",
+      "type": "Password update",
+      "description": "Evento de seguridad registrado #2",
+      "createdAt": "2026-05-02"
+    },
+    {
+      "id": "sec-3",
+      "type": "Device check",
+      "description": "Evento de seguridad registrado #3",
+      "createdAt": "2026-05-03"
+    },
+    {
+      "id": "sec-4",
+      "type": "Recovery attempt",
+      "description": "Evento de seguridad registrado #4",
+      "createdAt": "2026-05-04"
+    },
+    {
+      "id": "sec-5",
+      "type": "Login",
+      "description": "Evento de seguridad registrado #5",
+      "createdAt": "2026-05-05"
+    },
+    {
+      "id": "sec-6",
+      "type": "Password update",
+      "description": "Evento de seguridad registrado #6",
+      "createdAt": "2026-05-06"
+    },
+    {
+      "id": "sec-7",
+      "type": "Device check",
+      "description": "Evento de seguridad registrado #7",
+      "createdAt": "2026-05-07"
+    },
+    {
+      "id": "sec-8",
+      "type": "Recovery attempt",
+      "description": "Evento de seguridad registrado #8",
+      "createdAt": "2026-05-08"
+    },
+    {
+      "id": "sec-9",
+      "type": "Login",
+      "description": "Evento de seguridad registrado #9",
+      "createdAt": "2026-05-01"
+    },
+    {
+      "id": "sec-10",
+      "type": "Password update",
+      "description": "Evento de seguridad registrado #10",
+      "createdAt": "2026-05-02"
+    }
+  ],
+  "emergencyKits": [
+    {
+      "id": "kit-1",
+      "name": "Kit para Sismos",
+      "description": "Kit completo para prepararte ante un sismo. Incluye mochila, botiquÃ­n, agua, alimentos y mÃ¡s.",
+      "level": "intermediate",
+      "individualPrice": 410,
+      "kitPrice": 329.9,
+      "savings": 80.1,
+      "savingsPercentage": 20,
+      "products": [
+        {
+          "productId": "kit-hogar",
+          "quantity": 1
+        },
+        {
+          "productId": "mochila-emergencia",
+          "quantity": 1
+        },
+        {
+          "productId": "mascarilla-rcp",
+          "quantity": 1
+        },
+        {
+          "productId": "apposito-quemaduras",
+          "quantity": 1
+        }
+      ],
+      "imageUrl": "/assets/images/productosTienda/mochila-sismos.jpg",
+      "isPopular": true,
+      "createdAt": "2025-01-10T00:00:00Z"
+    },
+    {
+      "id": "kit-2",
+      "name": "Kit BÃ¡sico de Primeros Auxilios para Hogar",
+      "description": "Todo lo necesario para atender emergencias comunes en casa.",
+      "level": "basic",
+      "individualPrice": 130.6,
+      "kitPrice": 109.9,
+      "savings": 20.7,
+      "savingsPercentage": 16,
+      "products": [
+        {
+          "productId": "mochila-emergencia",
+          "quantity": 1
+        },
+        {
+          "productId": "mascarilla-rcp",
+          "quantity": 1
+        },
+        {
+          "productId": "apposito-quemaduras",
+          "quantity": 2
+        },
+        {
+          "productId": "vendas-elasticas",
+          "quantity": 1
+        },
+        {
+          "productId": "guantes-nitrilo",
+          "quantity": 1
+        }
+      ],
+      "imageUrl": "/assets/images/productosTienda/kit-emergencia-familiar.png",
+      "isPopular": true,
+      "createdAt": "2025-01-10T00:00:00Z"
+    },
+    {
+      "id": "kit-3",
+      "name": "Kit para RCP y Paros CardÃ­acos",
+      "description": "Kit de entrenamiento y equipo para practicar y estar preparado ante un paro cardÃ­aco.",
+      "level": "advanced",
+      "individualPrice": 360.7,
+      "kitPrice": 299.9,
+      "savings": 60.8,
+      "savingsPercentage": 17,
+      "products": [
+        {
+          "productId": "mascarilla-rcp",
+          "quantity": 1
+        },
+        {
+          "productId": "apposito-quemaduras",
+          "quantity": 1
+        },
+        {
+          "productId": "vendas-elasticas",
+          "quantity": 1
+        },
+        {
+          "productId": "guantes-nitrilo",
+          "quantity": 1
+        }
+      ],
+      "imageUrl": "/assets/images/productosTienda/kit-rcp-entrenamiento.jpeg",
+      "isPopular": false,
+      "createdAt": "2025-02-15T00:00:00Z"
+    },
+    {
+      "id": "kit-4",
+      "name": "Kit Avanzado de Control de Hemorragias",
+      "description": "Kit profesional para control de hemorragias graves.",
+      "level": "advanced",
+      "individualPrice": 210.6,
+      "kitPrice": 179.9,
+      "savings": 30.7,
+      "savingsPercentage": 15,
+      "products": [
+        {
+          "productId": "apposito-quemaduras",
+          "quantity": 1
+        },
+        {
+          "productId": "vendas-elasticas",
+          "quantity": 2
+        },
+        {
+          "productId": "guantes-nitrilo",
+          "quantity": 1
+        },
+        {
+          "productId": "antiseptico-spray",
+          "quantity": 2
+        },
+        {
+          "productId": "gasas-esteriles",
+          "quantity": 1
+        }
+      ],
+      "imageUrl": "/assets/images/productosTienda/kit-control-hemorragia.jpg",
+      "isPopular": false,
+      "createdAt": "2025-02-20T00:00:00Z"
+    }
+  ],
+  "badges": [
+    {
+      "id": "bdg-rcp",
+      "name": "RCP inicial",
+      "rarity": "Comun",
+      "unlocked": true,
+      "description": "Completaste tu primera simulacion de RCP.",
+      "unlockRequirement": "Completar una simulacion de RCP."
+    },
+    {
+      "id": "bdg-streak-7",
+      "name": "Racha de 7 dias",
+      "rarity": "Rara",
+      "unlocked": true,
+      "description": "Practicaste durante una semana seguida.",
+      "unlockRequirement": "Mantener una racha de 7 dias."
+    },
+    {
+      "id": "bdg-streak-30",
+      "name": "Racha de 30 dias",
+      "rarity": "Epica",
+      "unlocked": false,
+      "description": "Mantente activo durante 30 dias.",
+      "unlockRequirement": "Mantener una racha de 30 dias."
+    },
+    {
+      "id": "bdg-hemorragias",
+      "name": "Control de sangrado",
+      "rarity": "Rara",
+      "unlocked": true,
+      "description": "Dominaste conceptos de hemorragias.",
+      "unlockRequirement": "Completar la ruta de control de hemorragias."
+    },
+    {
+      "id": "bdg-sismos",
+      "name": "Brigadista sismico",
+      "rarity": "Rara",
+      "unlocked": true,
+      "description": "Completaste escenarios de sismo.",
+      "unlockRequirement": "Completar escenarios de preparacion ante sismos."
+    },
+    {
+      "id": "bdg-perfect",
+      "name": "Sin errores",
+      "rarity": "Epica",
+      "unlocked": false,
+      "description": "Completa una simulacion sin fallos.",
+      "unlockRequirement": "Completar una simulacion sin errores."
+    },
+    {
+      "id": "bdg-shop",
+      "name": "Preparador de kit",
+      "rarity": "Comun",
+      "unlocked": true,
+      "description": "Revisaste productos recomendados.",
+      "unlockRequirement": "Revisar productos recomendados en la tienda."
+    },
+    {
+      "id": "bdg-bio",
+      "name": "Bioseguridad",
+      "rarity": "Comun",
+      "unlocked": true,
+      "description": "Aplicaste proteccion personal correctamente.",
+      "unlockRequirement": "Aplicar correctamente medidas de bioseguridad."
+    },
+    {
+      "id": "bdg-advanced",
+      "name": "Modo avanzado",
+      "rarity": "Epica",
+      "unlocked": false,
+      "description": "Completa tres simulaciones avanzadas.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    },
+    {
+      "id": "bdg-pediatric",
+      "name": "Cuidado pediatrico",
+      "rarity": "Rara",
+      "unlocked": false,
+      "description": "Completa primeros auxilios en ninos.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    },
+    {
+      "id": "bdg-fire",
+      "name": "Respuesta a quemaduras",
+      "rarity": "Comun",
+      "unlocked": true,
+      "description": "Completaste atencion inicial de quemaduras.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    },
+    {
+      "id": "bdg-trauma",
+      "name": "Trauma esencial",
+      "rarity": "Rara",
+      "unlocked": false,
+      "description": "Practica fracturas y accidentes.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    },
+    {
+      "id": "bdg-leader",
+      "name": "Top 10 semanal",
+      "rarity": "Epica",
+      "unlocked": true,
+      "description": "Entraste al top 10 del ranking.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    },
+    {
+      "id": "bdg-mentor",
+      "name": "Mentor comunitario",
+      "rarity": "Legendaria",
+      "unlocked": false,
+      "description": "Comparte logros y ayuda a otros.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    },
+    {
+      "id": "bdg-fast",
+      "name": "Respuesta rapida",
+      "rarity": "Rara",
+      "unlocked": true,
+      "description": "Tomaste decisiones correctas rapidamente.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    },
+    {
+      "id": "bdg-toxic",
+      "name": "Alerta toxica",
+      "rarity": "Comun",
+      "unlocked": false,
+      "description": "Completa intoxicaciones en el hogar.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    },
+    {
+      "id": "bdg-heat",
+      "name": "Control de calor",
+      "rarity": "Comun",
+      "unlocked": false,
+      "description": "Completa golpe de calor.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    },
+    {
+      "id": "bdg-master",
+      "name": "Maestria SafeStep",
+      "rarity": "Legendaria",
+      "unlocked": false,
+      "description": "Completa todos los tipos de emergencia.",
+      "unlockRequirement": "Cumplir el reto asociado a esta insignia."
+    }
+  ],
+  "coupons": [
+    {
+      "id": "cpn-10",
+      "title": "10% de descuento en kits",
+      "costCoins": 450,
+      "discount": "10%"
+    },
+    {
+      "id": "cpn-envio",
+      "title": "Envio gratis en Lima",
+      "costCoins": 300,
+      "discount": "Envio"
+    },
+    {
+      "id": "cpn-rcp",
+      "title": "15% en accesorios RCP",
+      "costCoins": 520,
+      "discount": "15%"
+    },
+    {
+      "id": "cpn-trauma",
+      "title": "12% en trauma y vendajes",
+      "costCoins": 480,
+      "discount": "12%"
+    },
+    {
+      "id": "cpn-sismo",
+      "title": "20% en mochila de emergencia",
+      "costCoins": 800,
+      "discount": "20%"
+    },
+    {
+      "id": "cpn-higiene",
+      "title": "8% en higiene",
+      "costCoins": 260,
+      "discount": "8%"
+    },
+    {
+      "id": "cpn-hemorragia",
+      "title": "15% en control de sangrado",
+      "costCoins": 650,
+      "discount": "15%"
+    },
+    {
+      "id": "cpn-educacion",
+      "title": "Manual gratis con compra",
+      "costCoins": 700,
+      "discount": "Manual"
+    },
+    {
+      "id": "cpn-bio",
+      "title": "10% en bioseguridad",
+      "costCoins": 380,
+      "discount": "10%"
+    },
+    {
+      "id": "cpn-familia",
+      "title": "S/ 20 menos en kits familiares",
+      "costCoins": 900,
+      "discount": "S/20"
+    },
+    {
+      "id": "cpn-auto",
+      "title": "12% en botiquin para auto",
+      "costCoins": 540,
+      "discount": "12%"
+    },
+    {
+      "id": "cpn-premium",
+      "title": "25% en compra mayor a S/ 200",
+      "costCoins": 1200,
+      "discount": "25%"
+    }
+  ],
+  "userProfiles": [
+    {
+      "id": "usr-001",
+      "fullName": "Ana Torres",
+      "email": "ana.torres@safestep.pe",
+      "role": "Estudiante universitaria",
+      "city": "Lima, Peru",
+      "avatarUrl": "/assets/images/users/usr-001.png",
+      "level": 12,
+      "xp": 6840,
+      "nextLevelXp": 8000,
+      "safeCoins": 1315,
+      "streakDays": 18,
+      "completedSimulations": 24
+    },
+    {
+      "id": "usr-002",
+      "fullName": "Diego Ramos",
+      "email": "diego.ramos@safestep.pe",
+      "role": "Tecnico de enfermeria",
+      "city": "Arequipa, Peru",
+      "avatarUrl": "/assets/images/users/usr-002.png",
+      "level": 14,
+      "xp": 8120,
+      "nextLevelXp": 9000,
+      "safeCoins": 1540,
+      "streakDays": 22,
+      "completedSimulations": 31
+    },
+    {
+      "id": "usr-003",
+      "fullName": "Valeria Soto",
+      "email": "valeria.soto@safestep.pe",
+      "role": "Brigadista escolar",
+      "city": "Trujillo, Peru",
+      "avatarUrl": "/assets/images/users/usr-003.png",
+      "level": 9,
+      "xp": 4980,
+      "nextLevelXp": 6200,
+      "safeCoins": 780,
+      "streakDays": 9,
+      "completedSimulations": 17
+    },
+    {
+      "id": "usr-004",
+      "fullName": "Mateo Castillo",
+      "email": "mateo.castillo@safestep.pe",
+      "role": "Estudiante de medicina",
+      "city": "Cusco, Peru",
+      "avatarUrl": "/assets/images/users/usr-004.png",
+      "level": 16,
+      "xp": 10340,
+      "nextLevelXp": 11200,
+      "safeCoins": 2010,
+      "streakDays": 28,
+      "completedSimulations": 42
+    },
+    {
+      "id": "usr-005",
+      "fullName": "Camila Vega",
+      "email": "camila.vega@safestep.pe",
+      "role": "Voluntaria comunitaria",
+      "city": "Piura, Peru",
+      "avatarUrl": "/assets/images/users/usr-005.png",
+      "level": 11,
+      "xp": 6200,
+      "nextLevelXp": 7600,
+      "safeCoins": 1190,
+      "streakDays": 14,
+      "completedSimulations": 23
+    },
+    {
+      "id": "usr-006",
+      "fullName": "Luis Herrera",
+      "email": "luis.herrera@safestep.pe",
+      "role": "Profesor de secundaria",
+      "city": "Chiclayo, Peru",
+      "avatarUrl": "/assets/images/users/usr-006.png",
+      "level": 8,
+      "xp": 4380,
+      "nextLevelXp": 5600,
+      "safeCoins": 650,
+      "streakDays": 6,
+      "completedSimulations": 15
+    },
+    {
+      "id": "usr-007",
+      "fullName": "Sofia Medina",
+      "email": "sofia.medina@safestep.pe",
+      "role": "Paramedico en formacion",
+      "city": "Lima, Peru",
+      "avatarUrl": "/assets/images/users/usr-007.png",
+      "level": 15,
+      "xp": 9540,
+      "nextLevelXp": 10400,
+      "safeCoins": 1880,
+      "streakDays": 25,
+      "completedSimulations": 38
+    },
+    {
+      "id": "usr-008",
+      "fullName": "Joaquin Paredes",
+      "email": "joaquin.paredes@safestep.pe",
+      "role": "Encargado SST",
+      "city": "Ica, Peru",
+      "avatarUrl": "/assets/images/users/usr-008.png",
+      "level": 10,
+      "xp": 5740,
+      "nextLevelXp": 7000,
+      "safeCoins": 930,
+      "streakDays": 11,
+      "completedSimulations": 19
+    },
+    {
+      "id": "usr-009",
+      "fullName": "Mariana Flores",
+      "email": "mariana.flores@safestep.pe",
+      "role": "Madre cuidadora",
+      "city": "Huancayo, Peru",
+      "avatarUrl": "/assets/images/users/usr-009.png",
+      "level": 7,
+      "xp": 3860,
+      "nextLevelXp": 5000,
+      "safeCoins": 540,
+      "streakDays": 5,
+      "completedSimulations": 12
+    }
+  ],
+  "identityAccess": {
+    "sampleUser": {
+      "id": "usr-001",
+      "fullName": "Ana Torres",
+      "email": "ana.torres@safestep.pe",
+      "role": "Estudiante universitaria",
+      "city": "Lima, Peru",
+      "avatarUrl": "/assets/images/users/usr-001.png",
+      "level": 12,
+      "xp": 6840,
+      "nextLevelXp": 8000,
+      "safeCoins": 1315,
+      "streakDays": 18,
+      "completedSimulations": 24
+    },
+    "passwordRules": [
+      "Minimo 8 caracteres",
+      "Al menos una mayuscula",
+      "Al menos un numero",
+      "Un simbolo especial recomendado",
+      "No reutilizar contrasenas anteriores",
+      "Cambiar contrasena ante alerta de seguridad"
+    ],
+    "demoUsers": [
+      {
+        "id": "usr-002",
+        "fullName": "Diego Ramos",
+        "email": "diego.ramos@safestep.pe",
+        "role": "Tecnico de enfermeria",
+        "city": "Arequipa, Peru",
+        "avatarUrl": "/assets/images/users/usr-002.png",
+        "level": 14,
+        "xp": 8120,
+        "nextLevelXp": 9000,
+        "safeCoins": 1540,
+        "streakDays": 22,
+        "completedSimulations": 31
+      },
+      {
+        "id": "usr-003",
+        "fullName": "Valeria Soto",
+        "email": "valeria.soto@safestep.pe",
+        "role": "Brigadista escolar",
+        "city": "Trujillo, Peru",
+        "avatarUrl": "/assets/images/users/usr-003.png",
+        "level": 9,
+        "xp": 4980,
+        "nextLevelXp": 6200,
+        "safeCoins": 780,
+        "streakDays": 9,
+        "completedSimulations": 17
+      },
+      {
+        "id": "usr-004",
+        "fullName": "Mateo Castillo",
+        "email": "mateo.castillo@safestep.pe",
+        "role": "Estudiante de medicina",
+        "city": "Cusco, Peru",
+        "avatarUrl": "/assets/images/users/usr-004.png",
+        "level": 16,
+        "xp": 10340,
+        "nextLevelXp": 11200,
+        "safeCoins": 2010,
+        "streakDays": 28,
+        "completedSimulations": 42
+      },
+      {
+        "id": "usr-005",
+        "fullName": "Camila Vega",
+        "email": "camila.vega@safestep.pe",
+        "role": "Voluntaria comunitaria",
+        "city": "Piura, Peru",
+        "avatarUrl": "/assets/images/users/usr-005.png",
+        "level": 11,
+        "xp": 6200,
+        "nextLevelXp": 7600,
+        "safeCoins": 1190,
+        "streakDays": 14,
+        "completedSimulations": 23
+      },
+      {
+        "id": "usr-006",
+        "fullName": "Luis Herrera",
+        "email": "luis.herrera@safestep.pe",
+        "role": "Profesor de secundaria",
+        "city": "Chiclayo, Peru",
+        "avatarUrl": "/assets/images/users/usr-006.png",
+        "level": 8,
+        "xp": 4380,
+        "nextLevelXp": 5600,
+        "safeCoins": 650,
+        "streakDays": 6,
+        "completedSimulations": 15
+      },
+      {
+        "id": "usr-007",
+        "fullName": "Sofia Medina",
+        "email": "sofia.medina@safestep.pe",
+        "role": "Paramedico en formacion",
+        "city": "Lima, Peru",
+        "avatarUrl": "/assets/images/users/usr-007.png",
+        "level": 15,
+        "xp": 9540,
+        "nextLevelXp": 10400,
+        "safeCoins": 1880,
+        "streakDays": 25,
+        "completedSimulations": 38
+      },
+      {
+        "id": "usr-008",
+        "fullName": "Joaquin Paredes",
+        "email": "joaquin.paredes@safestep.pe",
+        "role": "Encargado SST",
+        "city": "Ica, Peru",
+        "avatarUrl": "/assets/images/users/usr-008.png",
+        "level": 10,
+        "xp": 5740,
+        "nextLevelXp": 7000,
+        "safeCoins": 930,
+        "streakDays": 11,
+        "completedSimulations": 19
+      },
+      {
+        "id": "usr-009",
+        "fullName": "Mariana Flores",
+        "email": "mariana.flores@safestep.pe",
+        "role": "Madre cuidadora",
+        "city": "Huancayo, Peru",
+        "avatarUrl": "/assets/images/users/usr-009.png",
+        "level": 7,
+        "xp": 3860,
+        "nextLevelXp": 5000,
+        "safeCoins": 540,
+        "streakDays": 5,
+        "completedSimulations": 12
+      }
+    ]
+  },
+  "cartItems": [
+    {
+      "id": "cart-4",
+      "userId": "usr-002",
+      "productId": "apposito-quemaduras",
+      "quantity": 1,
+      "addedAt": "2025-05-05T09:00:00Z"
+    }
+  ],
+  "gamification": {
+    "levelSummary": {
+      "level": 12,
+      "xp": 6840,
+      "nextLevelXp": 8000,
+      "safeCoins": 1315,
+      "streakDays": 18,
+      "weeklyRank": 4
+    }
+  },
+  "paymentMethods": [
+    {
+      "id": 1,
+      "type": "credit-card",
+      "label": "Tarjeta de Credito/Debito",
+      "description": "Visa, Mastercard, American Express",
+      "processingFee": 0,
+      "isAvailable": true
+    },
+    {
+      "id": 2,
+      "type": "bank-transfer",
+      "label": "Transferencia Bancaria",
+      "description": "Transferencia directa a cuenta BCP",
+      "processingFee": 0,
+      "isAvailable": true,
+      "bankDetails": {
+        "bank": "BCP",
+        "accountNumber": "194-2345678-0-12",
+        "accountHolder": "SafeStep Peru S.A.C.",
+        "ruc": "20612345678"
+      }
+    },
+    {
+      "id": 3,
+      "type": "digital-wallet",
+      "label": "Billetera Digital",
+      "description": "Yape, Plin, Mercado Pago",
+      "processingFee": 0,
+      "isAvailable": true
+    }
+  ],
+  "personalizedRecommendations": [
+    {
+      "id": "pr-1",
+      "userId": "usr-001",
+      "productId": "kit-hogar",
+      "reason": "Por tus pr├ícticas en RCP",
+      "relatedSimulationId": "rcp-basico",
+      "priority": "high",
+      "isDismissed": false,
+      "createdAt": "2025-05-01T11:00:00Z"
+    },
+    {
+      "id": "pr-2",
+      "userId": "usr-001",
+      "productId": "mochila-emergencia",
+      "reason": "Para reforzar tu entrenamiento en hemorragias",
+      "relatedSimulationId": "atragantamiento",
+      "priority": "high",
+      "isDismissed": false,
+      "createdAt": "2025-05-02T15:00:00Z"
+    },
+    {
+      "id": "pr-3",
+      "userId": "usr-001",
+      "productId": "mascarilla-rcp",
+      "reason": "Por tus pr├ícticas en hemorragias",
+      "relatedSimulationId": "quemaduras",
+      "priority": "high",
+      "isDismissed": false,
+      "createdAt": "2025-05-02T15:00:00Z"
+    },
+    {
+      "id": "pr-4",
+      "userId": "usr-001",
+      "productId": "apposito-quemaduras",
+      "reason": "Gu├¡a complementaria para tus simulaciones",
+      "relatedSimulationId": "sismo",
+      "priority": "medium",
+      "isDismissed": false,
+      "createdAt": "2025-05-05T10:00:00Z"
+    },
+    {
+      "id": "pr-5",
+      "userId": "usr-002",
+      "productId": "vendas-elasticas",
+      "reason": "Mejora tu t├®cnica en RCP con este kit completo",
+      "relatedSimulationId": "hemorragia-severa",
+      "priority": "medium",
+      "isDismissed": false,
+      "createdAt": "2025-05-03T12:00:00Z"
+    },
+    {
+      "id": "pr-1",
+      "userId": "usr-001",
+      "productId": "guantes-nitrilo",
+      "reason": "No aplic├│ presi├│n el tiempo suficiente en la simulaci├│n de hemorragia venosa.",
+      "relatedSimulationId": "fracturas-esguinces",
+      "priority": "high",
+      "createdAt": "2025-05-02T14:15:00Z"
+    },
+    {
+      "id": "pr-2",
+      "userId": "usr-001",
+      "productId": "antiseptico-spray",
+      "reason": "Frecuencia de compresiones baja (85/min) en la simulaci├│n de RCP B├ísico.",
+      "relatedSimulationId": "intoxicacion-hogar",
+      "priority": "medium",
+      "createdAt": "2025-05-01T10:45:00Z"
+    },
+    {
+      "id": "pr-3",
+      "userId": "usr-001",
+      "productId": "gasas-esteriles",
+      "reason": "No evalu├│ conciencia correctamente en el segundo intento.",
+      "relatedSimulationId": "convulsiones",
+      "priority": "low",
+      "createdAt": "2025-05-04T16:15:00Z"
+    },
+    {
+      "id": "pr-4",
+      "userId": "usr-002",
+      "productId": "termometro-digital",
+      "reason": "Ha pasado m├ís de 3 meses desde tu ├║ltima pr├íctica en Quemaduras.",
+      "relatedSimulationId": "desmayo-sincope",
+      "priority": "medium",
+      "createdAt": "2025-05-05T08:00:00Z"
+    },
+    {
+      "id": "pr-5",
+      "userId": "usr-001",
+      "productId": "manta-termica",
+      "reason": "Para obtener tu certificaci├│n, solo te faltan estos temas: Hemorragias (75%), RCP (82%).",
+      "relatedSimulationId": "shock-hipovolemico",
+      "priority": "high",
+      "createdAt": "2025-05-05T09:00:00Z"
+    }
+  ]
+}
