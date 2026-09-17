@@ -20,6 +20,6 @@ public class AuthenticatedUserResourceFromEntityAssembler {
      */
     public static AuthenticatedUserResource toResourceFromEntity(User user, AuthenticationTokens tokens) {
         return new AuthenticatedUserResource(user.getId(), user.getUsername(), tokens.accessToken(),
-                tokens.refreshToken());
+                tokens.refreshToken(), user.getRoles().stream().map(role -> role.getStringName()).sorted().toList());
     }
 }

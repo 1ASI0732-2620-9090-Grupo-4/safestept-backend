@@ -22,6 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 import java.util.List;
@@ -60,6 +61,7 @@ public class SimulationsController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Create medical simulation")
     public ResponseEntity<?> createSimulation(@Valid @RequestBody SimulationResource resource) {
         var result = simulationCommandService
@@ -69,6 +71,7 @@ public class SimulationsController {
     }
 
     @PutMapping("/{simulationId}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Update medical simulation")
     public ResponseEntity<?> updateSimulation(@PathVariable String simulationId,
             @Valid @RequestBody SimulationResource resource) {
@@ -79,6 +82,7 @@ public class SimulationsController {
     }
 
     @DeleteMapping({ "/{simulationId}", "/" })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Delete medical simulation")
     public ResponseEntity<?> deleteSimulation(@PathVariable(required = false) String simulationId) {
         return noContentFromResult(simulationCommandService.handle(new DeleteSimulationCommand(simulationId == null ? "" : simulationId)));

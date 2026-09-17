@@ -71,4 +71,32 @@ public final class CommerceValueObjects {
             }
         }
     }
+
+    public enum CouponType {
+        PERCENTAGE_OFF, PERCENTAGE_OFF_MIN_PURCHASE;
+
+        public static CouponType from(String v) {
+            if (v == null)
+                return PERCENTAGE_OFF;
+            try {
+                return valueOf(v.toUpperCase());
+            } catch (Exception e) {
+                return PERCENTAGE_OFF;
+            }
+        }
+    }
+
+    public enum RedemptionStatus {
+        AVAILABLE, USED;
+
+        public static RedemptionStatus from(String v) {
+            if (v == null)
+                return AVAILABLE;
+            try {
+                return valueOf(v.toUpperCase());
+            } catch (Exception e) {
+                return AVAILABLE;
+            }
+        }
+    }
 }

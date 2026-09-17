@@ -49,7 +49,8 @@ public class StripeCheckoutClientImpl implements StripeCheckoutClient {
                     .setQuantity((long) item.quantity())
                     .setPriceData(SessionCreateParams.LineItem.PriceData.builder()
                             .setCurrency(currency)
-                            .setUnitAmount(toMinorUnits(item.unitPrice()))
+                            .setUnitAmount(toMinorUnits(
+                                    discountedUnitPrice(item.unitPrice(), order.getAppliedDiscountPercentage())))
                             .setProductData(SessionCreateParams.LineItem.PriceData.ProductData.builder()
                                     .setName(item.productName())
                                     .setDescription("SafeStep order " + order.getExternalId())
@@ -83,6 +84,13 @@ public class StripeCheckoutClientImpl implements StripeCheckoutClient {
 
     private long toMinorUnits(BigDecimal amount) {
         return amount.multiply(BigDecimal.valueOf(100)).setScale(0, RoundingMode.HALF_UP).longValueExact();
+    }
+
+    private BigDecimal discountedUnitPrice(BigDecimal unitPrice, Integer discountPercentage) {
+        if (discountPercentage == null || discountPercentage <= 0)
+            return unitPrice;
+        var factor = BigDecimal.valueOf(100 - discountPercentage).divide(BigDecimal.valueOf(100));
+        return unitPrice.multiply(factor).setScale(2, RoundingMode.HALF_UP);
     }
 
     private String withOrderQuery(String url, String orderId) {

@@ -25,6 +25,14 @@ public class PlayerProgress extends AbstractDomainAggregateRoot<PlayerProgress> 
         lastActivity = last;
     }
 
+    public void spendCoins(int amount) {
+        if (amount <= 0)
+            throw new IllegalArgumentException("Amount must be positive");
+        if (amount > safeCoins)
+            throw new IllegalStateException("Insufficient SafeCoins balance");
+        safeCoins -= amount;
+    }
+
     public void reward(int earnedXp, int coins) {
         xp += Math.max(0, earnedXp);
         safeCoins += Math.max(0, coins);

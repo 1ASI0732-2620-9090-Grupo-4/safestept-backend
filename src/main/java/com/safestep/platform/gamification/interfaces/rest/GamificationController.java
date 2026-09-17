@@ -18,6 +18,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -55,6 +56,7 @@ public class GamificationController {
     }
 
     @PostMapping("/missions")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Create mission")
     public ResponseEntity<?> createMission(@Valid @RequestBody MissionResource payload) {
         var result = gamificationCommandService
@@ -64,6 +66,7 @@ public class GamificationController {
     }
 
     @PutMapping("/missions/{missionId}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Update mission")
     public ResponseEntity<?> updateMission(@PathVariable String missionId,
             @Valid @RequestBody MissionResource payload) {
@@ -74,6 +77,7 @@ public class GamificationController {
     }
 
     @DeleteMapping({ "/missions/{missionId}", "/missions/" })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Delete mission")
     public ResponseEntity<?> deleteMission(@PathVariable(required = false) String missionId) {
         return noContentFromResult(gamificationCommandService.handle(new DeleteMissionCommand(missionId == null ? "" : missionId)));
@@ -89,6 +93,7 @@ public class GamificationController {
     }
 
     @PostMapping({ "/badges", "/badges/me" })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Create badge")
     public ResponseEntity<?> createBadge(@Valid @RequestBody BadgeResource payload) {
         var result = gamificationCommandService
@@ -98,6 +103,7 @@ public class GamificationController {
     }
 
     @PutMapping({ "/badges/{badgeId}", "/badges/me/{badgeId}" })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Update badge")
     public ResponseEntity<?> updateBadge(@PathVariable String badgeId, @Valid @RequestBody BadgeResource payload) {
         var result = gamificationCommandService
@@ -107,6 +113,7 @@ public class GamificationController {
     }
 
     @DeleteMapping({ "/badges/{badgeId}", "/badges/me/{badgeId}", "/badges/", "/badges/me/" })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Delete badge")
     public ResponseEntity<?> deleteBadge(@PathVariable(required = false) String badgeId) {
         return noContentFromResult(gamificationCommandService.handle(new DeleteBadgeCommand(badgeId == null ? "" : badgeId)));

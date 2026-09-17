@@ -74,6 +74,20 @@ public class User extends AbstractDomainAggregateRoot<User> {
         return this;
     }
 
+    /**
+     * Replace the user's role set with a new one.
+     *
+     * @param roles
+     *            the new list of roles
+     *
+     * @return the user with the replaced roles
+     */
+    public User replaceRoles(List<Role> roles) {
+        var validatedRoleSet = Role.validateRoleSet(roles);
+        this.roles = new HashSet<>(validatedRoleSet);
+        return this;
+    }
+
     public User updateStatus(boolean enabled, boolean accountNonLocked, boolean accountNonExpired,
             boolean credentialsNonExpired) {
         this.enabled = enabled;

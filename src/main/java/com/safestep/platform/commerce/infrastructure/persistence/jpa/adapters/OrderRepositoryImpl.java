@@ -26,7 +26,8 @@ public class OrderRepositoryImpl implements OrderRepository {
                         .toList(),
                 OrderStatus.from(e.getStatus()), e.getOrderedAt(), e.getPaymentProvider(),
                 PaymentStatus.from(e.getPaymentStatus()), e.getStripeCheckoutSessionId(),
-                e.getStripePaymentIntentId(), e.getPaidAt());
+                e.getStripePaymentIntentId(), e.getPaidAt(), e.getAppliedDiscountPercentage(),
+                e.getRedeemedCouponExternalId());
     }
 
     private OrderPersistenceEntity entity(Order d) {
@@ -41,6 +42,8 @@ public class OrderRepositoryImpl implements OrderRepository {
         e.setStripeCheckoutSessionId(d.getStripeCheckoutSessionId());
         e.setStripePaymentIntentId(d.getStripePaymentIntentId());
         e.setPaidAt(d.getPaidAt());
+        e.setAppliedDiscountPercentage(d.getAppliedDiscountPercentage());
+        e.setRedeemedCouponExternalId(d.getRedeemedCouponExternalId());
         e.setItems(d.getItems().stream().map(i -> new OrderPersistenceEntity.OrderItemEmbeddable(i.productId(),
                 i.productName(), i.unitPrice(), i.quantity())).toList());
         return e;

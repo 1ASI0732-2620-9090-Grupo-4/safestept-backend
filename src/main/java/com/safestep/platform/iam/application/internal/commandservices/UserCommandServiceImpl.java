@@ -12,6 +12,7 @@ import com.safestep.platform.iam.domain.model.commands.RefreshTokenCommand;
 import com.safestep.platform.iam.domain.model.commands.ResetPasswordCommand;
 import com.safestep.platform.iam.domain.model.commands.SignInCommand;
 import com.safestep.platform.iam.domain.model.commands.SignUpCommand;
+import com.safestep.platform.iam.domain.model.commands.UpdateUserRolesCommand;
 import com.safestep.platform.iam.domain.model.commands.UpdateUserStatusCommand;
 import com.safestep.platform.iam.domain.model.entities.Role;
 import com.safestep.platform.iam.domain.model.valueobjects.AuthenticationTokens;
@@ -178,6 +179,47 @@ public class UserCommandServiceImpl implements UserCommandService {
         user.get().updateStatus(command.enabled(), command.accountNonLocked(), command.accountNonExpired(),
                 command.credentialsNonExpired());
         return Result.success(userRepository.save(user.get()));
+    }
+
+    @Override
+    public Result<User, ApplicationError> handle(UpdateUserRolesCommand command) {
+        var target = userRepository.findById(command.userId());
+        if (target.isEmpty()) {
+            return Result.failure(ApplicationError.notFound("User", command.userId().toString()));
+        }
+
+        var roles = command.roleNames().stream().map(name -> roleRepository.findByName(Role.toRoleFromName(name).getName()))
+                .toList();
+        if (roles.stream().anyMatch(java.util.Optional::isEmpty)) {
+            return Result.failure(ApplicationError.notFound("Role", "one or more role names"));
+        }
+        var resolvedRoles = roles.stream().map(java.util.Optional::get).toList();
+
+        var targetHasAdminToday = target.get().getRoles().stream()
+                .anyMatch(role -> role.getStringName().equals("ROLE_ADMIN"));
+        var newRolesKeepAdmin = command.roleNames().contains("ROLE_ADMIN");
+        var isRemovingAdminFromTarget = targetHasAdminToday && !newRolesKeepAdmin;
+
+        if (isRemovingAdminFromTarget) {
+            var actingUser = userRepository.findByUsername(command.actingUsername());
+            var isSelf = actingUser.isPresent() && actingUser.get().getId().equals(target.get().getId());
+            if (isSelf) {
+                return Result.failure(ApplicationError.businessRuleViolation("self-role-removal",
+                        "Admins cannot remove their own ROLE_ADMIN role"));
+            }
+
+            var remainingAdmins = userRepository.findAll().stream()
+                    .filter(candidate -> !candidate.getId().equals(target.get().getId()))
+                    .anyMatch(candidate -> candidate.getRoles().stream()
+                            .anyMatch(role -> role.getStringName().equals("ROLE_ADMIN")));
+            if (!remainingAdmins) {
+                return Result.failure(ApplicationError.businessRuleViolation("last-admin-removal",
+                        "At least one ROLE_ADMIN user must remain in the system"));
+            }
+        }
+
+        target.get().replaceRoles(resolvedRoles);
+        return Result.success(userRepository.save(target.get()));
     }
 
     private AuthenticationTokens issueTokensFor(String username) {

@@ -2,7 +2,11 @@ package com.safestep.platform.iam.interfaces.rest;
 
 import com.safestep.platform.iam.application.commandservices.UserCommandService;
 import com.safestep.platform.iam.domain.model.commands.SignUpCommand;
+import com.safestep.platform.iam.domain.model.commands.UpdateUserRolesCommand;
 import com.safestep.platform.iam.domain.model.commands.UpdateUserStatusCommand;
+import com.safestep.platform.iam.domain.repositories.UserRepository;
+import com.safestep.platform.shared.application.result.ApplicationError;
+import com.safestep.platform.shared.application.result.Result;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -35,6 +39,9 @@ class IamSecurityIntegrationTest {
     @Autowired
     private UserCommandService userCommandService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Test
     void signUpIgnoresRequestedAdminRole() {
         var username = uniqueUsername("public");
@@ -57,6 +64,86 @@ class IamSecurityIntegrationTest {
         assertThat(getWithOptionalToken("/api/v1/roles", null).status()).isEqualTo(401);
         assertThat(getWithOptionalToken("/api/v1/roles", userTokens.token()).status()).isEqualTo(403);
         assertThat(getWithOptionalToken("/api/v1/roles", adminTokens.token()).status()).isEqualTo(200);
+    }
+
+    @Test
+    void signInReturnsRolesAndRegularUserCannotMutateCatalogs() {
+        var username = uniqueUsername("catalog");
+        postJson("/api/v1/authentication/sign-up", Map.of("username", username, "password", PASSWORD));
+        var signedIn = postJson("/api/v1/authentication/sign-in", Map.of("username", username, "password", PASSWORD));
+        assertThat(signedIn.status()).isEqualTo(200);
+        assertThat(signedIn.body().get("roles").toString()).contains("ROLE_USER").doesNotContain("ROLE_ADMIN");
+        var token = signedIn.body().get("token").toString();
+
+        assertThat(deleteWithToken("/api/v1/simulations/not-present", token).status()).isEqualTo(403);
+        assertThat(deleteWithToken("/api/v1/commerce/products/not-present", token).status()).isEqualTo(403);
+        assertThat(deleteWithToken("/api/v1/gamification/missions/not-present", token).status()).isEqualTo(403);
+    }
+
+    @Test
+    void updateUserRolesRequiresAdminRoleAndSucceedsForAdmin() {
+        var userTokens = createPublicUserAndSignIn("rolesregular");
+        var adminTokens = createAdminAndSignIn("rolesadmin");
+        var target = userCommandService
+                .handle(new SignUpCommand(uniqueUsername("rolestarget"), PASSWORD, List.of("ROLE_USER")))
+                .toOptional().orElseThrow();
+
+        var path = "/api/v1/users/%d/roles".formatted(target.getId());
+        var body = Map.of("roles", List.of("ROLE_USER", "ROLE_INSTRUCTOR"));
+
+        assertThat(putJsonWithToken(path, body, null).status()).isEqualTo(401);
+        assertThat(putJsonWithToken(path, body, userTokens.token()).status()).isEqualTo(403);
+
+        var response = putJsonWithToken(path, body, adminTokens.token());
+        assertThat(response.status()).isEqualTo(200);
+        assertThat(response.body().get("roles").toString()).contains("ROLE_INSTRUCTOR")
+                .doesNotContain("ROLE_ADMIN");
+    }
+
+    @Test
+    void adminCannotRemoveOwnAdminRole() {
+        var adminA = userCommandService
+                .handle(new SignUpCommand(uniqueUsername("selfdemoteA"), PASSWORD, List.of("ROLE_ADMIN")))
+                .toOptional().orElseThrow();
+        // a second admin exists so this test isolates self-removal from the last-admin rule.
+        userCommandService.handle(new SignUpCommand(uniqueUsername("selfdemoteB"), PASSWORD, List.of("ROLE_ADMIN")))
+                .toOptional().orElseThrow();
+        var adminATokens = signIn(adminA.getUsername(), PASSWORD);
+
+        var rolesPath = "/api/v1/users/%d/roles".formatted(adminA.getId());
+        var response = putJsonWithToken(rolesPath, Map.of("roles", List.of("ROLE_USER")), adminATokens.token());
+        assertThat(response.status()).isEqualTo(422);
+
+        var userPath = "/api/v1/users/%d".formatted(adminA.getId());
+        assertThat(getWithOptionalToken(userPath, adminATokens.token()).body().get("roles").toString())
+                .contains("ROLE_ADMIN");
+    }
+
+    @Test
+    void cannotLeaveSystemWithoutAnyAdmin() {
+        var soleAdmin = userCommandService
+                .handle(new SignUpCommand(uniqueUsername("soleadmin"), PASSWORD, List.of("ROLE_ADMIN")))
+                .toOptional().orElseThrow();
+        var otherUser = userCommandService
+                .handle(new SignUpCommand(uniqueUsername("roleactor"), PASSWORD, List.of("ROLE_USER")))
+                .toOptional().orElseThrow();
+
+        // The test suite shares one database across tests (no @Transactional rollback), so other tests may have
+        // already left admins behind. Demote every admin except soleAdmin first, so this test is deterministic
+        // regardless of execution order.
+        var otherAdmins = userRepository.findAll().stream()
+                .filter(user -> user.getRoles().stream().anyMatch(role -> role.getStringName().equals("ROLE_ADMIN")))
+                .filter(user -> !user.getId().equals(soleAdmin.getId())).toList();
+        otherAdmins.forEach(admin -> userCommandService
+                .handle(new UpdateUserRolesCommand(admin.getId(), List.of("ROLE_USER"), otherUser.getUsername()))
+                .toOptional().orElseThrow());
+
+        var result = userCommandService
+                .handle(new UpdateUserRolesCommand(soleAdmin.getId(), List.of("ROLE_USER"), otherUser.getUsername()));
+
+        assertThat(result.isFailure()).isTrue();
+        var failure = (Result.Failure<?, ApplicationError>) result;
+        assertThat(failure.error().code()).isEqualTo("BUSINESS_RULE_VIOLATION");
     }
 
     @Test
@@ -156,6 +243,32 @@ class IamSecurityIntegrationTest {
                 builder.header("Authorization", "Bearer " + token);
             }
             var response = httpClient.send(builder.build(), HttpResponse.BodyHandlers.ofString());
+            return new TestResponse(response.statusCode(), toMap(response.body()));
+        } catch (Exception exception) {
+            throw new IllegalStateException(exception);
+        }
+    }
+
+    private TestResponse putJsonWithToken(String path, Object body, String token) {
+        try {
+            var builder = HttpRequest.newBuilder(URI.create(url(path)))
+                    .header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                    .PUT(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(body)));
+            if (token != null) {
+                builder.header("Authorization", "Bearer " + token);
+            }
+            var response = httpClient.send(builder.build(), HttpResponse.BodyHandlers.ofString());
+            return new TestResponse(response.statusCode(), toMap(response.body()));
+        } catch (Exception exception) {
+            throw new IllegalStateException(exception);
+        }
+    }
+
+    private TestResponse deleteWithToken(String path, String token) {
+        try {
+            var request = HttpRequest.newBuilder(URI.create(url(path)))
+                    .header("Authorization", "Bearer " + token).DELETE().build();
+            var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             return new TestResponse(response.statusCode(), toMap(response.body()));
         } catch (Exception exception) {
             throw new IllegalStateException(exception);

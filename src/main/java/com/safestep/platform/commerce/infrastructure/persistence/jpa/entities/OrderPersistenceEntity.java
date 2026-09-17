@@ -20,6 +20,8 @@ public class OrderPersistenceEntity extends AuditableAbstractPersistenceEntity {
     private String stripeCheckoutSessionId;
     private String stripePaymentIntentId;
     private Instant paidAt;
+    private Integer appliedDiscountPercentage;
+    private String redeemedCouponExternalId;
     @ElementCollection
     @CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
     private List<OrderItemEmbeddable> items = new ArrayList<>();
@@ -94,6 +96,22 @@ public class OrderPersistenceEntity extends AuditableAbstractPersistenceEntity {
 
     public void setPaidAt(Instant v) {
         paidAt = v;
+    }
+
+    public Integer getAppliedDiscountPercentage() {
+        return appliedDiscountPercentage;
+    }
+
+    public void setAppliedDiscountPercentage(Integer v) {
+        appliedDiscountPercentage = v;
+    }
+
+    public String getRedeemedCouponExternalId() {
+        return redeemedCouponExternalId;
+    }
+
+    public void setRedeemedCouponExternalId(String v) {
+        redeemedCouponExternalId = v;
     }
 
     public List<OrderItemEmbeddable> getItems() {

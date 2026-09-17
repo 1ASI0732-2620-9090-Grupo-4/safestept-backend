@@ -4,6 +4,7 @@ import com.safestep.platform.commerce.domain.model.aggregates.*;
 import com.safestep.platform.commerce.domain.model.entities.*;
 import com.safestep.platform.commerce.domain.model.valueobjects.*;
 import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.OrderStatus;
+import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.CouponType;
 import com.safestep.platform.commerce.domain.repositories.*;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -85,7 +86,8 @@ public class CommerceSeedEventHandler {
                 var id = n.path("id").asText();
                 if (!coupons.existsByExternalId(id))
                     coupons.save(new Coupon(null, id, n.path("title").asText(), n.path("costCoins").asInt(),
-                            n.path("discount").asText()));
+                            CouponType.from(n.path("type").asText()), n.path("discountPercentage").asInt(),
+                            n.path("minPurchaseAmount").isNumber() ? money(n, "minPurchaseAmount") : null));
             }
             for (var n : root.path("shippingAddresses")) {
                 var id = n.path("id").asText();

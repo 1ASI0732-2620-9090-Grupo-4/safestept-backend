@@ -83,4 +83,21 @@ public final class GamificationPersistenceAssembler {
         e.setOccurredAt(d.getCreatedAt());
         return e;
     }
+
+    public static CoinSpend toDomain(CoinSpendPersistenceEntity e) {
+        return new CoinSpend(e.getId(), e.getExternalId(), e.getUsername(), e.getCouponId(), e.getCouponTitle(),
+                e.getAmount(), e.getSpentAt());
+    }
+
+    public static CoinSpendPersistenceEntity toEntity(CoinSpend d) {
+        var e = new CoinSpendPersistenceEntity();
+        e.setId(d.getId());
+        e.setExternalId(d.getExternalId());
+        e.setUsername(d.getUsername());
+        e.setCouponId(d.getCouponId());
+        e.setCouponTitle(d.getCouponTitle());
+        e.setAmount(d.getAmount());
+        e.setSpentAt(d.getSpentAt());
+        return e;
+    }
 }

@@ -19,14 +19,24 @@ public class Order extends AbstractDomainAggregateRoot<Order> {
     private String stripeCheckoutSessionId;
     private String stripePaymentIntentId;
     private Instant paidAt;
+    private Integer appliedDiscountPercentage;
+    private String redeemedCouponExternalId;
 
     public Order(Long id, String externalId, String username, List<OrderItem> items, OrderStatus status, LocalDate at) {
-        this(id, externalId, username, items, status, at, null, PaymentStatus.NONE, null, null, null);
+        this(id, externalId, username, items, status, at, null, PaymentStatus.NONE, null, null, null, null, null);
     }
 
     public Order(Long id, String externalId, String username, List<OrderItem> items, OrderStatus status, LocalDate at,
             String paymentProvider, PaymentStatus paymentStatus, String stripeCheckoutSessionId,
             String stripePaymentIntentId, Instant paidAt) {
+        this(id, externalId, username, items, status, at, paymentProvider, paymentStatus, stripeCheckoutSessionId,
+                stripePaymentIntentId, paidAt, null, null);
+    }
+
+    public Order(Long id, String externalId, String username, List<OrderItem> items, OrderStatus status, LocalDate at,
+            String paymentProvider, PaymentStatus paymentStatus, String stripeCheckoutSessionId,
+            String stripePaymentIntentId, Instant paidAt, Integer appliedDiscountPercentage,
+            String redeemedCouponExternalId) {
         if (items == null || items.isEmpty())
             throw new IllegalArgumentException("Order must contain items");
         this.id = id;
@@ -40,10 +50,21 @@ public class Order extends AbstractDomainAggregateRoot<Order> {
         this.stripeCheckoutSessionId = stripeCheckoutSessionId;
         this.stripePaymentIntentId = stripePaymentIntentId;
         this.paidAt = paidAt;
+        this.appliedDiscountPercentage = appliedDiscountPercentage;
+        this.redeemedCouponExternalId = redeemedCouponExternalId;
     }
 
     public BigDecimal total() {
         return items.stream().map(OrderItem::subtotal).reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    public BigDecimal finalTotal() {
+        var total = total();
+        if (appliedDiscountPercentage == null || appliedDiscountPercentage <= 0)
+            return total;
+        var discount = total.multiply(BigDecimal.valueOf(appliedDiscountPercentage))
+                .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+        return total.subtract(discount);
     }
 
     public Long getId() {
@@ -92,6 +113,14 @@ public class Order extends AbstractDomainAggregateRoot<Order> {
 
     public Instant getPaidAt() {
         return paidAt;
+    }
+
+    public Integer getAppliedDiscountPercentage() {
+        return appliedDiscountPercentage;
+    }
+
+    public String getRedeemedCouponExternalId() {
+        return redeemedCouponExternalId;
     }
 
     public boolean canStartStripeCheckout() {

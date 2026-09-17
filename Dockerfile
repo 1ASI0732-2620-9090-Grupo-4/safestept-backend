@@ -26,12 +26,12 @@ RUN mvn dependency:go-offline
 # Copy the Maven project files into the container
 COPY src ./src
 # Build the application
-RUN mvn clean package -DskipTests
+RUN mvn clean package
 
 # Step 2: Create a runtime image
 # Copy the Spring Boot JAR file into the container
 FROM eclipse-temurin:26-jre AS runtime
-ENV SPRING_PROFILES_ACTIVE=dev
+ENV SPRING_PROFILES_ACTIVE=prod
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 

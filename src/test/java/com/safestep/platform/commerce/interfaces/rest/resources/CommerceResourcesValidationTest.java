@@ -18,7 +18,7 @@ class CommerceResourcesValidationTest {
 
     @Test
     void createOrderRejectsUnknownStatus() {
-        var violations = validator.validate(new CreateOrderResource("FINISHED_BY_CLIENT"));
+        var violations = validator.validate(new CreateOrderResource("FINISHED_BY_CLIENT", null));
 
         assertFalse(violations.isEmpty());
     }

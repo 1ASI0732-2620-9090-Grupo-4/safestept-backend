@@ -4895,76 +4895,49 @@
   ],
   "coupons": [
     {
+      "id": "cpn-5",
+      "title": "5% de descuento en toda la tienda",
+      "costCoins": 150,
+      "type": "PERCENTAGE_OFF",
+      "discountPercentage": 5
+    },
+    {
       "id": "cpn-10",
-      "title": "10% de descuento en kits",
-      "costCoins": 450,
-      "discount": "10%"
+      "title": "10% de descuento en toda la tienda",
+      "costCoins": 350,
+      "type": "PERCENTAGE_OFF",
+      "discountPercentage": 10
     },
     {
-      "id": "cpn-envio",
-      "title": "Envio gratis en Lima",
+      "id": "cpn-15",
+      "title": "15% de descuento en toda la tienda",
+      "costCoins": 600,
+      "type": "PERCENTAGE_OFF",
+      "discountPercentage": 15
+    },
+    {
+      "id": "cpn-min-5",
+      "title": "5% de descuento en compras mayores a S/ 100",
+      "costCoins": 120,
+      "type": "PERCENTAGE_OFF_MIN_PURCHASE",
+      "discountPercentage": 5,
+      "minPurchaseAmount": 100
+    },
+    {
+      "id": "cpn-min-10",
+      "title": "10% de descuento en compras mayores a S/ 150",
       "costCoins": 300,
-      "discount": "Envio"
+      "type": "PERCENTAGE_OFF_MIN_PURCHASE",
+      "discountPercentage": 10,
+      "minPurchaseAmount": 150
     },
     {
-      "id": "cpn-rcp",
-      "title": "15% en accesorios RCP",
-      "costCoins": 520,
-      "discount": "15%"
-    },
-    {
-      "id": "cpn-trauma",
-      "title": "12% en trauma y vendajes",
-      "costCoins": 480,
-      "discount": "12%"
-    },
-    {
-      "id": "cpn-sismo",
-      "title": "20% en mochila de emergencia",
-      "costCoins": 800,
-      "discount": "20%"
-    },
-    {
-      "id": "cpn-higiene",
-      "title": "8% en higiene",
-      "costCoins": 260,
-      "discount": "8%"
-    },
-    {
-      "id": "cpn-hemorragia",
-      "title": "15% en control de sangrado",
-      "costCoins": 650,
-      "discount": "15%"
-    },
-    {
-      "id": "cpn-educacion",
-      "title": "Manual gratis con compra",
-      "costCoins": 700,
-      "discount": "Manual"
-    },
-    {
-      "id": "cpn-bio",
-      "title": "10% en bioseguridad",
-      "costCoins": 380,
-      "discount": "10%"
-    },
-    {
-      "id": "cpn-familia",
-      "title": "S/ 20 menos en kits familiares",
-      "costCoins": 900,
-      "discount": "S/20"
-    },
-    {
-      "id": "cpn-auto",
-      "title": "12% en botiquin para auto",
-      "costCoins": 540,
-      "discount": "12%"
-    },
-    {
-      "id": "cpn-premium",
-      "title": "25% en compra mayor a S/ 200",
-      "costCoins": 1200,
-      "discount": "25%"
+      "id": "cpn-min-15",
+      "title": "15% de descuento en compras mayores a S/ 250",
+      "costCoins": 550,
+      "type": "PERCENTAGE_OFF_MIN_PURCHASE",
+      "discountPercentage": 15,
+      "minPurchaseAmount": 250
     }
   ],
   "userProfiles": [

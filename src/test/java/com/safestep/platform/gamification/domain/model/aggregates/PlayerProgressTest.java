@@ -15,4 +15,18 @@ class PlayerProgressTest {
         assertEquals(3, player.getStreakDays());
         assertEquals(5, player.getCompletedSimulations());
     }
+
+    @Test
+    void spendCoinsReducesBalance() {
+        var player = new PlayerProgress(null, "ana", 1, 0, 500, 0, 0, LocalDate.now());
+        player.spendCoins(150);
+        assertEquals(350, player.getSafeCoins());
+    }
+
+    @Test
+    void spendCoinsRejectsWhenInsufficientBalance() {
+        var player = new PlayerProgress(null, "ana", 1, 0, 100, 0, 0, LocalDate.now());
+        assertThrows(IllegalStateException.class, () -> player.spendCoins(150));
+        assertEquals(100, player.getSafeCoins());
+    }
 }

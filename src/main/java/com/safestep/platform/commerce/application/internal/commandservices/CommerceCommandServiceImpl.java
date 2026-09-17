@@ -6,6 +6,7 @@ import com.safestep.platform.commerce.application.internal.outboundservices.stri
 import com.safestep.platform.commerce.domain.model.aggregates.Coupon;
 import com.safestep.platform.commerce.domain.model.aggregates.Order;
 import com.safestep.platform.commerce.domain.model.aggregates.Product;
+import com.safestep.platform.commerce.domain.model.aggregates.RedeemedCoupon;
 import com.safestep.platform.commerce.domain.model.commands.AddCartItemCommand;
 import com.safestep.platform.commerce.domain.model.commands.CaptureStripeWebhookCommand;
 import com.safestep.platform.commerce.domain.model.commands.CancelStripePaymentCommand;
@@ -16,17 +17,23 @@ import com.safestep.platform.commerce.domain.model.commands.CreateProductCommand
 import com.safestep.platform.commerce.domain.model.commands.CreateStripeCheckoutSessionCommand;
 import com.safestep.platform.commerce.domain.model.commands.DeleteCouponCommand;
 import com.safestep.platform.commerce.domain.model.commands.DeleteProductCommand;
+import com.safestep.platform.commerce.domain.model.commands.RedeemCouponCommand;
 import com.safestep.platform.commerce.domain.model.commands.UpdateCartItemCommand;
 import com.safestep.platform.commerce.domain.model.commands.UpdateCouponCommand;
 import com.safestep.platform.commerce.domain.model.commands.UpdateProductCommand;
 import com.safestep.platform.commerce.domain.model.entities.*;
+import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.CouponType;
 import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.OrderStatus;
+import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.PaymentStatus;
+import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.RedemptionStatus;
 import com.safestep.platform.commerce.domain.model.valueobjects.StripeCheckoutSession;
 import com.safestep.platform.commerce.domain.repositories.*;
+import com.safestep.platform.gamification.interfaces.acl.GamificationContextFacade;
 import com.safestep.platform.shared.application.result.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.math.BigDecimal;
 import java.time.*;
 import java.util.*;
 
@@ -34,25 +41,36 @@ import java.util.*;
 public class CommerceCommandServiceImpl implements CommerceCommandService {
     private final ProductRepository products;
     private final CouponRepository coupons;
+    private final RedeemedCouponRepository redeemedCoupons;
     private final ShoppingCartRepository carts;
     private final OrderRepository orders;
     private final StripeCheckoutClient stripeCheckoutClient;
     private final StripeWebhookVerifier stripeWebhookVerifier;
+    private final GamificationContextFacade gamification;
 
     public CommerceCommandServiceImpl(ProductRepository p, ShoppingCartRepository c, OrderRepository o,
             StripeCheckoutClient stripeCheckoutClient, StripeWebhookVerifier stripeWebhookVerifier) {
-        this(p, null, c, o, stripeCheckoutClient, stripeWebhookVerifier);
+        this(p, null, null, c, o, stripeCheckoutClient, stripeWebhookVerifier, null);
+    }
+
+    public CommerceCommandServiceImpl(ProductRepository p, CouponRepository couponRepository, ShoppingCartRepository c,
+            OrderRepository o, StripeCheckoutClient stripeCheckoutClient, StripeWebhookVerifier stripeWebhookVerifier) {
+        this(p, couponRepository, null, c, o, stripeCheckoutClient, stripeWebhookVerifier, null);
     }
 
     @Autowired
-    public CommerceCommandServiceImpl(ProductRepository p, CouponRepository couponRepository, ShoppingCartRepository c, OrderRepository o,
-            StripeCheckoutClient stripeCheckoutClient, StripeWebhookVerifier stripeWebhookVerifier) {
+    public CommerceCommandServiceImpl(ProductRepository p, CouponRepository couponRepository,
+            RedeemedCouponRepository redeemedCoupons, ShoppingCartRepository c, OrderRepository o,
+            StripeCheckoutClient stripeCheckoutClient, StripeWebhookVerifier stripeWebhookVerifier,
+            GamificationContextFacade gamification) {
         products = p;
         coupons = couponRepository;
+        this.redeemedCoupons = redeemedCoupons;
         carts = c;
         orders = o;
         this.stripeCheckoutClient = stripeCheckoutClient;
         this.stripeWebhookVerifier = stripeWebhookVerifier;
+        this.gamification = gamification;
     }
 
     @Override
@@ -105,9 +123,35 @@ public class CommerceCommandServiceImpl implements CommerceCommandService {
             items.add(
                     new OrderItem(p.get().getExternalId(), p.get().getName(), p.get().getPrice(), item.getQuantity()));
         }
+
+        RedeemedCoupon redeemed = null;
+        if (c.redeemedCouponExternalId() != null && !c.redeemedCouponExternalId().isBlank()) {
+            var found = redeemedCoupons.findByExternalId(c.redeemedCouponExternalId());
+            if (found.isEmpty())
+                return Result.failure(ApplicationError.notFound("redeemed coupon", c.redeemedCouponExternalId()));
+            redeemed = found.get();
+            if (!redeemed.getUsername().equals(c.username()))
+                return Result.failure(ApplicationError.businessRuleViolation("coupon ownership",
+                        "Redeemed coupon does not belong to current user"));
+            if (redeemed.getStatus() != RedemptionStatus.AVAILABLE)
+                return Result.failure(
+                        ApplicationError.businessRuleViolation("coupon", "Redeemed coupon is not available"));
+            var subtotal = items.stream().map(OrderItem::subtotal).reduce(BigDecimal.ZERO, BigDecimal::add);
+            if (redeemed.getType() == CouponType.PERCENTAGE_OFF_MIN_PURCHASE
+                    && subtotal.compareTo(redeemed.getMinPurchaseAmount()) < 0)
+                return Result.failure(ApplicationError.businessRuleViolation("coupon",
+                        "Order total does not reach the coupon's minimum purchase amount"));
+        }
+
         var order = new Order(null, "ord-" + UUID.randomUUID(), c.username(), items, OrderStatus.from(c.status()),
-                LocalDate.now());
+                LocalDate.now(), null, PaymentStatus.NONE, null, null, null,
+                redeemed == null ? null : redeemed.getDiscountPercentage(),
+                redeemed == null ? null : redeemed.getExternalId());
         orders.save(order);
+        if (redeemed != null) {
+            redeemed.markUsed(Instant.now());
+            redeemedCoupons.save(redeemed);
+        }
         carts.deleteByUsername(c.username());
         return Result.success(order);
     }
@@ -172,9 +216,20 @@ public class CommerceCommandServiceImpl implements CommerceCommandService {
                 && !c.stripeSessionId().equals(order.get().getStripeCheckoutSessionId()))
             return Result.failure(ApplicationError.businessRuleViolation("stripe session",
                     "Stripe session does not belong to this order"));
-        if (order.get().getStatus() != OrderStatus.PAID)
+        if (order.get().getStatus() != OrderStatus.PAID) {
             order.get().markStripePaymentFailed();
+            releaseRedeemedCoupon(order.get());
+        }
         return Result.success(orders.save(order.get()));
+    }
+
+    private void releaseRedeemedCoupon(Order order) {
+        if (order.getRedeemedCouponExternalId() == null)
+            return;
+        redeemedCoupons.findByExternalId(order.getRedeemedCouponExternalId()).ifPresent(rc -> {
+            rc.release();
+            redeemedCoupons.save(rc);
+        });
     }
 
     @Transactional
@@ -194,6 +249,7 @@ public class CommerceCommandServiceImpl implements CommerceCommandService {
                 order.get().markStripePaymentPaid(event.paymentIntentId(), Instant.now());
         } else {
             order.get().markStripePaymentFailed();
+            releaseRedeemedCoupon(order.get());
         }
         orders.save(order.get());
         return Result.success("Webhook captured");
@@ -247,9 +303,22 @@ public class CommerceCommandServiceImpl implements CommerceCommandService {
             return Result.failure(ApplicationError.validationError("coupon", "Coupon id is required"));
         if (coupon.getCostCoins() < 0)
             return Result.failure(ApplicationError.validationError("coupon", "Cost coins cannot be negative"));
+        var discountError = validateCouponDiscount(coupon);
+        if (discountError != null)
+            return Result.failure(discountError);
         if (coupons.existsByExternalId(coupon.getExternalId()))
             return Result.failure(ApplicationError.conflict("coupon", "Coupon id already exists"));
         return Result.success(coupons.save(coupon));
+    }
+
+    private ApplicationError validateCouponDiscount(Coupon coupon) {
+        if (coupon.getDiscountPercentage() < 1 || coupon.getDiscountPercentage() > 100)
+            return ApplicationError.validationError("coupon", "Discount percentage must be between 1 and 100");
+        if (coupon.getType() == com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.CouponType.PERCENTAGE_OFF_MIN_PURCHASE
+                && (coupon.getMinPurchaseAmount() == null || coupon.getMinPurchaseAmount().signum() <= 0))
+            return ApplicationError.validationError("coupon",
+                    "Minimum purchase amount is required and must be positive for this coupon type");
+        return null;
     }
 
     @Override
@@ -261,8 +330,11 @@ public class CommerceCommandServiceImpl implements CommerceCommandService {
             return Result.failure(ApplicationError.notFound("coupon", c.couponId()));
         if (c.coupon().getCostCoins() < 0)
             return Result.failure(ApplicationError.validationError("coupon", "Cost coins cannot be negative"));
-        var coupon = new Coupon(found.get().getId(), c.couponId(), c.coupon().getTitle(),
-                c.coupon().getCostCoins(), c.coupon().getDiscount());
+        var discountError = validateCouponDiscount(c.coupon());
+        if (discountError != null)
+            return Result.failure(discountError);
+        var coupon = new Coupon(found.get().getId(), c.couponId(), c.coupon().getTitle(), c.coupon().getCostCoins(),
+                c.coupon().getType(), c.coupon().getDiscountPercentage(), c.coupon().getMinPurchaseAmount());
         return Result.success(coupons.save(coupon));
     }
 
@@ -273,5 +345,22 @@ public class CommerceCommandServiceImpl implements CommerceCommandService {
             return Result.failure(ApplicationError.notFound("coupon", c.couponId()));
         coupons.delete(found.get());
         return Result.success("Coupon deleted");
+    }
+
+    @Transactional
+    @Override
+    public Result<RedeemedCoupon, ApplicationError> handle(RedeemCouponCommand c) {
+        var coupon = coupons.findByExternalId(c.couponId());
+        if (coupon.isEmpty())
+            return Result.failure(ApplicationError.notFound("coupon", c.couponId()));
+        var spent = gamification.spendCoins(c.username(), coupon.get().getCostCoins(), coupon.get().getExternalId(),
+                coupon.get().getTitle());
+        if (!spent)
+            return Result.failure(ApplicationError.businessRuleViolation("insufficient-coins",
+                    "Not enough SafeCoins to redeem this coupon"));
+        var redeemed = new RedeemedCoupon(null, "rdc-" + UUID.randomUUID(), c.username(), coupon.get().getExternalId(),
+                coupon.get().getTitle(), coupon.get().getType(), coupon.get().getDiscountPercentage(),
+                coupon.get().getMinPurchaseAmount(), Instant.now(), null, RedemptionStatus.AVAILABLE);
+        return Result.success(redeemedCoupons.save(redeemed));
     }
 }

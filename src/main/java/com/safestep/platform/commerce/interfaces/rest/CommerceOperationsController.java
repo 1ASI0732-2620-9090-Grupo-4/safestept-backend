@@ -8,6 +8,7 @@ import com.safestep.platform.commerce.domain.model.commands.CancelStripePaymentC
 import com.safestep.platform.commerce.domain.model.commands.ConfirmStripePaymentCommand;
 import com.safestep.platform.commerce.domain.model.commands.CreateOrderCommand;
 import com.safestep.platform.commerce.domain.model.commands.CreateStripeCheckoutSessionCommand;
+import com.safestep.platform.commerce.domain.model.commands.RedeemCouponCommand;
 import com.safestep.platform.commerce.domain.model.commands.UpdateCartItemCommand;
 import com.safestep.platform.commerce.domain.model.queries.*;
 import com.safestep.platform.commerce.interfaces.rest.resources.AddCartItemResource;
@@ -89,10 +90,26 @@ public class CommerceOperationsController {
     @PostMapping("/orders")
     @Operation(summary = "Create current user order")
     public ResponseEntity<?> createOrder(@Valid @RequestBody CreateOrderResource payload) {
-        var result = commerceCommandService
-                .handle(new CreateOrderCommand(currentUserService.username(), payload.status()));
+        var result = commerceCommandService.handle(new CreateOrderCommand(currentUserService.username(),
+                payload.status(), payload.redeemedCouponExternalId()));
         return ResponseEntityAssembler.toResponseEntityFromResult(result, CommerceResourceAssembler::toResource,
                 HttpStatus.CREATED);
+    }
+
+    @PostMapping("/coupons/{couponId}/redeem")
+    @Operation(summary = "Redeem a coupon using current user's SafeCoins")
+    public ResponseEntity<?> redeemCoupon(@PathVariable String couponId) {
+        var result = commerceCommandService.handle(new RedeemCouponCommand(currentUserService.username(), couponId));
+        return ResponseEntityAssembler.toResponseEntityFromResult(result, CommerceResourceAssembler::toResource,
+                HttpStatus.CREATED);
+    }
+
+    @GetMapping("/coupons/redeemed/me")
+    @Operation(summary = "Get current user's redeemed coupons")
+    public ResponseEntity<?> getMyRedeemedCoupons() {
+        return ResponseEntity.ok(commerceQueryService
+                .handle(new GetRedeemedCouponsByUsernameQuery(currentUserService.username())).stream()
+                .map(CommerceResourceAssembler::toResource).toList());
     }
 
     @GetMapping("/shipping-addresses/me")

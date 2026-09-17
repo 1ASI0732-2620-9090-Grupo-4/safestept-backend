@@ -18,6 +18,27 @@ class OrderTest {
     }
 
     @Test
+    void finalTotalAppliesDiscountPercentageWithoutAffectingTotal() {
+        var order = new Order(null, "ord-1", "ana",
+                List.of(new OrderItem("p1", "Bandage", new BigDecimal("12.50"), 2),
+                        new OrderItem("p2", "Mask", new BigDecimal("5.00"), 1)),
+                OrderStatus.PENDING, LocalDate.now(), null, PaymentStatus.NONE, null, null, null, 10, "rdc-1");
+
+        assertEquals(new BigDecimal("30.00"), order.total());
+        assertEquals(new BigDecimal("27.00"), order.finalTotal());
+        assertEquals("rdc-1", order.getRedeemedCouponExternalId());
+    }
+
+    @Test
+    void finalTotalEqualsTotalWithoutDiscount() {
+        var order = new Order(null, "ord-1", "ana", List.of(new OrderItem("p1", "Bandage", new BigDecimal("12.50"), 2)),
+                OrderStatus.PENDING, LocalDate.now());
+
+        assertEquals(order.total(), order.finalTotal());
+        assertNull(order.getAppliedDiscountPercentage());
+    }
+
+    @Test
     void startsStripeCheckoutWithPaymentPendingState() {
         var order = new Order(null, "ord-1", "ana",
                 List.of(new OrderItem("p1", "Bandage", new BigDecimal("12.50"), 2)), OrderStatus.PENDING,

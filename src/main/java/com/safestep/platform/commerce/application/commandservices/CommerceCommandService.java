@@ -3,6 +3,7 @@ package com.safestep.platform.commerce.application.commandservices;
 import com.safestep.platform.commerce.domain.model.aggregates.Order;
 import com.safestep.platform.commerce.domain.model.aggregates.Product;
 import com.safestep.platform.commerce.domain.model.aggregates.Coupon;
+import com.safestep.platform.commerce.domain.model.aggregates.RedeemedCoupon;
 import com.safestep.platform.commerce.domain.model.commands.AddCartItemCommand;
 import com.safestep.platform.commerce.domain.model.commands.CaptureStripeWebhookCommand;
 import com.safestep.platform.commerce.domain.model.commands.CancelStripePaymentCommand;
@@ -14,6 +15,7 @@ import com.safestep.platform.commerce.domain.model.commands.CreateStripeCheckout
 import com.safestep.platform.commerce.domain.model.commands.DeleteCouponCommand;
 import com.safestep.platform.commerce.domain.model.commands.DeleteProductCommand;
 import com.safestep.platform.commerce.domain.model.commands.UpdateCartItemCommand;
+import com.safestep.platform.commerce.domain.model.commands.RedeemCouponCommand;
 import com.safestep.platform.commerce.domain.model.commands.UpdateCouponCommand;
 import com.safestep.platform.commerce.domain.model.commands.UpdateProductCommand;
 import com.safestep.platform.commerce.domain.model.entities.CartItem;
@@ -48,4 +50,6 @@ public interface CommerceCommandService {
     Result<Coupon, ApplicationError> handle(UpdateCouponCommand command);
 
     Result<String, ApplicationError> handle(DeleteCouponCommand command);
+
+    Result<RedeemedCoupon, ApplicationError> handle(RedeemCouponCommand command);
 }

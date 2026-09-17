@@ -2,8 +2,10 @@ package com.safestep.platform.commerce.interfaces.rest.transform;
 
 import com.safestep.platform.commerce.domain.model.aggregates.*;
 import com.safestep.platform.commerce.domain.model.entities.CartItem;
+import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.CouponType;
 import com.safestep.platform.commerce.interfaces.rest.resources.CartItemResource;
 import com.safestep.platform.commerce.interfaces.rest.resources.CouponResource;
+import com.safestep.platform.commerce.interfaces.rest.resources.RedeemedCouponResource;
 import com.safestep.platform.commerce.interfaces.rest.resources.OrderItemResource;
 import com.safestep.platform.commerce.interfaces.rest.resources.OrderResource;
 import com.safestep.platform.commerce.interfaces.rest.resources.ProductResource;
@@ -23,11 +25,19 @@ public final class CommerceResourceAssembler {
     }
 
     public static CouponResource toResource(Coupon c) {
-        return new CouponResource(c.getExternalId(), c.getTitle(), c.getCostCoins(), c.getDiscount());
+        return new CouponResource(c.getExternalId(), c.getTitle(), c.getCostCoins(), c.getType().name(),
+                c.getDiscountPercentage(), c.getMinPurchaseAmount());
     }
 
     public static Coupon toCoupon(CouponResource r) {
-        return new Coupon(null, r.id(), r.title(), r.costCoins(), r.discount());
+        return new Coupon(null, r.id(), r.title(), r.costCoins(), CouponType.from(r.type()), r.discountPercentage(),
+                r.minPurchaseAmount());
+    }
+
+    public static RedeemedCouponResource toResource(RedeemedCoupon c) {
+        return new RedeemedCouponResource(c.getExternalId(), c.getCouponId(), c.getTitle(), c.getType().name(),
+                c.getDiscountPercentage(), c.getMinPurchaseAmount(), c.getRedeemedAt(), c.getUsedAt(),
+                c.getStatus().name());
     }
 
     public static CartItemResource toResource(CartItem i) {
@@ -42,6 +52,6 @@ public final class CommerceResourceAssembler {
                 o.getItems().stream()
                         .map(i -> new OrderItemResource(i.productId(), i.productName(), i.unitPrice(), i.quantity()))
                         .toList(),
-                o.getCreatedAt());
+                o.getCreatedAt(), o.finalTotal(), o.getAppliedDiscountPercentage(), o.getRedeemedCouponExternalId());
     }
 }

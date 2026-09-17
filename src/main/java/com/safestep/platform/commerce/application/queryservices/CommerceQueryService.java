@@ -17,4 +17,5 @@ public interface CommerceQueryService {
     List<Order> handle(GetOrdersByUsernameQuery query);
     List<ShippingAddress> handle(GetShippingAddressesQuery query);
     List<PaymentMethod> handle(GetPaymentMethodsQuery query);
+    List<RedeemedCoupon> handle(GetRedeemedCouponsByUsernameQuery query);
 }

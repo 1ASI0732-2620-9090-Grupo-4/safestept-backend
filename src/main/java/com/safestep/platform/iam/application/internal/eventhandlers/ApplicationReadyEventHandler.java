@@ -1,6 +1,8 @@
 package com.safestep.platform.iam.application.internal.eventhandlers;
 
+import com.safestep.platform.iam.application.commandservices.AdminSeedCommandService;
 import com.safestep.platform.iam.application.commandservices.RoleCommandService;
+import com.safestep.platform.iam.domain.model.commands.SeedAdminCommand;
 import com.safestep.platform.iam.domain.model.commands.SeedRolesCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -16,9 +18,12 @@ import java.sql.Timestamp;
 @Slf4j
 public class ApplicationReadyEventHandler {
     private final RoleCommandService roleCommandService;
+    private final AdminSeedCommandService adminSeedCommandService;
 
-    public ApplicationReadyEventHandler(RoleCommandService roleCommandService) {
+    public ApplicationReadyEventHandler(RoleCommandService roleCommandService,
+            AdminSeedCommandService adminSeedCommandService) {
         this.roleCommandService = roleCommandService;
+        this.adminSeedCommandService = adminSeedCommandService;
     }
 
     /**
@@ -34,6 +39,8 @@ public class ApplicationReadyEventHandler {
         var seedRolesCommand = new SeedRolesCommand();
         roleCommandService.handle(seedRolesCommand);
         log.info("Roles seeding verification finished for {} at {}", applicationName, currentTimestamp());
+
+        adminSeedCommandService.handle(new SeedAdminCommand());
     }
 
     private Timestamp currentTimestamp() {

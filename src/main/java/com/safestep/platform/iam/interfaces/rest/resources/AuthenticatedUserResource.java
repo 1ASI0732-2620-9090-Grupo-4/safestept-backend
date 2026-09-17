@@ -1,6 +1,7 @@
 package com.safestep.platform.iam.interfaces.rest.resources;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.List;
 
 /**
  * Resource returned after successful authentication.
@@ -15,5 +16,7 @@ public record AuthenticatedUserResource(@Schema(description = "User unique ident
 
         @Schema(description = "JWT Bearer access token for authentication", example = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...") String token,
 
-        @Schema(description = "Refresh token used to rotate authentication tokens") String refreshToken) {
+        @Schema(description = "Refresh token used to rotate authentication tokens") String refreshToken,
+
+        @Schema(description = "Authorities granted to this user", example = "[\"ROLE_USER\"]") List<String> roles) {
 }

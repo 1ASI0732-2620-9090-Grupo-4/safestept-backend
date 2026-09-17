@@ -7,6 +7,7 @@ import com.safestep.platform.iam.domain.model.commands.RefreshTokenCommand;
 import com.safestep.platform.iam.domain.model.commands.ResetPasswordCommand;
 import com.safestep.platform.iam.domain.model.commands.SignInCommand;
 import com.safestep.platform.iam.domain.model.commands.SignUpCommand;
+import com.safestep.platform.iam.domain.model.commands.UpdateUserRolesCommand;
 import com.safestep.platform.iam.domain.model.commands.UpdateUserStatusCommand;
 import com.safestep.platform.iam.domain.model.valueobjects.AuthenticationTokens;
 import com.safestep.platform.iam.domain.model.valueobjects.PasswordResetTokenIssue;
@@ -47,5 +48,15 @@ public interface UserCommandService {
     Result<String, ApplicationError> handle(ResetPasswordCommand command);
 
     Result<User, ApplicationError> handle(UpdateUserStatusCommand command);
+
+    /**
+     * Handles replacing a user's assigned roles.
+     *
+     * @param command
+     *            update user roles command
+     *
+     * @return updated user aggregate, or an application error
+     */
+    Result<User, ApplicationError> handle(UpdateUserRolesCommand command);
 
 }

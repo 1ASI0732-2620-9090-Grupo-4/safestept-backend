@@ -4,10 +4,13 @@ import com.safestep.platform.iam.application.commandservices.UserCommandService;
 import com.safestep.platform.iam.application.queryservices.UserQueryService;
 import com.safestep.platform.iam.domain.model.queries.GetAllUsersQuery;
 import com.safestep.platform.iam.domain.model.queries.GetUserByIdQuery;
+import com.safestep.platform.iam.interfaces.rest.resources.UpdateUserRolesResource;
 import com.safestep.platform.iam.interfaces.rest.resources.UpdateUserStatusResource;
 import com.safestep.platform.iam.interfaces.rest.resources.UserResource;
+import com.safestep.platform.iam.interfaces.rest.transform.UpdateUserRolesCommandFromResourceAssembler;
 import com.safestep.platform.iam.interfaces.rest.transform.UpdateUserStatusCommandFromResourceAssembler;
 import com.safestep.platform.iam.interfaces.rest.transform.UserResourceFromEntityAssembler;
+import com.safestep.platform.shared.application.services.CurrentUserService;
 import com.safestep.platform.shared.interfaces.rest.transform.ResponseEntityAssembler;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -41,10 +44,13 @@ import java.util.List;
 public class UsersController {
     private final UserQueryService userQueryService;
     private final UserCommandService userCommandService;
+    private final CurrentUserService currentUserService;
 
-    public UsersController(UserQueryService userQueryService, UserCommandService userCommandService) {
+    public UsersController(UserQueryService userQueryService, UserCommandService userCommandService,
+            CurrentUserService currentUserService) {
         this.userQueryService = userQueryService;
         this.userCommandService = userCommandService;
+        this.currentUserService = currentUserService;
     }
 
     /**
@@ -106,6 +112,24 @@ public class UsersController {
             @PathVariable @Parameter(description = "Unique user identifier", example = "1", required = true) Long userId,
             @Valid @RequestBody UpdateUserStatusResource resource) {
         var command = UpdateUserStatusCommandFromResourceAssembler.toCommandFromResource(userId, resource);
+        var result = userCommandService.handle(command);
+        return ResponseEntityAssembler.toResponseEntityFromResult(result,
+                UserResourceFromEntityAssembler::toResourceFromEntity, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/{userId}/roles")
+    @Operation(summary = "Update user roles", description = "Replaces the roles assigned to a user. Requires ROLE_ADMIN. Admins cannot remove their own ROLE_ADMIN role, and the system must always keep at least one admin.", security = @SecurityRequirement(name = "bearerAuth"))
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "User roles updated", content = @Content(schema = @Schema(implementation = UserResource.class))),
+            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid"),
+            @ApiResponse(responseCode = "403", description = "Forbidden - Admin role required"),
+            @ApiResponse(responseCode = "404", description = "User or role not found"),
+            @ApiResponse(responseCode = "422", description = "Business rule violation - self role removal or last admin removal") })
+    public ResponseEntity<?> updateUserRoles(
+            @PathVariable @Parameter(description = "Unique user identifier", example = "1", required = true) Long userId,
+            @Valid @RequestBody UpdateUserRolesResource resource) {
+        var command = UpdateUserRolesCommandFromResourceAssembler.toCommandFromResource(userId,
+                currentUserService.username(), resource);
         var result = userCommandService.handle(command);
         return ResponseEntityAssembler.toResponseEntityFromResult(result,
                 UserResourceFromEntityAssembler::toResourceFromEntity, HttpStatus.OK);

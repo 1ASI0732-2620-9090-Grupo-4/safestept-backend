@@ -23,6 +23,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -59,6 +60,7 @@ public class CommerceCatalogController {
     }
 
     @PostMapping("/products")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Create store product")
     public ResponseEntity<?> createProduct(@Valid @RequestBody ProductResource payload) {
         var result = commerceCommandService
@@ -68,6 +70,7 @@ public class CommerceCatalogController {
     }
 
     @PutMapping("/products/{productId}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Update store product")
     public ResponseEntity<?> updateProduct(@PathVariable String productId,
             @Valid @RequestBody ProductResource payload) {
@@ -78,6 +81,7 @@ public class CommerceCatalogController {
     }
 
     @DeleteMapping({ "/products/{productId}", "/products/" })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Delete store product")
     public ResponseEntity<?> deleteProduct(@PathVariable(required = false) String productId) {
         return noContentFromResult(commerceCommandService.handle(new DeleteProductCommand(productId == null ? "" : productId)));
@@ -103,6 +107,7 @@ public class CommerceCatalogController {
     }
 
     @PostMapping("/coupons")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Create redeemable coupon")
     public ResponseEntity<?> createCoupon(@Valid @RequestBody CouponResource payload) {
         var result = commerceCommandService
@@ -112,6 +117,7 @@ public class CommerceCatalogController {
     }
 
     @PutMapping("/coupons/{couponId}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Update redeemable coupon")
     public ResponseEntity<?> updateCoupon(@PathVariable String couponId, @Valid @RequestBody CouponResource payload) {
         var result = commerceCommandService
@@ -121,6 +127,7 @@ public class CommerceCatalogController {
     }
 
     @DeleteMapping({ "/coupons/{couponId}", "/coupons/" })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Delete redeemable coupon")
     public ResponseEntity<?> deleteCoupon(@PathVariable(required = false) String couponId) {
         return noContentFromResult(commerceCommandService.handle(new DeleteCouponCommand(couponId == null ? "" : couponId)));

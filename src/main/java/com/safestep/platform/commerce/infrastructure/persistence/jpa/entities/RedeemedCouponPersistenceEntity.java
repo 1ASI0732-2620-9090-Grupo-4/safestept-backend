@@ -4,17 +4,23 @@ import com.safestep.platform.shared.infrastructure.persistence.jpa.entities.Audi
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
 @Entity
-@Table(name = "coupons")
-public class CouponPersistenceEntity extends AuditableAbstractPersistenceEntity {
+@Table(name = "redeemed_coupons")
+public class RedeemedCouponPersistenceEntity extends AuditableAbstractPersistenceEntity {
     @Column(unique = true, nullable = false)
     private String externalId;
+    @Column(nullable = false)
+    private String username;
+    private String couponId;
     private String title;
-    private int costCoins;
     private String type;
     private int discountPercentage;
     private BigDecimal minPurchaseAmount;
+    private Instant redeemedAt;
+    private Instant usedAt;
+    private String status;
 
     public String getExternalId() {
         return externalId;
@@ -24,20 +30,28 @@ public class CouponPersistenceEntity extends AuditableAbstractPersistenceEntity 
         externalId = v;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String v) {
+        username = v;
+    }
+
+    public String getCouponId() {
+        return couponId;
+    }
+
+    public void setCouponId(String v) {
+        couponId = v;
+    }
+
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String v) {
         title = v;
-    }
-
-    public int getCostCoins() {
-        return costCoins;
-    }
-
-    public void setCostCoins(int v) {
-        costCoins = v;
     }
 
     public String getType() {
@@ -62,5 +76,29 @@ public class CouponPersistenceEntity extends AuditableAbstractPersistenceEntity 
 
     public void setMinPurchaseAmount(BigDecimal v) {
         minPurchaseAmount = v;
+    }
+
+    public Instant getRedeemedAt() {
+        return redeemedAt;
+    }
+
+    public void setRedeemedAt(Instant v) {
+        redeemedAt = v;
+    }
+
+    public Instant getUsedAt() {
+        return usedAt;
+    }
+
+    public void setUsedAt(Instant v) {
+        usedAt = v;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String v) {
+        status = v;
     }
 }

@@ -17,12 +17,13 @@ public class CommerceQueryServiceImpl implements CommerceQueryService {
     private final CategoryRepository categories;
     private final EmergencyKitRepository kits;
     private final CouponRepository coupons;
+    private final RedeemedCouponRepository redeemedCoupons;
     private final ShippingAddressRepository addresses;
     private final PaymentMethodRepository payments;
     private final ProductRecommendationRepository recommendations;
 
     public CommerceQueryServiceImpl(ProductRepository p, ShoppingCartRepository c, OrderRepository o,
-            CategoryRepository ca, EmergencyKitRepository k, CouponRepository co,
+            CategoryRepository ca, EmergencyKitRepository k, CouponRepository co, RedeemedCouponRepository rc,
             ShippingAddressRepository a, PaymentMethodRepository pm,
             ProductRecommendationRepository r) {
         products = p;
@@ -31,6 +32,7 @@ public class CommerceQueryServiceImpl implements CommerceQueryService {
         categories = ca;
         kits = k;
         coupons = co;
+        redeemedCoupons = rc;
         addresses = a;
         payments = pm;
         recommendations = r;
@@ -85,5 +87,10 @@ public class CommerceQueryServiceImpl implements CommerceQueryService {
     @Override
     public List<PaymentMethod> handle(GetPaymentMethodsQuery query) {
         return payments.findAll();
+    }
+
+    @Override
+    public List<RedeemedCoupon> handle(GetRedeemedCouponsByUsernameQuery query) {
+        return redeemedCoupons.findByUsername(query.username());
     }
 }

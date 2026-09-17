@@ -14,6 +14,7 @@ import com.safestep.platform.commerce.domain.model.commands.UpdateProductCommand
 import com.safestep.platform.commerce.domain.model.entities.OrderItem;
 import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.OrderStatus;
 import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.PaymentStatus;
+import com.safestep.platform.commerce.domain.model.valueobjects.CommerceValueObjects.CouponType;
 import com.safestep.platform.commerce.domain.model.valueobjects.StripeCheckoutSession;
 import com.safestep.platform.commerce.domain.model.valueobjects.StripeWebhookEvent;
 import com.safestep.platform.commerce.domain.repositories.CouponRepository;
@@ -175,7 +176,8 @@ class CommerceStripeCommandServiceTest {
         var coupons = mock(CouponRepository.class);
         var service = service(mock(ProductRepository.class), coupons);
 
-        var result = service.handle(new CreateCouponCommand(new Coupon(null, "coupon-1", "Coupon", -1, "10%")));
+        var result = service.handle(new CreateCouponCommand(
+                new Coupon(null, "coupon-1", "Coupon", -1, CouponType.PERCENTAGE_OFF, 10, null)));
 
         assertTrue(result.isFailure());
         verify(coupons, never()).save(any());
