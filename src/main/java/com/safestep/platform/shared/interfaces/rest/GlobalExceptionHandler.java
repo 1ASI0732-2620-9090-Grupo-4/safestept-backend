@@ -1,6 +1,7 @@
 package com.safestep.platform.shared.interfaces.rest;
 
 import com.safestep.platform.shared.application.result.ApplicationError;
+import com.safestep.platform.shared.interfaces.rest.resources.ErrorResource;
 import com.safestep.platform.shared.interfaces.rest.transform.ErrorResponseAssembler;
 import org.jspecify.annotations.NullMarked;
 import org.slf4j.Logger;
@@ -79,7 +80,7 @@ public class GlobalExceptionHandler {
      * @return error response with BAD_REQUEST status
      */
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<?> handleHttpMessageNotReadable(HttpMessageNotReadableException ex) {
+    public ResponseEntity<ErrorResource> handleHttpMessageNotReadable(HttpMessageNotReadableException ex) {
         var applicationError = ApplicationError.validationError("request-body",
                 resolveMessageOrDefault("validation.request.unreadable", "Malformed or unreadable request body"));
         return ErrorResponseAssembler.toErrorResponseFromApplicationError(applicationError);
