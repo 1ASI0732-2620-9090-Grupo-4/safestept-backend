@@ -3,8 +3,11 @@ package com.safestep.platform.shared.interfaces.rest;
 import com.safestep.platform.shared.application.result.ApplicationError;
 import com.safestep.platform.shared.interfaces.rest.transform.ErrorResponseAssembler;
 import org.jspecify.annotations.NullMarked;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -21,6 +24,7 @@ import java.util.ResourceBundle;
 @RestControllerAdvice
 @NullMarked
 public class GlobalExceptionHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
     private static final String MESSAGES_BASENAME = "messages";
 
     /**
@@ -65,6 +69,22 @@ public class GlobalExceptionHandler {
         return ErrorResponseAssembler.toErrorResponseFromApplicationError(applicationError);
     }
 
+    /**
+     * Handles request bodies that cannot be read, such as malformed JSON. The parser message is not returned because it
+     * can expose internal details.
+     *
+     * @param ex
+     *            the unreadable message exception
+     *
+     * @return error response with BAD_REQUEST status
+     */
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<?> handleHttpMessageNotReadable(HttpMessageNotReadableException ex) {
+        var applicationError = ApplicationError.validationError("request-body",
+                resolveMessageOrDefault("validation.request.unreadable", "Malformed or unreadable request body"));
+        return ErrorResponseAssembler.toErrorResponseFromApplicationError(applicationError);
+    }
+
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<?> handleAccessDeniedException(AccessDeniedException ex) {
         var applicationError = ApplicationError.forbidden("resource",
@@ -83,6 +103,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<?> handleRuntimeException(RuntimeException ex) {
+        LOGGER.error("Unexpected runtime exception", ex);
         var applicationError = ApplicationError.unexpected(
                 resolveMessageOrDefault("error.unexpected.context", "global-exception-handler"),
                 ex.getMessage() != null ? ex.getMessage() : "An unexpected error occurred");
@@ -100,6 +121,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleException(Exception ex) {
+        LOGGER.error("Unexpected exception", ex);
         var applicationError = ApplicationError.unexpected(
                 resolveMessageOrDefault("error.unexpected.context", "global-exception-handler"),
                 ex.getMessage() != null ? ex.getMessage() : "An unexpected error occurred");

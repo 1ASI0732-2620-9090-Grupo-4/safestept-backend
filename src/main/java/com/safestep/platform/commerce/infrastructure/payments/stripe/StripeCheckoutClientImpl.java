@@ -89,7 +89,7 @@ public class StripeCheckoutClientImpl implements StripeCheckoutClient {
     private BigDecimal discountedUnitPrice(BigDecimal unitPrice, Integer discountPercentage) {
         if (discountPercentage == null || discountPercentage <= 0)
             return unitPrice;
-        var factor = BigDecimal.valueOf(100 - discountPercentage).divide(BigDecimal.valueOf(100));
+        var factor = BigDecimal.valueOf(100L - discountPercentage).divide(BigDecimal.valueOf(100));
         return unitPrice.multiply(factor).setScale(2, RoundingMode.HALF_UP);
     }
 
