@@ -25,8 +25,8 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 # Copy the Maven project files into the container
 COPY src ./src
-# Build the application
-RUN mvn clean package
+# Build the application (tests already ran in the CI pipeline before the image is built)
+RUN mvn -B clean package -DskipTests
 
 # Step 2: Create a runtime image
 # Copy the Spring Boot JAR file into the container

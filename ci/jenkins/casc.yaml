@@ -1,0 +1,50 @@
+jenkins:
+  systemMessage: "SafeStep CI/CD - configured as code (ci/jenkins/casc.yaml)"
+  numExecutors: 2
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "${JENKINS_ADMIN_PASSWORD}"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  location:
+    url: "http://localhost:9089/"
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+      - name: "MiSonarServer"
+        serverUrl: "http://sonarqube-server:9000"
+        credentialsId: "sonarqube-token-id"
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - string:
+              scope: GLOBAL
+              id: "sonarqube-token-id"
+              description: "Token de autenticacion para SonarQube"
+              secret: "${SONAR_TOKEN}"
+
+jobs:
+  - script: >
+      pipelineJob('safestep-backend') {
+        description('SafeStep backend CI/CD: build, checkstyle, unit and BDD tests, coverage gate, SonarQube, package, Docker image and Karate API tests.')
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote { url('file:///workspace/safestept-backend') }
+                branches('*/develop')
+              }
+            }
+            scriptPath('Jenkinsfile')
+            lightweight(false)
+          }
+        }
+      }
