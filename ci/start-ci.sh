@@ -21,7 +21,7 @@ touch "$ENV_FILE"
 set_env BACKEND_REPO_PATH "$(cd .. && pwd -W 2>/dev/null || pwd)"
 
 echo "==> Starting SonarQube"
-docker compose --env-file "$ENV_FILE" up -d sonarqube-server 2>&1 | tail -3 || true
+docker compose --env-file "$ENV_FILE" up -d sonarqube-server
 until [ "$(curl -s "$SONAR_URL/api/system/status" | sed -n 's/.*"status":"\([A-Z_]*\)".*/\1/p')" = "UP" ]; do
   echo "    waiting for SonarQube..."; sleep 10
 done
@@ -49,6 +49,6 @@ if ! curl -s -u "admin:$SONAR_ADMIN_PASSWORD" "$SONAR_URL/api/webhooks/list" | g
 fi
 
 echo "==> Starting Jenkins (image build downloads the plugins and JDK 26 on the first run)"
-docker compose --env-file "$ENV_FILE" up -d --build jenkins-master 2>&1 | tail -5 || true
+docker compose --env-file "$ENV_FILE" up -d --build jenkins-master
 
 echo "==> Done. Jenkins: http://localhost:9089 (user admin, password in ci/.env)  SonarQube: $SONAR_URL"
