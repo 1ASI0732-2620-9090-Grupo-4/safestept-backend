@@ -48,6 +48,9 @@ if ! curl -s -u "admin:$SONAR_ADMIN_PASSWORD" "$SONAR_URL/api/webhooks/list" | g
     --data-urlencode "url=http://jenkins-master:9089/sonarqube-webhook/" > /dev/null
 fi
 
+echo "==> Allowing anonymous read access to the SonarQube dashboards (local CI only)"
+curl -s -u "admin:$SONAR_ADMIN_PASSWORD" -X POST "$SONAR_URL/api/settings/set"   --data-urlencode "key=sonar.forceAuthentication" --data-urlencode "value=false" > /dev/null
+
 echo "==> Starting Jenkins (image build downloads the plugins and JDK 26 on the first run)"
 docker compose --env-file "$ENV_FILE" up -d --build jenkins-master
 
