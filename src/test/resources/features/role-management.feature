@@ -1,4 +1,4 @@
-@admin @roles
+@admin @roles @US57 @US58
 Feature: Role management by administrators
   As an administrator of SafeStep
   I want to assign roles to users from the admin dashboard

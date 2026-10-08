@@ -1,4 +1,4 @@
-@security @admin
+@security @admin @US57 @US58
 Feature: Authorization rules of the API
 
   Background:

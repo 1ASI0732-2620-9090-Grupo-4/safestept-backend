@@ -1,4 +1,4 @@
-@checkout @US40 @US42
+@checkout @US40 @US60
 Feature: Use a redeemed coupon at checkout
   As a player who redeemed a discount coupon
   I want the discount applied when I create my order
