@@ -22,9 +22,9 @@ The HTML report is written to `target/karate-reports/karate-summary.html`.
 | Feature | User stories | Scenarios |
 | --- | --- | --- |
 | `authentication/authentication.feature` | US01, US02 | sign-up (data-driven from `users-batch.json`), sign-in, refresh token rotation, conflicts, validation |
-| `security/authorization.feature` | admin dashboard | 401/403 rules, role listing, role assignment, self-demotion protection |
+| `security/authorization.feature` | US57, US58 | 401/403 rules, role listing, role assignment, self-demotion protection |
 | `catalog/catalog.feature` | US30, US31 | product, category, kit and coupon catalogues |
-| `commerce/coupon-flow.feature` | US15, US40, US42 | earn SafeCoins, redeem a coupon, create an order with the discount |
+| `commerce/coupon-flow.feature` | US15, US40, US59, US60 | earn SafeCoins, redeem a coupon, create an order with the discount |
 | `gamification/rewards.feature` | US15, US16 | rewards for completed simulations and score validation |
 
 Every scenario creates its own users with random names, so the suite can be re-run against a database that
