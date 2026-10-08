@@ -1,4 +1,4 @@
-@coupons @US42
+@coupons @US42 @US59 @US61
 Feature: Redeem SafeCoins for store coupons
   As a player who earns SafeCoins by training
   I want to exchange my SafeCoins for discount coupons

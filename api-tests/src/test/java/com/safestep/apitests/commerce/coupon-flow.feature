@@ -1,4 +1,4 @@
-@commerce @coupons @US15 @US40 @US42
+@commerce @coupons @US15 @US40 @US59 @US60
 Feature: End-to-end SafeCoins coupon flow
 
   Background:
