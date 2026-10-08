@@ -9,7 +9,7 @@ jenkins:
           password: "${JENKINS_ADMIN_PASSWORD}"
   authorizationStrategy:
     loggedInUsersCanDoAnything:
-      allowAnonymousRead: false
+      allowAnonymousRead: true   # local CI: dashboards are readable, building still needs the admin user
 
 unclassified:
   location:
