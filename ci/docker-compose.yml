@@ -1,0 +1,47 @@
+# CI/CD ecosystem for SafeStep: Jenkins (port 9089) + SonarQube (port 9000) on the shared network used by the
+# course material. Start it with ci/start-ci.sh, which also wires the SonarQube token and webhook.
+name: safestep-ci
+
+services:
+  sonarqube-server:
+    image: sonarqube:lts-community
+    container_name: sonarqube-server
+    networks: [spring-postgres-net]
+    ports:
+      - "9000:9000"
+    environment:
+      # Docker Desktop does not always raise vm.max_map_count, so Elasticsearch must not rely on mmap
+      SONAR_SEARCH_JAVAADDITIONALOPTS: "-Dnode.store.allow_mmap=false"
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+
+  jenkins-master:
+    build: ./jenkins
+    image: safestep-jenkins:1.0
+    container_name: jenkins-master
+    user: root
+    networks: [spring-postgres-net]
+    ports:
+      - "9089:9089"
+      - "50000:50000"
+    environment:
+      JENKINS_OPTS: "--httpPort=9089"
+      JENKINS_ADMIN_PASSWORD: "${JENKINS_ADMIN_PASSWORD:?run ci/start-ci.sh}"
+      SONAR_TOKEN: "${SONAR_TOKEN:?run ci/start-ci.sh}"
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      # The pipeline job checks out this repository from the host (read only)
+      - "${BACKEND_REPO_PATH:?run ci/start-ci.sh}:/workspace/safestept-backend:ro"
+
+networks:
+  spring-postgres-net:
+    name: spring-postgres-net
+
+volumes:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
+  jenkins_data:
