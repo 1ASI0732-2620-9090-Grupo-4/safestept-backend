@@ -33,6 +33,7 @@
         <checkstyle.config.location>google_checks.xml</checkstyle.config.location>
         <jacoco.version>0.8.15</jacoco.version>
         <jacoco.minimum.coverage>0.80</jacoco.minimum.coverage>
+        <cucumber.version>8.0.4</cucumber.version>
         <sonar.maven.plugin.version>5.8.0.7211</sonar.maven.plugin.version>
     </properties>
     <dependencies>
@@ -88,6 +89,30 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- BDD: Gherkin features executed with Cucumber on the JUnit Platform -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
