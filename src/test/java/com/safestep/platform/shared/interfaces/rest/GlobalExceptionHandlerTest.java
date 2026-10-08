@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.MethodParameter;
+import org.springframework.http.HttpInputMessage;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.FieldError;
@@ -14,7 +16,9 @@ import java.util.Locale;
 import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 class GlobalExceptionHandlerTest {
 
@@ -35,6 +39,21 @@ class GlobalExceptionHandlerTest {
         assertEquals("UNEXPECTED_ERROR", error.code());
         assertEquals("Error inesperado", error.message());
         assertEquals("boom", error.details());
+    }
+
+    @Test
+    void handleHttpMessageNotReadableAnswers400WithoutLeakingTheParserMessage() {
+        LocaleContextHolder.setLocale(Locale.forLanguageTag("es"));
+        var exception = new HttpMessageNotReadableException("JSON parse error: Unexpected character ('x')",
+                mock(HttpInputMessage.class));
+
+        var response = new GlobalExceptionHandler().handleHttpMessageNotReadable(exception);
+        var error = Objects.requireNonNull((ErrorResource) response.getBody());
+
+        assertEquals(400, response.getStatusCode().value());
+        assertEquals("VALIDATION_ERROR", error.code());
+        assertEquals("Cuerpo de la solicitud mal formado o ilegible", error.details());
+        assertFalse(error.details().contains("Unexpected character"));
     }
 
     @SuppressWarnings("unused")
