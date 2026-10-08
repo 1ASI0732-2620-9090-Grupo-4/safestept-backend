@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "SafeStep CI/CD - configured as code (ci/jenkins/casc.yaml)"
+  systemMessage: "SafeStep CI - configured as code (ci/jenkins/casc.yaml)"
   numExecutors: 2
   securityRealm:
     local:
@@ -34,7 +34,7 @@ credentials:
 jobs:
   - script: >
       pipelineJob('safestep-backend') {
-        description('SafeStep backend CI/CD: build, checkstyle, unit and BDD tests, coverage gate, SonarQube, package, Docker image and Karate API tests.')
+        description('SafeStep backend CI: build, checkstyle, unit and BDD tests, coverage gate, SonarQube and package.')
         definition {
           cpsScm {
             scm {

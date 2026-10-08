@@ -1,18 +1,18 @@
 # SafeStep API tests (Karate)
 
 Black-box integration tests for the SafeStep REST API. They only talk HTTP, so they run against any
-running instance: a local one, a Docker container started by the pipeline, or a deployed environment.
+running instance: a local one or a deployed environment.
 
 ## Run
 
-Start the API first (for example `mvn spring-boot:run` or the Docker image), then:
+Start the API first (for example with `mvn spring-boot:run`), then:
 
 ```bash
 mvn test -Dapi.baseUrl=http://localhost:8092 \
          -Dapi.admin.username=<seeded admin> -Dapi.admin.password=<its password>
 ```
 
-The defaults (`http://localhost:8093`, `apitest-admin`) match the isolated instance used in the CI pipeline.
+The defaults (`http://localhost:8093`, `apitest-admin`) match an isolated instance with its own database, so the tests never touch development data.
 The admin is the user created by the `SAFESTEP_ADMIN_USERNAME` / `SAFESTEP_ADMIN_PASSWORD` seed.
 
 The HTML report is written to `target/karate-reports/karate-summary.html`.

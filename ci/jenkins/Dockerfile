@@ -1,5 +1,5 @@
-# Jenkins controller used by the SafeStep CI/CD pipeline.
-# Based on the course image (jenkins-maven-sonar-jdk): Jenkins LTS + Maven + Docker CLI + the JDK used to build
+# Jenkins controller used by the SafeStep continuous integration pipeline.
+# Based on the course image (jenkins-maven-sonar-jdk): Jenkins LTS + Maven + the JDK used to build
 # the project. The pipeline selects JDK 26 through JAVA_HOME_26, so no global tool configuration is needed.
 FROM jenkins/jenkins:lts-jdk25
 
@@ -7,13 +7,6 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y git curl wget tar apt-transport-https ca-certificates gnupg lsb-release && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Docker CLI only: the pipeline talks to the host daemon through the mounted /var/run/docker.sock
-RUN mkdir -p /etc/apt/keyrings && \
-    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list && \
-    apt-get update && apt-get install -y docker-ce-cli && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Maven 3.9 (same version as the application Dockerfile)
