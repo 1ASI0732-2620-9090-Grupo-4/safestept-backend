@@ -12,6 +12,7 @@ SafeStep Backend is the REST API for the SafeStep first-aid learning platform. I
 - PostgreSQL
 - SpringDoc OpenAPI
 - Stripe Checkout
+- Quality: JUnit Jupiter, Mockito, AssertJ, Cucumber (BDD), Karate (API tests), JaCoCo, Checkstyle, SonarQube and Jenkins
 
 ## Bounded Contexts
 
@@ -74,7 +75,21 @@ $env:DATABASE_USER = "postgres"
 $env:DATABASE_PASSWORD = "postgres"
 $env:JWT_SECRET = "replace-with-a-long-secret-key"
 $env:PORT = "8092"
+$env:SAFESTEP_ADMIN_USERNAME = "choose-an-admin-username"
+$env:SAFESTEP_ADMIN_PASSWORD = "choose-a-long-admin-password"
 ```
+
+Environment variables only last while the PowerShell window is open. If `DATABASE_USER` or `DATABASE_PASSWORD` are not defined, the backend fails to start with `password authentication failed for user "${DATABASE_USER}"`.
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `DATABASE_URL`, `DATABASE_PORT`, `DATABASE_NAME` | No | PostgreSQL host, port and database. Defaults: `localhost`, `5432`, `safestep`. |
+| `DATABASE_USER`, `DATABASE_PASSWORD` | Yes | PostgreSQL credentials. |
+| `JWT_SECRET` | Yes in `prod` | Secret used to sign the JWT tokens. A placeholder is used in `dev` only. |
+| `PORT` | No | HTTP port. Default: `8092`. |
+| `SAFESTEP_ADMIN_USERNAME`, `SAFESTEP_ADMIN_PASSWORD` | No | Create the administrator account at startup. When empty, no administrator exists and the admin-only endpoints cannot be used. Use a long password and never commit it. |
+| `SAFESTEP_CORS_ALLOWED_ORIGINS` | No | Comma-separated list of the web origins allowed to call the API from a browser. Default: `http://localhost:4200`, `http://127.0.0.1:4200` and the GitHub Pages sites. Set it to the published frontend URL when deploying. |
+| `STRIPE_*` | No | Stripe Checkout settings, see the next section. |
 
 If you are using the Render PostgreSQL database, replace the database values with the host, database name, user and password provided by Render:
 
@@ -86,6 +101,9 @@ $env:DATABASE_USER = "your-render-database-user"
 $env:DATABASE_PASSWORD = "your-render-database-password"
 $env:JWT_SECRET = "replace-with-a-long-secret-key"
 $env:PORT = "8092"
+$env:SAFESTEP_ADMIN_USERNAME = "choose-an-admin-username"
+$env:SAFESTEP_ADMIN_PASSWORD = "choose-a-long-admin-password"
+$env:SAFESTEP_CORS_ALLOWED_ORIGINS = "https://your-published-frontend-url"
 ```
 
 ### 4. Configure Stripe Checkout
@@ -116,7 +134,7 @@ Never commit real `sk_test_...`, `sk_live_...` or `whsec_...` values to GitHub.
 Open PowerShell in the `safestep-backend` folder:
 
 ```powershell
-cd C:\path\to\TrabajoFinalOpenSource\safestep-backend
+cd C:\path\to\safestept-backend
 mvn spring-boot:run
 ```
 
@@ -146,7 +164,25 @@ http://localhost:8092/v3/api-docs
 mvn test
 ```
 
-The expected result is `BUILD SUCCESS`.
+This runs the unit and integration tests (JUnit, Mockito, AssertJ) and the Cucumber BDD scenarios, which use an in-memory H2 database and need neither PostgreSQL nor the variables above. The expected result is `BUILD SUCCESS`.
+
+To also enforce the 80 % line coverage gate with JaCoCo, run:
+
+```powershell
+mvn clean verify
+```
+
+The Google style report (Checkstyle, report only) is generated with:
+
+```powershell
+mvn checkstyle:checkstyle
+```
+
+The black-box API tests written with Karate live in `api-tests/` and run against a started instance of the API; see `api-tests/README.md`.
+
+### Continuous integration
+
+The `Jenkinsfile` defines the pipeline: compile, Checkstyle report, unit and BDD tests, coverage gate, SonarQube analysis with its Quality Gate, and package. The `ci/` folder starts Jenkins and SonarQube with Docker; run `ci/start-ci.sh` from a Bash shell. The secrets are generated on the first run and kept in the git-ignored `ci/.env`.
 
 ### 7. Build And Run The JAR
 

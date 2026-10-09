@@ -5,6 +5,7 @@ import com.safestep.platform.iam.domain.model.queries.GetAllRolesQuery;
 import com.safestep.platform.iam.interfaces.rest.resources.RoleResource;
 import com.safestep.platform.iam.interfaces.rest.transform.RoleResourceFromEntityAssembler;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -42,9 +43,9 @@ public class RolesController {
     @GetMapping
     @Operation(summary = "Get all roles", description = "Retrieves a list of all available system roles.", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Roles retrieved successfully", content = @Content(schema = @Schema(implementation = RoleResource.class))),
-            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid"),
-            @ApiResponse(responseCode = "403", description = "Forbidden - Insufficient permissions") })
+            @ApiResponse(responseCode = "200", description = "Roles retrieved successfully", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = RoleResource.class)))),
+            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Forbidden - Insufficient permissions", content = @Content) })
     public ResponseEntity<List<RoleResource>> getAllRoles() {
         var getAllRolesQuery = new GetAllRolesQuery();
         var roles = roleQueryService.handle(getAllRolesQuery);
