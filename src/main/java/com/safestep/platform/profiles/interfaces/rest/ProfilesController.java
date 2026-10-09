@@ -19,6 +19,7 @@ import com.safestep.platform.shared.interfaces.rest.transform.ErrorResponseAssem
 import com.safestep.platform.shared.interfaces.rest.transform.ResponseEntityAssembler;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -61,6 +62,8 @@ public class ProfilesController {
 
     @GetMapping("/me")
     @Operation(summary = "Get current SafeStep profile", description = "Retrieves the SafeStep profile associated with the authenticated user.")
+    @ApiResponse(responseCode = "200", description = "Profile found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProfileResource.class)))
+    @ApiResponse(responseCode = "404", description = "Profile not found", content = @Content)
     public ResponseEntity<?> getMyProfile() {
         var profile = profileQueryService.handle(new GetProfileByEmailQuery(new EmailAddress(currentUserService.username())));
         if (profile.isEmpty())
@@ -70,6 +73,8 @@ public class ProfilesController {
 
     @PutMapping("/me")
     @Operation(summary = "Update current SafeStep profile", description = "Updates the SafeStep profile associated with the authenticated user.")
+    @ApiResponse(responseCode = "200", description = "Profile updated", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProfileResource.class)))
+    @ApiResponse(responseCode = "201", description = "Profile created because the user had none", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProfileResource.class)))
     public ResponseEntity<?> updateMyProfile(@Valid @RequestBody UpdateProfileResource payload) {
         var username = currentUserService.username();
         var email = payload.email() == null || payload.email().isBlank() ? username : payload.email();
@@ -97,8 +102,8 @@ public class ProfilesController {
     @Operation(summary = "Create a new profile", description = "Creates a new user profile with contact and address information.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Profile created successfully", content = @Content(schema = @Schema(implementation = ProfileResource.class))),
-            @ApiResponse(responseCode = "400", description = "Invalid input data"),
-            @ApiResponse(responseCode = "409", description = "Conflict - profile already exists") })
+            @ApiResponse(responseCode = "400", description = "Invalid input data", content = @Content),
+            @ApiResponse(responseCode = "409", description = "Conflict - profile already exists", content = @Content) })
     public ResponseEntity<?> createProfile(@Valid @RequestBody CreateProfileResource resource) {
         var createProfileCommand = CreateProfileCommandFromResourceAssembler.toCommandFromResource(resource);
         var result = profileCommandService.handle(createProfileCommand);
@@ -119,7 +124,7 @@ public class ProfilesController {
     @Operation(summary = "Get profile by ID", description = "Retrieves a specific user profile's information by unique identifier.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Profile found", content = @Content(schema = @Schema(implementation = ProfileResource.class))),
-            @ApiResponse(responseCode = "404", description = "Profile not found") })
+            @ApiResponse(responseCode = "404", description = "Profile not found", content = @Content) })
     public ResponseEntity<?> getProfileById(
             @PathVariable @Parameter(description = "Profile unique identifier", example = "1", required = true) Long profileId) {
         var getProfileByIdQuery = new GetProfileByIdQuery(profileId);
@@ -141,7 +146,7 @@ public class ProfilesController {
     @GetMapping
     @Operation(summary = "Get all profiles", description = "Retrieves a list of all user profiles in the system.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Profiles found", content = @Content(schema = @Schema(implementation = ProfileResource.class))) })
+            @ApiResponse(responseCode = "200", description = "Profiles found", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ProfileResource.class)))) })
     public ResponseEntity<List<ProfileResource>> getAllProfiles() {
         var profiles = profileQueryService.handle(new GetAllProfilesQuery());
         if (profiles.isEmpty()) {
