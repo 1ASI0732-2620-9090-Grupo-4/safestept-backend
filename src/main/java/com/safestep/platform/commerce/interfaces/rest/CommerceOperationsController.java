@@ -23,6 +23,15 @@ import com.safestep.platform.shared.application.result.Result;
 import com.safestep.platform.shared.interfaces.rest.transform.ErrorResponseAssembler;
 import com.safestep.platform.shared.interfaces.rest.transform.ResponseEntityAssembler;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import com.safestep.platform.commerce.interfaces.rest.resources.CartItemResource;
+import com.safestep.platform.commerce.interfaces.rest.resources.OrderResource;
+import com.safestep.platform.commerce.interfaces.rest.resources.RedeemedCouponResource;
+import com.safestep.platform.commerce.domain.model.aggregates.ShippingAddress;
+import com.safestep.platform.commerce.domain.model.valueobjects.PaymentMethod;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -48,6 +57,7 @@ public class CommerceOperationsController {
 
     @GetMapping("/cart/me")
     @Operation(summary = "Get current user cart")
+    @ApiResponse(responseCode = "200", description = "Items in the cart of the current user", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = CartItemResource.class))))
     public ResponseEntity<?> getMyCart() {
         return ResponseEntity.ok(commerceQueryService.handle(new GetCartByUsernameQuery(currentUserService.username()))
                 .stream().map(CommerceResourceAssembler::toResource).toList());
@@ -55,6 +65,7 @@ public class CommerceOperationsController {
 
     @PostMapping("/cart/items")
     @Operation(summary = "Add item to current user cart")
+    @ApiResponse(responseCode = "201", description = "Item added to the cart", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CartItemResource.class)))
     public ResponseEntity<?> addCartItem(@Valid @RequestBody AddCartItemResource payload) {
         var result = commerceCommandService
                 .handle(new AddCartItemCommand(currentUserService.username(), payload.productId(), payload.quantity()));
@@ -64,6 +75,7 @@ public class CommerceOperationsController {
 
     @PutMapping("/cart/items/{itemId}")
     @Operation(summary = "Update current user cart item")
+    @ApiResponse(responseCode = "200", description = "Cart item updated", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CartItemResource.class)))
     public ResponseEntity<?> updateCartItem(@PathVariable String itemId,
             @Valid @RequestBody UpdateCartItemResource payload) {
         var result = commerceCommandService
@@ -74,6 +86,7 @@ public class CommerceOperationsController {
 
     @DeleteMapping("/cart/items/{itemId}")
     @Operation(summary = "Delete current user cart item")
+    @ApiResponse(responseCode = "204", description = "Cart item deleted")
     public ResponseEntity<?> deleteCartItem(@PathVariable String itemId) {
         commerceCommandService.deleteCartItem(currentUserService.username(), itemId);
         return ResponseEntity.noContent().build();
@@ -81,6 +94,7 @@ public class CommerceOperationsController {
 
     @GetMapping("/orders/me")
     @Operation(summary = "Get current user orders")
+    @ApiResponse(responseCode = "200", description = "Orders of the current user", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = OrderResource.class))))
     public ResponseEntity<?> getMyOrders() {
         return ResponseEntity.ok(commerceQueryService
                 .handle(new GetOrdersByUsernameQuery(currentUserService.username())).stream()
@@ -89,6 +103,7 @@ public class CommerceOperationsController {
 
     @PostMapping("/orders")
     @Operation(summary = "Create current user order")
+    @ApiResponse(responseCode = "201", description = "Order created", content = @Content(mediaType = "application/json", schema = @Schema(implementation = OrderResource.class)))
     public ResponseEntity<?> createOrder(@Valid @RequestBody CreateOrderResource payload) {
         var result = commerceCommandService.handle(new CreateOrderCommand(currentUserService.username(),
                 payload.status(), payload.redeemedCouponExternalId()));
@@ -98,6 +113,7 @@ public class CommerceOperationsController {
 
     @PostMapping("/coupons/{couponId}/redeem")
     @Operation(summary = "Redeem a coupon using current user's SafeCoins")
+    @ApiResponse(responseCode = "201", description = "Coupon redeemed with SafeCoins", content = @Content(mediaType = "application/json", schema = @Schema(implementation = RedeemedCouponResource.class)))
     public ResponseEntity<?> redeemCoupon(@PathVariable String couponId) {
         var result = commerceCommandService.handle(new RedeemCouponCommand(currentUserService.username(), couponId));
         return ResponseEntityAssembler.toResponseEntityFromResult(result, CommerceResourceAssembler::toResource,
@@ -106,6 +122,7 @@ public class CommerceOperationsController {
 
     @GetMapping("/coupons/redeemed/me")
     @Operation(summary = "Get current user's redeemed coupons")
+    @ApiResponse(responseCode = "200", description = "Coupons redeemed by the current user", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = RedeemedCouponResource.class))))
     public ResponseEntity<?> getMyRedeemedCoupons() {
         return ResponseEntity.ok(commerceQueryService
                 .handle(new GetRedeemedCouponsByUsernameQuery(currentUserService.username())).stream()
@@ -114,18 +131,21 @@ public class CommerceOperationsController {
 
     @GetMapping("/shipping-addresses/me")
     @Operation(summary = "Get current user shipping addresses")
+    @ApiResponse(responseCode = "200", description = "Shipping addresses of the current user", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ShippingAddress.class))))
     public ResponseEntity<?> getMyShippingAddresses() {
         return ResponseEntity.ok(commerceQueryService.handle(new GetShippingAddressesQuery(currentUserService.username())));
     }
 
     @GetMapping("/payment-methods")
     @Operation(summary = "Get available payment methods")
+    @ApiResponse(responseCode = "200", description = "Available payment methods", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = PaymentMethod.class))))
     public ResponseEntity<?> getPaymentMethods() {
         return ResponseEntity.ok(commerceQueryService.handle(new GetPaymentMethodsQuery()));
     }
 
     @PostMapping("/orders/{orderId}/payments/stripe-checkout")
     @Operation(summary = "Create Stripe Checkout session for an order")
+    @ApiResponse(responseCode = "200", description = "Stripe Checkout session created", content = @Content(mediaType = "application/json", schema = @Schema(implementation = StripeCheckoutSessionResource.class)))
     public ResponseEntity<?> createStripeCheckoutSession(@PathVariable String orderId) {
         var result = commerceCommandService
                 .handle(new CreateStripeCheckoutSessionCommand(currentUserService.username(), orderId));
@@ -135,6 +155,7 @@ public class CommerceOperationsController {
 
     @PostMapping("/orders/{orderId}/payments/stripe-confirm")
     @Operation(summary = "Confirm Stripe Checkout payment for an order")
+    @ApiResponse(responseCode = "200", description = "Payment confirmed and order updated", content = @Content(mediaType = "application/json", schema = @Schema(implementation = OrderResource.class)))
     public ResponseEntity<?> confirmStripePayment(@PathVariable String orderId, @RequestParam("sessionId") String sessionId) {
         var result = commerceCommandService
                 .handle(new ConfirmStripePaymentCommand(currentUserService.username(), orderId, sessionId));
@@ -144,6 +165,7 @@ public class CommerceOperationsController {
 
     @PostMapping("/orders/{orderId}/payments/stripe-cancel")
     @Operation(summary = "Cancel Stripe Checkout payment for an order")
+    @ApiResponse(responseCode = "200", description = "Payment cancelled and order updated", content = @Content(mediaType = "application/json", schema = @Schema(implementation = OrderResource.class)))
     public ResponseEntity<?> cancelStripePayment(@PathVariable String orderId,
             @RequestParam(value = "sessionId", required = false) String sessionId) {
         var result = commerceCommandService
@@ -154,6 +176,8 @@ public class CommerceOperationsController {
 
     @PostMapping(value = "/payments/stripe/webhook", consumes = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Capture Stripe payment webhook")
+    @ApiResponse(responseCode = "200", description = "Webhook processed", content = @Content(mediaType = "application/json", schema = @Schema(implementation = StripeWebhookResponseResource.class)))
+    @ApiResponse(responseCode = "204", description = "Event ignored")
     public ResponseEntity<?> captureStripeWebhook(@RequestBody String payload,
             @RequestHeader(value = "Stripe-Signature", required = false) String signature) {
         var result = commerceCommandService.handle(new CaptureStripeWebhookCommand(payload, signature));

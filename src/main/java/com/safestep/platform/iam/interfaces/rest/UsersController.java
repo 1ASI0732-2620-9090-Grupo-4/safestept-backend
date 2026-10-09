@@ -14,6 +14,7 @@ import com.safestep.platform.shared.application.services.CurrentUserService;
 import com.safestep.platform.shared.interfaces.rest.transform.ResponseEntityAssembler;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -63,9 +64,9 @@ public class UsersController {
     @GetMapping
     @Operation(summary = "Get all users", description = "Retrieves a list of all users in the system with their roles.", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Users retrieved successfully", content = @Content(schema = @Schema(implementation = UserResource.class))),
-            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid"),
-            @ApiResponse(responseCode = "403", description = "Forbidden - Insufficient permissions") })
+            @ApiResponse(responseCode = "200", description = "Users retrieved successfully", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UserResource.class)))),
+            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Forbidden - Insufficient permissions", content = @Content) })
     public ResponseEntity<List<UserResource>> getAllUsers() {
         var getAllUsersQuery = new GetAllUsersQuery();
         var users = userQueryService.handle(getAllUsersQuery);
@@ -87,9 +88,9 @@ public class UsersController {
     @Operation(summary = "Get user by ID", description = "Retrieves a specific user's information by unique identifier.", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User retrieved successfully", content = @Content(schema = @Schema(implementation = UserResource.class))),
-            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid"),
-            @ApiResponse(responseCode = "403", description = "Forbidden - Insufficient permissions"),
-            @ApiResponse(responseCode = "404", description = "User not found") })
+            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Forbidden - Insufficient permissions", content = @Content),
+            @ApiResponse(responseCode = "404", description = "User not found", content = @Content) })
     public ResponseEntity<UserResource> getUserById(
             @PathVariable @Parameter(description = "Unique user identifier", example = "1", required = true) Long userId) {
         var getUserByIdQuery = new GetUserByIdQuery(userId);
@@ -105,9 +106,9 @@ public class UsersController {
     @Operation(summary = "Update user account status", description = "Updates Spring Security account status flags. Requires ROLE_ADMIN.", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User status updated", content = @Content(schema = @Schema(implementation = UserResource.class))),
-            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid"),
-            @ApiResponse(responseCode = "403", description = "Forbidden - Admin role required"),
-            @ApiResponse(responseCode = "404", description = "User not found") })
+            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Forbidden - Admin role required", content = @Content),
+            @ApiResponse(responseCode = "404", description = "User not found", content = @Content) })
     public ResponseEntity<?> updateUserStatus(
             @PathVariable @Parameter(description = "Unique user identifier", example = "1", required = true) Long userId,
             @Valid @RequestBody UpdateUserStatusResource resource) {
@@ -121,10 +122,10 @@ public class UsersController {
     @Operation(summary = "Update user roles", description = "Replaces the roles assigned to a user. Requires ROLE_ADMIN. Admins cannot remove their own ROLE_ADMIN role, and the system must always keep at least one admin.", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User roles updated", content = @Content(schema = @Schema(implementation = UserResource.class))),
-            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid"),
-            @ApiResponse(responseCode = "403", description = "Forbidden - Admin role required"),
-            @ApiResponse(responseCode = "404", description = "User or role not found"),
-            @ApiResponse(responseCode = "422", description = "Business rule violation - self role removal or last admin removal") })
+            @ApiResponse(responseCode = "401", description = "Unauthorized - JWT token required or invalid", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Forbidden - Admin role required", content = @Content),
+            @ApiResponse(responseCode = "404", description = "User or role not found", content = @Content),
+            @ApiResponse(responseCode = "422", description = "Business rule violation - self role removal or last admin removal", content = @Content) })
     public ResponseEntity<?> updateUserRoles(
             @PathVariable @Parameter(description = "Unique user identifier", example = "1", required = true) Long userId,
             @Valid @RequestBody UpdateUserRolesResource resource) {

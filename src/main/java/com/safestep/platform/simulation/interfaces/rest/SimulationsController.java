@@ -18,6 +18,11 @@ import com.safestep.platform.simulation.interfaces.rest.resources.CreateAttemptR
 import com.safestep.platform.simulation.interfaces.rest.resources.SimulationResource;
 import com.safestep.platform.simulation.interfaces.rest.transform.SimulationResourceAssembler;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import com.safestep.platform.simulation.interfaces.rest.resources.SimulationAttemptResource;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -54,6 +59,8 @@ public class SimulationsController {
 
     @GetMapping("/{simulationId}")
     @Operation(summary = "Get medical simulation by identifier")
+    @ApiResponse(responseCode = "200", description = "Simulation found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SimulationResource.class)))
+    @ApiResponse(responseCode = "404", description = "Simulation not found")
     public ResponseEntity<?> getSimulationById(@PathVariable String simulationId) {
         return simulationQueryService.handle(new GetSimulationBySlugQuery(simulationId))
                 .<ResponseEntity<?>> map(value -> ResponseEntity.ok(SimulationResourceAssembler.toResource(value)))
@@ -63,6 +70,7 @@ public class SimulationsController {
     @PostMapping
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Create medical simulation")
+    @ApiResponse(responseCode = "201", description = "Simulation created", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SimulationResource.class)))
     public ResponseEntity<?> createSimulation(@Valid @RequestBody SimulationResource resource) {
         var result = simulationCommandService
                 .handle(new CreateSimulationCommand(SimulationResourceAssembler.toSimulation(resource)));
@@ -73,6 +81,7 @@ public class SimulationsController {
     @PutMapping("/{simulationId}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Update medical simulation")
+    @ApiResponse(responseCode = "200", description = "Simulation updated", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SimulationResource.class)))
     public ResponseEntity<?> updateSimulation(@PathVariable String simulationId,
             @Valid @RequestBody SimulationResource resource) {
         var result = simulationCommandService
@@ -84,12 +93,14 @@ public class SimulationsController {
     @DeleteMapping({ "/{simulationId}", "/" })
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Delete medical simulation")
+    @ApiResponse(responseCode = "204", description = "Simulation deleted")
     public ResponseEntity<?> deleteSimulation(@PathVariable(required = false) String simulationId) {
         return noContentFromResult(simulationCommandService.handle(new DeleteSimulationCommand(simulationId == null ? "" : simulationId)));
     }
 
     @PostMapping("/{simulationId}/attempts")
     @Operation(summary = "Create a medical simulation attempt")
+    @ApiResponse(responseCode = "201", description = "Attempt registered", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SimulationAttemptResource.class)))
     public ResponseEntity<?> createAttempt(@PathVariable String simulationId,
             @Valid @RequestBody CreateAttemptResource resource) {
         var result = simulationAttemptCommandService
@@ -100,6 +111,7 @@ public class SimulationsController {
 
     @GetMapping("/attempts/me")
     @Operation(summary = "Get current user simulation attempts")
+    @ApiResponse(responseCode = "200", description = "Simulation attempts of the current user", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = SimulationAttemptResource.class))))
     public ResponseEntity<?> getMyAttempts() {
         return ResponseEntity
                 .ok(simulationQueryService.handle(new GetAttemptsByUsernameQuery(currentUserService.username()))
