@@ -3,6 +3,7 @@ package com.safestep.platform.shared.interfaces.rest.transform;
 import com.safestep.platform.shared.application.result.ApplicationError;
 import com.safestep.platform.shared.interfaces.rest.resources.ErrorResource;
 import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -41,7 +42,7 @@ public final class ErrorResponseAssembler {
 
     private static String toLocalizedMessageFromApplicationError(ApplicationError error) {
         String specificKey = toSpecificMessageKeyFromErrorCode(error.code());
-        String specificMessage = toLocalizedMessageOrNull(specificKey, error.details(),
+        @Nullable String specificMessage = toLocalizedMessageOrNull(specificKey, error.details(),
                 toEntityNameFromErrorCode(error.code()));
         if (specificMessage != null) {
             return specificMessage;
@@ -78,7 +79,7 @@ public final class ErrorResponseAssembler {
         return "resource";
     }
 
-    private static String toLocalizedMessageOrNull(String key, Object... args) {
+    private static @Nullable String toLocalizedMessageOrNull(String key, Object... args) {
         Locale locale = LocaleContextHolder.getLocale();
         try {
             ResourceBundle bundle = ResourceBundle.getBundle(MESSAGES_BASENAME, locale);

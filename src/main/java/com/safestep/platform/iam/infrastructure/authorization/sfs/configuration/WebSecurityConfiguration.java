@@ -4,6 +4,7 @@ import com.safestep.platform.iam.infrastructure.authorization.sfs.pipeline.Beare
 import com.safestep.platform.iam.infrastructure.hashing.bcrypt.BCryptHashingService;
 import com.safestep.platform.iam.infrastructure.tokens.jwt.BearerTokenService;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -40,6 +41,8 @@ public class WebSecurityConfiguration {
     private final BCryptHashingService hashingService;
 
     private final AuthenticationEntryPoint unauthorizedRequestHandler;
+
+    private final List<String> allowedOrigins;
 
     /**
      * This method creates the Bearer Authorization Request Filter.
@@ -102,7 +105,7 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors(configurer -> configurer.configurationSource(_ -> {
             var cors = new CorsConfiguration();
-            cors.setAllowedOrigins(List.of("*"));
+            cors.setAllowedOrigins(allowedOrigins);
             cors.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
             cors.setAllowedHeaders(List.of("*"));
             return cors;
@@ -138,13 +141,17 @@ public class WebSecurityConfiguration {
      *            The hashing service
      * @param authenticationEntryPoint
      *            The authentication entry point
+     * @param allowedOrigins
+     *            Origins allowed by CORS (property safestep.cors.allowed-origins, comma separated)
      */
     public WebSecurityConfiguration(@Qualifier("defaultUserDetailsService") UserDetailsService userDetailsService,
             BearerTokenService tokenService, BCryptHashingService hashingService,
-            AuthenticationEntryPoint authenticationEntryPoint) {
+            AuthenticationEntryPoint authenticationEntryPoint,
+            @Value("${safestep.cors.allowed-origins:http://localhost:4200}") List<String> allowedOrigins) {
         this.userDetailsService = userDetailsService;
         this.tokenService = tokenService;
         this.hashingService = hashingService;
         this.unauthorizedRequestHandler = authenticationEntryPoint;
+        this.allowedOrigins = List.copyOf(allowedOrigins);
     }
 }
