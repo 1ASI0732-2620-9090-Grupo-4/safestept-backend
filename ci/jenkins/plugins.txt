@@ -7,3 +7,4 @@ credentials-binding
 sonar
 configuration-as-code
 job-dsl
+pipeline-graph-view
