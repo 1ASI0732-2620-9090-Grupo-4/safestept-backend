@@ -40,7 +40,7 @@ jobs:
             scm {
               git {
                 remote { url('file:///workspace/safestept-backend') }
-                branches('*/develop')
+                branches('*/main')
               }
             }
             scriptPath('Jenkinsfile')
