@@ -1,0 +1,55 @@
+# SafeStep application stack: the REST API and its PostgreSQL database, each in its own container.
+# The continuous integration tools (Jenkins and SonarQube) live in ci/docker-compose.yml.
+#
+# Usage (from this folder):
+#   1. copy .env.example to .env and fill in your own values (.env is git-ignored)
+#   2. docker compose up -d --build
+#   3. open http://localhost:8092/swagger-ui/index.html
+name: safestep
+
+services:
+  postgres:
+    build: ./docker/postgres
+    image: safestep-postgres:1.0
+    container_name: safestep-postgres
+    environment:
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?copy .env.example to .env and set POSTGRES_PASSWORD}"
+    ports:
+      # 5435 on the host so it does not clash with a PostgreSQL installed on the machine (5432)
+      - "5435:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d safestep"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: .
+    image: safestep-backend:1.0
+    container_name: safestep-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      # The service name resolves inside the compose network
+      DATABASE_URL: postgres
+      DATABASE_PORT: "5432"
+      DATABASE_NAME: safestep
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: "${POSTGRES_PASSWORD}"
+      JWT_SECRET: "${JWT_SECRET:?copy .env.example to .env and set JWT_SECRET}"
+      PORT: "8092"
+      # Optional: first administrator created at startup, only when both are set
+      SAFESTEP_ADMIN_USERNAME: "${SAFESTEP_ADMIN_USERNAME:-}"
+      SAFESTEP_ADMIN_PASSWORD: "${SAFESTEP_ADMIN_PASSWORD:-}"
+      # Optional: Stripe test keys for the checkout
+      STRIPE_SECRET_KEY: "${STRIPE_SECRET_KEY:-}"
+      STRIPE_WEBHOOK_SECRET: "${STRIPE_WEBHOOK_SECRET:-}"
+    ports:
+      - "8092:8092"
+
+volumes:
+  pgdata:
