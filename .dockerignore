@@ -1,0 +1,14 @@
+# The Dockerfile only needs pom.xml and src/. Everything else is left out of the build context so the pipeline
+# does not send build outputs, the CI setup or local secrets to the Docker engine.
+target/
+.git/
+.idea/
+.vscode/
+ci/
+api-tests/
+docker/
+.env
+.env.*
+Jenkinsfile
+docker-compose.yml
+*.log

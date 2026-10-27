@@ -1,7 +1,7 @@
 // SafeStep backend continuous integration pipeline.
 // Runs on the Jenkins controller described in ci/ (JDK 26 and Maven are baked into the image). Stages follow the
 // course pipeline: compile, Checkstyle, unit tests, coverage, SonarQube and package; the BDD acceptance tests run
-// together with the unit tests.
+// together with the unit tests. The last stage builds the Docker image of the application.
 pipeline {
   agent any
 
@@ -14,6 +14,9 @@ pipeline {
     JAVA_HOME  = "${env.JAVA_HOME_26}"
     PATH       = "${env.JAVA_HOME_26}/bin:${env.PATH}"
     MAVEN_OPTS = '-Xmx1g'
+    // Docker image of the application; each build is tagged with its Jenkins build number
+    IMAGE_NAME = 'safestep-backend'
+    TAG        = "${env.BUILD_NUMBER}"
   }
 
   stages {
@@ -90,6 +93,16 @@ pipeline {
         success {
           archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
         }
+      }
+    }
+
+    // Builds the application image with the Dockerfile of the repository (it compiles and packages the project in
+    // its own build stage). --load keeps the image in the local Docker engine; publishing it is a later stage.
+    stage('Build Docker Image') {
+      steps {
+        sh 'docker version --format "Docker engine: {{.Server.Version}}"'
+        sh "docker buildx build --platform linux/amd64 -t ${IMAGE_NAME}:${TAG} -t ${IMAGE_NAME}:latest --load ."
+        sh "docker image ls ${IMAGE_NAME}"
       }
     }
   }
