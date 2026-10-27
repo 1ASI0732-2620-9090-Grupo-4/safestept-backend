@@ -20,6 +20,15 @@ RUN mkdir -p /opt/java && \
     mv /opt/java/jdk-26* /opt/java/jdk-26
 ENV JAVA_HOME_26=/opt/java/jdk-26
 
+# Docker client (CLI and buildx) so the pipeline can build and publish the application image. Only the client is
+# installed: it talks to the Docker engine of the host through the socket mounted in docker-compose.yml.
+RUN mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list && \
+    apt-get update && \
+    apt-get install -y docker-ce-cli docker-buildx-plugin && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # The repository is mounted from the host, owned by another user
 RUN git config --system --add safe.directory '*'
 
