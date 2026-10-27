@@ -12,6 +12,9 @@ services:
     environment:
       # Docker Desktop does not always raise vm.max_map_count, so Elasticsearch must not rely on mmap
       SONAR_SEARCH_JAVAADDITIONALOPTS: "-Dnode.store.allow_mmap=false"
+      # By default SonarQube refuses webhooks that point to private addresses, and jenkins-master resolves to one
+      # inside the Docker network, so the Quality Gate result would never reach Jenkins (local CI only)
+      SONAR_VALIDATEWEBHOOKS: "false"
     volumes:
       - sonarqube_data:/opt/sonarqube/data
       - sonarqube_extensions:/opt/sonarqube/extensions
