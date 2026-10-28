@@ -1,7 +1,7 @@
 // SafeStep backend continuous integration pipeline.
 // Runs on the Jenkins controller described in ci/ (JDK 26 and Maven are baked into the image). Stages follow the
 // course pipeline: compile, Checkstyle, unit tests, coverage, SonarQube and package; the BDD acceptance tests run
-// together with the unit tests. The last stage builds the Docker image of the application.
+// together with the unit tests. The last two stages build the Docker image of the application and publish it to Docker Hub.
 pipeline {
   agent any
 
@@ -15,8 +15,9 @@ pipeline {
     PATH       = "${env.JAVA_HOME_26}/bin:${env.PATH}"
     MAVEN_OPTS = '-Xmx1g'
     // Docker image of the application; each build is tagged with its Jenkins build number
-    IMAGE_NAME = 'safestep-backend'
-    TAG        = "${env.BUILD_NUMBER}"
+    IMAGE_NAME    = 'safestep-backend'
+    TAG           = "${env.BUILD_NUMBER}"
+    REGISTRY_USER = 'melga135'   // Docker Hub account that owns the published image
   }
 
   stages {
@@ -97,12 +98,35 @@ pipeline {
     }
 
     // Builds the application image with the Dockerfile of the repository (it compiles and packages the project in
-    // its own build stage). --load keeps the image in the local Docker engine; publishing it is a later stage.
+    // its own build stage). --load keeps the image in the local Docker engine; the next stage publishes it.
     stage('Build Docker Image') {
       steps {
         sh 'docker version --format "Docker engine: {{.Server.Version}}"'
         sh "docker buildx build --platform linux/amd64 -t ${IMAGE_NAME}:${TAG} -t ${IMAGE_NAME}:latest --load ."
         sh "docker image ls ${IMAGE_NAME}"
+      }
+    }
+
+    // Publishes the image built above to Docker Hub under <account>/<image>:<build number> and :latest.
+    // The credential is injected as environment variables and read by the shell, never interpolated by Groovy
+    stage('Publish Docker Image') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB_CREDENTIALS',
+                                          usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+          sh '''
+            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+            docker tag "$IMAGE_NAME:$TAG" "$REGISTRY_USER/$IMAGE_NAME:$TAG"
+            docker tag "$IMAGE_NAME:latest" "$REGISTRY_USER/$IMAGE_NAME:latest"
+            docker push "$REGISTRY_USER/$IMAGE_NAME:$TAG"
+            docker push "$REGISTRY_USER/$IMAGE_NAME:latest"
+          '''
+        }
+      }
+      post {
+        always {
+          // Removes the stored login from the Jenkins home
+          sh 'docker logout || true'
+        }
       }
     }
   }

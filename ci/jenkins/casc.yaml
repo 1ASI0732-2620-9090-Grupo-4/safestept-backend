@@ -30,6 +30,14 @@ credentials:
               id: "sonarqube-token-id"
               description: "Token de autenticacion para SonarQube"
               secret: "${SONAR_TOKEN}"
+          # Docker Hub access token used by the pipeline to publish the application image. The values come from
+          # ci/.env (git-ignored): DOCKER_HUB_USER and DOCKER_HUB_TOKEN
+          - usernamePassword:
+              scope: GLOBAL
+              id: "DOCKER_HUB_CREDENTIALS"
+              description: "Docker Hub access token"
+              username: "${DOCKER_HUB_USER:-}"
+              password: "${DOCKER_HUB_TOKEN:-}"
 
 jobs:
   - script: >
